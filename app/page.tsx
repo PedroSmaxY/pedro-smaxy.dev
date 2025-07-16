@@ -1,7 +1,5 @@
 "use client";
 
-import { Github, Linkedin, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Hero } from "@/components/sections/hero";
 import { Header } from "@/components/sections/header";
 import { About } from "@/components/sections/about";
@@ -13,6 +11,7 @@ import { Skills } from "@/components/sections/skills";
 import { skillsData } from "./_data/skills-data";
 import { Education } from "@/components/sections/education";
 import { Contact } from "@/components/sections/contact";
+import { Footer } from "@/components/sections/footer";
 
 export default function Portfolio() {
   return (
@@ -82,14 +81,7 @@ export default function Portfolio() {
         githubUrl="https://github.com/PedroSmaxY"
       />
 
-      {/* Footer */}
-      <footer className="py-8 border-t border-purple-900/20">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-gray-400">
-            © 2024 Pedro Henrique da Silva Novais. Todos os direitos reservados.
-          </p>
-        </div>
-      </footer>
+      <Footer license="Licenciado sob a Licença MIT" />
     </div>
   );
 }
