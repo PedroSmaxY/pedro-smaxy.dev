@@ -36,7 +36,7 @@ export default function Portfolio() {
         cvDownloadLabel="pedro-novais-cv.pdf"
         downloadLabel="Download CV"
         projectsLabel="Ver Projetos"
-        profileImage="/placeholder.svg?height=128&width=128"
+        profileImage="/perfil-logo.jpg"
       />
       <About
         title="Sobre Mim"
