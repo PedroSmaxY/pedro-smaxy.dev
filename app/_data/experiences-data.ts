@@ -1,6 +1,6 @@
-import { ExperiencesProps } from "@/components/sections/experiences";
+import { Experience } from "@/components/sections/experiences";
 
-export const experiencesData: ExperiencesProps[] = [
+export const experiencesData: Experience[] = [
   {
     company: "Salto Consultoria",
     position: "Analista de Gestão de Projetos",

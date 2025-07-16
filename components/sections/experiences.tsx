@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "../ui/card";
 
-export type ExperiencesProps = {
+export type Experience = {
   company: string;
   position: string;
   period: string;
@@ -14,16 +14,17 @@ export type ExperiencesProps = {
   description: string[];
 };
 
-export function Experiences({
-  experiences,
-}: {
-  experiences: ExperiencesProps[];
-}) {
+export type ExperiencesProps = {
+  title: string;
+  experiences: Experience[];
+};
+
+export function Experiences({ title, experiences }: ExperiencesProps) {
   return (
     <section id="experience" className="py-20">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-          Experiência Profissional
+          {title}
         </h2>
         <div className="space-y-8">
           {experiences.map((exp, index) => (

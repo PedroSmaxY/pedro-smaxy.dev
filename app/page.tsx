@@ -100,7 +100,10 @@ export default function Portfolio() {
         emoji="👨‍💻"
       />
 
-      <Experiences experiences={experiencesData} />
+      <Experiences
+        title="Experiência Profissional"
+        experiences={experiencesData}
+      />
 
       <Projects projects={projectsData} />
 
