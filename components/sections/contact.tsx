@@ -1,7 +1,8 @@
 "use client";
 
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Button } from "../ui/button";
+import { GithubLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
 
 export type ContactProps = {
   title: string;
@@ -44,7 +45,7 @@ export function Contact({
               window.open(linkedinUrl, "_blank", "noopener,noreferrer")
             }
           >
-            <Linkedin className="mr-2 h-4 w-4" />
+            <LinkedinLogoIcon className="mr-2 h-4 w-4" />
             LinkedIn
           </Button>
           <Button
@@ -54,7 +55,7 @@ export function Contact({
               window.open(githubUrl, "_blank", "noopener,noreferrer")
             }
           >
-            <Github className="mr-2 h-4 w-4" />
+            <GithubLogoIcon className="mr-2 h-4 w-4" />
             GitHub
           </Button>
         </div>

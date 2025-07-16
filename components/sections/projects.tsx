@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import {
@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
+import { GithubLogoIcon } from "@phosphor-icons/react";
 
 export type Project = {
   title: string;
@@ -86,7 +87,7 @@ export function Projects({ title, projects, label }: ProjectProps) {
                       )
                     }
                   >
-                    <Github className="mr-2 h-4 w-4" />
+                    <GithubLogoIcon className="mr-2 h-4 w-4" />
                     {label.code}
                   </Button>
                   <Button
