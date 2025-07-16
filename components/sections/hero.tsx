@@ -2,6 +2,7 @@
 
 import { Download, MapPin, Phone } from "lucide-react";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 export type HeroProps = {
   name: string;
@@ -13,7 +14,7 @@ export type HeroProps = {
   cvDownloadLabel?: string;
   downloadLabel: string;
   projectsLabel: string;
-  profileImage?: string;
+  profileImage: string;
 };
 
 export function Hero({
@@ -36,11 +37,13 @@ export function Hero({
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-purple-900/10"></div>
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="mb-8">
-          <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 p-1">
+          <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 mx-auto mb-8 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 p-1">
             <div className="w-full h-full rounded-full overflow-hidden bg-black">
-              <img
+              <Image
                 src={profileImage}
                 alt={name}
+                width={128}
+                height={128}
                 className="w-full h-full object-cover rounded-full"
               />
             </div>

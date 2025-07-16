@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "../ui/card";
 import { GithubLogoIcon } from "@phosphor-icons/react";
+import Image from "next/image";
 
 export type Project = {
   title: string;
@@ -45,8 +46,10 @@ export function Projects({ title, projects, label }: ProjectProps) {
               className="bg-gray-900/50 border-purple-800/30 hover:border-purple-600/50 transition-all duration-300 hover:transform hover:scale-105"
             >
               <CardHeader className="p-0">
-                <img
+                <Image
                   src={project.image || "/placeholder.svg"}
+                  width={200}
+                  height={300}
                   alt={project.title}
                   className="w-full h-48 object-cover rounded-t-lg"
                 />
