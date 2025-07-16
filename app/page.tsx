@@ -1,5 +1,3 @@
-"use client";
-
 import { Hero } from "@/components/sections/hero";
 import { Header } from "@/components/sections/header";
 import { About } from "@/components/sections/about";
@@ -34,6 +32,7 @@ export default function Portfolio() {
         phone="(21) 98602-6613"
         description="Desenvolvedor Full Stack curioso, com paixão por construir sistemas de alta performance, do back-end ao front-end. Experiência prática com Java, Spring Boot, Python, FastAPI, JavaScript e Next.js."
         cvUrl="/cv.pdf"
+        cvDownloadLabel="pedro-novais-cv.pdf"
         downloadLabel="Download CV"
         projectsLabel="Ver Projetos"
         profileImage="/placeholder.svg?height=128&width=128"
