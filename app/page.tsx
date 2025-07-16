@@ -57,7 +57,11 @@ export default function Portfolio() {
         title="Experiência Profissional"
         experiences={experiencesData}
       />
-      <Projects title="Projetos" projects={projectsData} />
+      <Projects
+        title="Projetos"
+        projects={projectsData}
+        label={{ code: "Código", demo: "Demo" }}
+      />
 
       <Skills title="Habilidades" skills={skillsData} />
 

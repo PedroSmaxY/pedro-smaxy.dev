@@ -23,10 +23,11 @@ export type Project = {
 
 export type ProjectProps = {
   title: string;
+  label: { code: string; demo: string };
   projects: Project[];
 };
 
-export function Projects({ title, projects }: ProjectProps) {
+export function Projects({ title, projects, label }: ProjectProps) {
   return (
     <section
       id="projects"
@@ -86,14 +87,14 @@ export function Projects({ title, projects }: ProjectProps) {
                     }
                   >
                     <Github className="mr-2 h-4 w-4" />
-                    Código
+                    {label.code}
                   </Button>
                   <Button
                     size="sm"
                     className="bg-purple-600 hover:bg-purple-700"
                   >
                     <ExternalLink className="mr-2 h-4 w-4" />
-                    Demo
+                    {label.demo}
                   </Button>
                 </div>
               </CardContent>
