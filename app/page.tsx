@@ -31,7 +31,7 @@ export default function Portfolio() {
         role="Desenvolvedor Full Stack"
         location="Rio de Janeiro, RJ"
         phone="(21) 98602-6613"
-        description="Desenvolvedor Full Stack curioso, com paixão por construir sistemas de alta performance, do back-end ao front-end. Experiência prática com Java, Spring Boot, Python, FastAPI, JavaScript e Next.js."
+        description="Desenvolvedor Full Stack curioso, com paixão por construir sistemas de alta performance, do back-end ao front-end. Experiência prática com Java, Spring Boot, Python, FastAPI, TypeScript e Next.js."
         cvUrl="/cv.pdf"
         cvDownloadLabel="pedro-novais-cv.pdf"
         downloadLabel="Download CV"
