@@ -4,7 +4,6 @@ import {
   Github,
   Linkedin,
   Mail,
-  ExternalLink,
   Code,
   Palette,
   Smartphone,
@@ -18,54 +17,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Hero } from "@/components/sections/hero";
 import { Header } from "@/components/sections/header";
 import { About } from "@/components/sections/about";
-import { Experience } from "@/components/sections/experience";
+import { Experiences } from "@/components/sections/experiences";
+import { Projects } from "@/components/sections/projects";
+import { projectsData } from "./_data/projects-data";
+import { experiencesData } from "./_data/experiences-data";
 
 export default function Portfolio() {
-  const projects = [
-    {
-      title: "API REST com Integração Web e Mobile",
-      description:
-        "API RESTful com FastAPI (Python) integrada a base de dados Prolog, com interfaces React/TailwindCSS e app Android nativo em Kotlin.",
-      image: "/placeholder.svg?height=200&width=300",
-      tech: [
-        "FastAPI",
-        "Python",
-        "React",
-        "TailwindCSS",
-        "Kotlin",
-        "Android",
-        "Prolog",
-      ],
-      github: "https://github.com/PedroSmaxY",
-      live: "#",
-      period: "Julho - Dezembro 2024",
-    },
-    {
-      title: "Sistema de Automação - Seguros Fleet",
-      description:
-        "Solução de automação em Python com Pandas e Selenium para extrair, validar e inserir dados, reduzindo 40% do tempo em tarefas repetitivas.",
-      image: "/placeholder.svg?height=200&width=300",
-      tech: ["Python", "Pandas", "Selenium", "Automação", "Web Scraping"],
-      github: "#",
-      live: "#",
-      period: "Agosto - Novembro 2024",
-    },
-    {
-      title: "Sistemas Corporativos",
-      description:
-        "Desenvolvimento de aplicações empresariais com foco em alta performance e escalabilidade usando tecnologias modernas.",
-      image: "/placeholder.svg?height=200&width=300",
-      tech: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Azure"],
-      github: "https://github.com/PedroSmaxY",
-      live: "#",
-      period: "2024",
-    },
-  ];
-
   const skills = [
     {
       name: "Backend",
@@ -94,42 +54,6 @@ export default function Portfolio() {
       name: "DevOps & Tools",
       icon: Smartphone,
       items: ["Docker", "Git & GitHub", "Azure", "CI/CD", "Kafka", "Selenium"],
-    },
-  ];
-
-  const experiences = [
-    {
-      company: "Salto Consultoria",
-      position: "Analista de Gestão de Projetos",
-      period: "junho 2025 - Presente",
-      location: "Rio de Janeiro, Brasil",
-      description: [
-        "Participação ativa em projetos estratégicos com visão integrada das operações",
-        "Estruturação de fluxos para captação e acompanhamento de clientes",
-        "Iniciativas de cultura organizacional e definição de valores empresariais",
-        "Criação de campanhas de marketing e análise de público-alvo",
-      ],
-    },
-    {
-      company: "Salto Consultoria",
-      position: "Trainee",
-      period: "abril 2025 - junho 2025",
-      location: "Rio de Janeiro, Brasil",
-      description: [
-        "Desenvolvimento de habilidades em gestão de projetos e consultoria",
-        "Apoio em processos de engajamento interno e cultura organizacional",
-      ],
-    },
-    {
-      company: "Seguros Fleet",
-      position: "Desenvolvedor de Automação",
-      period: "agosto 2024 - novembro 2024",
-      location: "Rio de Janeiro, Brasil",
-      description: [
-        "Desenvolvimento de solução de automação em Python com Pandas e Selenium",
-        "Redução de 40% no tempo gasto em tarefas repetitivas",
-        "Aumento da precisão dos dados processados",
-      ],
     },
   ];
 
@@ -176,83 +100,9 @@ export default function Portfolio() {
         emoji="👨‍💻"
       />
 
-      <Experience experiences={experiences} />
+      <Experiences experiences={experiencesData} />
 
-      {/* Projects Section */}
-      <section
-        id="projects"
-        className="py-20 bg-gradient-to-b from-black to-purple-950/10"
-      >
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-            Projetos
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card
-                key={index}
-                className="bg-gray-900/50 border-purple-800/30 hover:border-purple-600/50 transition-all duration-300 hover:transform hover:scale-105"
-              >
-                <CardHeader className="p-0">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-48 object-cover rounded-t-lg"
-                  />
-                </CardHeader>
-                <CardContent className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="text-white text-lg">
-                      {project.title}
-                    </CardTitle>
-                    <span className="text-xs text-purple-300 bg-purple-900/30 px-2 py-1 rounded">
-                      {project.period}
-                    </span>
-                  </div>
-                  <CardDescription className="text-gray-400 mb-4 text-sm leading-relaxed">
-                    {project.description}
-                  </CardDescription>
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {project.tech.map((tech, techIndex) => (
-                      <Badge
-                        key={techIndex}
-                        variant="secondary"
-                        className="bg-purple-900/30 text-purple-300 text-xs"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="flex gap-2">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white bg-transparent"
-                      onClick={() =>
-                        window.open(
-                          project.github,
-                          "_blank",
-                          "noopener,noreferrer"
-                        )
-                      }
-                    >
-                      <Github className="mr-2 h-4 w-4" />
-                      Código
-                    </Button>
-                    <Button
-                      size="sm"
-                      className="bg-purple-600 hover:bg-purple-700"
-                    >
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Demo
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Projects projects={projectsData} />
 
       {/* Skills Section */}
       <section id="skills" className="py-20">
