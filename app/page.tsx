@@ -63,9 +63,7 @@ export default function Portfolio() {
         projects={projectsData}
         label={{ code: "Código", demo: "Demo" }}
       />
-
       <Skills title="Habilidades" skills={skillsData} />
-
       <Education
         title="Formação Acadêmica"
         educationExperience={[
@@ -76,7 +74,6 @@ export default function Portfolio() {
           },
         ]}
       />
-
       <Contact
         title="Vamos Conversar?"
         subtitle="Estou sempre aberto a novas oportunidades e projetos interessantes. Entre em contato comigo!"
@@ -84,7 +81,6 @@ export default function Portfolio() {
         linkedinUrl="https://www.linkedin.com/in/pedrohenriquenv/"
         githubUrl="https://github.com/PedroSmaxY"
       />
-
       <Footer license="Licenciado sob a Licença MIT" />
     </div>
   );
