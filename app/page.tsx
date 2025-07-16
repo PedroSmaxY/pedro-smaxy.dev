@@ -5,13 +5,10 @@ import {
   Linkedin,
   Mail,
   ExternalLink,
-  Download,
   Code,
   Palette,
   Smartphone,
   GraduationCap,
-  Phone,
-  MapPin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -24,6 +21,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Hero } from "@/components/sections/hero";
 import { Header } from "@/components/sections/header";
+import { About } from "@/components/sections/about";
 
 export default function Portfolio() {
   const projects = [
@@ -160,60 +158,22 @@ export default function Portfolio() {
         profileImage="/placeholder.svg?height=128&width=128"
       />
 
-      {/* About Section */}
-      <section
-        id="about"
-        className="py-20 bg-gradient-to-b from-black to-purple-950/10"
-      >
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-            Sobre Mim
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                Desenvolvedor Full Stack curioso, com paixão por construir
-                sistemas de alta performance, do back-end ao front-end. Possuo
-                experiência prática com Java, Spring Boot, Python, FastAPI,
-                JavaScript e Next.js, além de automação de processos com
-                Selenium e análise de dados com pandas.
-              </p>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                Atualmente, aplico uma visão integrada de negócios em
-                consultoria, atuando em projetos de marketing, gestão de pessoas
-                e processos comerciais. Busco colaborar em projetos com
-                propósito, combinando conhecimento técnico com habilidades de
-                gestão para entregar soluções completas e eficazes.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Badge className="bg-purple-600 hover:bg-purple-700">
-                  Java
-                </Badge>
-                <Badge className="bg-purple-600 hover:bg-purple-700">
-                  Spring Boot
-                </Badge>
-                <Badge className="bg-purple-600 hover:bg-purple-700">
-                  Python
-                </Badge>
-                <Badge className="bg-purple-600 hover:bg-purple-700">
-                  FastAPI
-                </Badge>
-                <Badge className="bg-purple-600 hover:bg-purple-700">
-                  Next.js
-                </Badge>
-                <Badge className="bg-purple-600 hover:bg-purple-700">
-                  TypeScript
-                </Badge>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-purple-600/20 to-purple-800/20 rounded-lg flex items-center justify-center">
-                <span className="text-6xl">👨‍💻</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <About
+        title="Sobre Mim"
+        paragraphs={[
+          "Desenvolvedor Full Stack curioso, com paixão por construir sistemas de alta performance, do back-end ao front-end. Possuo experiência prática com Java, Spring Boot, Python, FastAPI, JavaScript e Next.js, além de automação de processos com Selenium e análise de dados com pandas.",
+          "Atualmente, aplico uma visão integrada de negócios em consultoria, atuando em projetos de marketing, gestão de pessoas e processos comerciais. Busco colaborar em projetos com propósito, combinando conhecimento técnico com habilidades de gestão para entregar soluções completas e eficazes.",
+        ]}
+        badges={[
+          "Java",
+          "Spring Boot",
+          "Python",
+          "FastAPI",
+          "Next.js",
+          "TypeScript",
+        ]}
+        emoji="👨‍💻"
+      />
 
       {/* Experience Section */}
       <section id="experience" className="py-20">
