@@ -1,6 +1,7 @@
+import { Skill } from "@/components/sections/skills";
 import { Code, Palette, Smartphone } from "lucide-react";
 
-export const skillsData = [
+export const skillsData: Skill[] = [
   {
     name: "Backend",
     icon: Code,
