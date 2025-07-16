@@ -1,13 +1,7 @@
 "use client";
 
-import { Github, Linkedin, Mail, GraduationCap } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Hero } from "@/components/sections/hero";
 import { Header } from "@/components/sections/header";
 import { About } from "@/components/sections/about";
@@ -18,6 +12,7 @@ import { experiencesData } from "./_data/experiences-data";
 import { Skills } from "@/components/sections/skills";
 import { skillsData } from "./_data/skills-data";
 import { Education } from "@/components/sections/education";
+import { Contact } from "@/components/sections/contact";
 
 export default function Portfolio() {
   return (
@@ -79,61 +74,13 @@ export default function Portfolio() {
         ]}
       />
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-            Vamos Conversar?
-          </h2>
-          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            Estou sempre aberto a novas oportunidades e projetos interessantes.
-            Entre em contato comigo!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button
-              className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 py-3"
-              onClick={() =>
-                window.open(
-                  "mailto:pedrohenrique.nv@icloud.com",
-                  "_blank",
-                  "noopener,noreferrer"
-                )
-              }
-            >
-              <Mail className="mr-2 h-4 w-4" />
-              pedrohenrique.nv@icloud.com
-            </Button>
-            <Button
-              variant="outline"
-              className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white px-8 py-3 bg-transparent"
-              onClick={() =>
-                window.open(
-                  "https://www.linkedin.com/in/pedrohenriquenv/",
-                  "_blank",
-                  "noopener,noreferrer"
-                )
-              }
-            >
-              <Linkedin className="mr-2 h-4 w-4" />
-              LinkedIn
-            </Button>
-            <Button
-              variant="outline"
-              className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white px-8 py-3 bg-transparent"
-              onClick={() =>
-                window.open(
-                  "https://github.com/PedroSmaxY",
-                  "_blank",
-                  "noopener,noreferrer"
-                )
-              }
-            >
-              <Github className="mr-2 h-4 w-4" />
-              GitHub
-            </Button>
-          </div>
-        </div>
-      </section>
+      <Contact
+        title="Vamos Conversar?"
+        subtitle="Estou sempre aberto a novas oportunidades e projetos interessantes. Entre em contato comigo!"
+        email="pedrohenrique.nv@icloud.com"
+        linkedinUrl="https://www.linkedin.com/in/pedrohenriquenv/"
+        githubUrl="https://github.com/PedroSmaxY"
+      />
 
       {/* Footer */}
       <footer className="py-8 border-t border-purple-900/20">
