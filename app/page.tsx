@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Hero } from "@/components/sections/hero";
+import { Header } from "@/components/sections/header";
 
 export default function Portfolio() {
   const projects = [
@@ -135,54 +136,17 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-black/80 backdrop-blur-md z-50 border-b border-purple-900/20">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-              Pedro Novais
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <a
-                href="#home"
-                className="hover:text-purple-400 transition-colors"
-              >
-                Início
-              </a>
-              <a
-                href="#about"
-                className="hover:text-purple-400 transition-colors"
-              >
-                Sobre
-              </a>
-              <a
-                href="#experience"
-                className="hover:text-purple-400 transition-colors"
-              >
-                Experiência
-              </a>
-              <a
-                href="#projects"
-                className="hover:text-purple-400 transition-colors"
-              >
-                Projetos
-              </a>
-              <a
-                href="#skills"
-                className="hover:text-purple-400 transition-colors"
-              >
-                Habilidades
-              </a>
-              <a
-                href="#contact"
-                className="hover:text-purple-400 transition-colors"
-              >
-                Contato
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Header
+        name="Pedro SmaxY"
+        navItems={{
+          start: "Início",
+          about: "Sobre",
+          experience: "Experiência",
+          projects: "Projetos",
+          skills: "Habilidades",
+          contact: "Contato",
+        }}
+      />
 
       <Hero
         name="Pedro Henrique da Silva Novais"
