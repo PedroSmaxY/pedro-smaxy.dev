@@ -1,6 +1,6 @@
-import { ProjectProps } from "@/components/sections/projects";
+import { Project } from "@/components/sections/projects";
 
-export const projectsData: ProjectProps[] = [
+export const projectsData: Project[] = [
   {
     title: "API REST com Integração Web e Mobile",
     description:

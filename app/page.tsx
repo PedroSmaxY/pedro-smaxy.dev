@@ -105,7 +105,7 @@ export default function Portfolio() {
         experiences={experiencesData}
       />
 
-      <Projects projects={projectsData} />
+      <Projects title="Projetos" projects={projectsData} />
 
       {/* Skills Section */}
       <section id="skills" className="py-20">

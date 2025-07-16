@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "../ui/card";
 
-export type ProjectProps = {
+export type Project = {
   title: string;
   description: string;
   image?: string;
@@ -19,7 +19,12 @@ export type ProjectProps = {
   period: string;
 };
 
-export function Projects({ projects }: { projects: ProjectProps[] }) {
+export type ProjectProps = {
+  title: string;
+  projects: Project[];
+};
+
+export function Projects({ title, projects }: ProjectProps) {
   return (
     <section
       id="projects"
@@ -27,7 +32,7 @@ export function Projects({ projects }: { projects: ProjectProps[] }) {
     >
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-          Projetos
+          {title}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
