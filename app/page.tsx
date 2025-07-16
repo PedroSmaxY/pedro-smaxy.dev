@@ -17,6 +17,7 @@ import { projectsData } from "./_data/projects-data";
 import { experiencesData } from "./_data/experiences-data";
 import { Skills } from "@/components/sections/skills";
 import { skillsData } from "./_data/skills-data";
+import { Education } from "@/components/sections/education";
 
 export default function Portfolio() {
   return (
@@ -67,34 +68,16 @@ export default function Portfolio() {
 
       <Skills title="Habilidades" skills={skillsData} />
 
-      {/* Education Section */}
-      <section className="py-20 bg-gradient-to-b from-black to-purple-950/10">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-            Formação Acadêmica
-          </h2>
-          <div className="max-w-2xl mx-auto">
-            <Card className="bg-gray-900/50 border-purple-800/30">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <GraduationCap className="w-12 h-12 text-purple-400" />
-                  <div>
-                    <CardTitle className="text-white text-xl">
-                      Bacharelado em Ciência da Computação
-                    </CardTitle>
-                    <CardDescription className="text-purple-300 font-semibold">
-                      Universidade Veiga de Almeida
-                    </CardDescription>
-                    <p className="text-gray-400 text-sm mt-1">
-                      maio 2023 – dezembro 2026
-                    </p>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </div>
-        </div>
-      </section>
+      <Education
+        title="Formação Acadêmica"
+        educationExperience={[
+          {
+            degree: "Bacharelado em Ciência da Computação",
+            institution: "Universidade Veiga de Almeida",
+            period: "maio 2023 – dezembro 2026",
+          },
+        ]}
+      />
 
       {/* Contact Section */}
       <section id="contact" className="py-20">
