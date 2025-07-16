@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "../ui/card";
 
-type ExperienceProps = {
+export type ExperiencesProps = {
   company: string;
   position: string;
   period: string;
@@ -14,10 +14,10 @@ type ExperienceProps = {
   description: string[];
 };
 
-export function Experience({
+export function Experiences({
   experiences,
 }: {
-  experiences: ExperienceProps[];
+  experiences: ExperiencesProps[];
 }) {
   return (
     <section id="experience" className="py-20">
