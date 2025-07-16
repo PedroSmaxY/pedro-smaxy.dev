@@ -1,18 +1,9 @@
 "use client";
 
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Code,
-  Palette,
-  Smartphone,
-  GraduationCap,
-} from "lucide-react";
+import { Github, Linkedin, Mail, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -24,39 +15,10 @@ import { Experiences } from "@/components/sections/experiences";
 import { Projects } from "@/components/sections/projects";
 import { projectsData } from "./_data/projects-data";
 import { experiencesData } from "./_data/experiences-data";
+import { Skills } from "@/components/sections/skills";
+import { skillsData } from "./_data/skills-data";
 
 export default function Portfolio() {
-  const skills = [
-    {
-      name: "Backend",
-      icon: Code,
-      items: [
-        "Java",
-        "C#",
-        "Python",
-        "Spring Boot",
-        "ASP.NET",
-        "Node.js",
-        "Nest.js",
-      ],
-    },
-    {
-      name: "Frontend",
-      icon: Palette,
-      items: ["JavaScript", "TypeScript", "Next.js", "React", "TailwindCSS"],
-    },
-    {
-      name: "Database",
-      icon: Code,
-      items: ["PostgreSQL", "MySQL", "MongoDB", "Prolog"],
-    },
-    {
-      name: "DevOps & Tools",
-      icon: Smartphone,
-      items: ["Docker", "Git & GitHub", "Azure", "CI/CD", "Kafka", "Selenium"],
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-black text-white">
       <Header
@@ -70,7 +32,6 @@ export default function Portfolio() {
           contact: "Contato",
         }}
       />
-
       <Hero
         name="Pedro Henrique da Silva Novais"
         role="Desenvolvedor Full Stack"
@@ -82,7 +43,6 @@ export default function Portfolio() {
         projectsLabel="Ver Projetos"
         profileImage="/placeholder.svg?height=128&width=128"
       />
-
       <About
         title="Sobre Mim"
         paragraphs={[
@@ -99,47 +59,13 @@ export default function Portfolio() {
         ]}
         emoji="👨‍💻"
       />
-
       <Experiences
         title="Experiência Profissional"
         experiences={experiencesData}
       />
-
       <Projects title="Projetos" projects={projectsData} />
 
-      {/* Skills Section */}
-      <section id="skills" className="py-20">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-            Habilidades Técnicas
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {skills.map((skill, index) => (
-              <Card
-                key={index}
-                className="bg-gray-900/50 border-purple-800/30 hover:border-purple-600/50 transition-all duration-300"
-              >
-                <CardHeader className="text-center">
-                  <skill.icon className="w-12 h-12 mx-auto mb-4 text-purple-400" />
-                  <CardTitle className="text-white">{skill.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {skill.items.map((item, itemIndex) => (
-                      <li
-                        key={itemIndex}
-                        className="text-gray-300 text-center text-sm"
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Skills title="Habilidades" skills={skillsData} />
 
       {/* Education Section */}
       <section className="py-20 bg-gradient-to-b from-black to-purple-950/10">
