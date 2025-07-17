@@ -20,7 +20,14 @@ export const skillsData: Skill[] = [
   {
     name: "Frontend",
     icon: Palette,
-    items: ["JavaScript", "TypeScript", "Next.js", "React", "TailwindCSS"],
+    items: [
+      "JavaScript",
+      "TypeScript",
+      "Next.js",
+      "React",
+      "TailwindCSS",
+      "shadcn/ui",
+    ],
   },
   {
     name: "Database",
@@ -30,7 +37,7 @@ export const skillsData: Skill[] = [
   {
     name: "DevOps & Tools",
     icon: FlowArrowIcon,
-    items: ["Docker", "Git & GitHub", "Azure", "CI/CD", "Kafka"],
+    items: ["Docker", "Git & GitHub", "Vercel", "Azure", "CI/CD", "Kafka"],
   },
   {
     name: "Mobile",
