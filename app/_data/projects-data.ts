@@ -2,6 +2,23 @@ import { Project } from "@/components/sections/projects";
 
 export const projectsData: Project[] = [
   {
+    title: "Sistema de Loja de Hardware",
+    description:
+      "Aplicação de desktop para gestão de loja de hardware para a disciplina de Laboratório de Desenvolvimento de Software, desenvolvida em Python. O projeto utiliza arquitetura limpa com padrões como Repository e Service Layer, interface gráfica com PyQt6 e persistência de dados via SQLAlchemy.",
+    image: "/labdevsoft-project.png",
+    tech: [
+      "Python",
+      "PyQt6",
+      "SQLAlchemy",
+      "Clean Architecture",
+      "Repository Pattern",
+      "SQLite",
+      "MySQL",
+    ],
+    github: "https://github.com/PedroSmaxY/hardware-store",
+    period: "Agosto - Julho 2025",
+  },
+  {
     title: "FURIA CS2 Fanbot",
     description:
       "Solução full-stack que oferece uma experiência conversacional para fãs da FURIA. O projeto integra um Bot de Telegram (Python), uma API REST otimizada com cache (Fastify.js) e uma landing page responsiva (Next.js), tudo orquestrado com Docker Compose. O processo de CI/CD é gerenciado pela Vercel.",
@@ -41,6 +58,15 @@ export const projectsData: Project[] = [
     ],
     github: "https://github.com/PedroSmaxY/SchedulingSystemAPI",
     period: "Abril 2025",
+  },
+  {
+    title: "API do Zero (Java)",
+    description:
+      "API RESTful construída com Java puro (sem frameworks), demonstrando os fundamentos do protocolo HTTP e padrões de persistência (SQLite e arquivos de texto). Implementa operações CRUD para gerenciamento de usuários.",
+    image: "/java-project-background.png",
+    tech: ["Java", "CRUD", "HTTP", "SQLite", "Maven"],
+    github: "https://github.com/PedroSmaxY/apidozero",
+    period: "Abril 2024",
   },
   {
     title: "Insight Web App",
