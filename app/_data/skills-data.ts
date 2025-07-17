@@ -1,5 +1,6 @@
 import { Skill } from "@/components/sections/skills";
-import { Code, Palette, Smartphone } from "lucide-react";
+import { FlowArrowIcon } from "@phosphor-icons/react/dist/ssr";
+import { Code, Database, Palette, Smartphone } from "lucide-react";
 
 export const skillsData: Skill[] = [
   {
@@ -12,6 +13,7 @@ export const skillsData: Skill[] = [
       "Spring Boot",
       "ASP.NET",
       "Node.js",
+      "Fastify",
       "Nest.js",
     ],
   },
@@ -22,12 +24,17 @@ export const skillsData: Skill[] = [
   },
   {
     name: "Database",
-    icon: Code,
-    items: ["PostgreSQL", "MySQL", "MongoDB", "Prolog"],
+    icon: Database,
+    items: ["PostgreSQL", "MySQL", "MongoDB"],
   },
   {
     name: "DevOps & Tools",
+    icon: FlowArrowIcon,
+    items: ["Docker", "Git & GitHub", "Azure", "CI/CD", "Kafka"],
+  },
+  {
+    name: "Mobile",
     icon: Smartphone,
-    items: ["Docker", "Git & GitHub", "Azure", "CI/CD", "Kafka", "Selenium"],
+    items: ["Kotlin", "Android", "React Native"],
   },
 ];

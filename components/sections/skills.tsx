@@ -18,7 +18,7 @@ export function Skills({ title, skills }: SkillsProps) {
         <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
           {title}
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 ">
           {skills.map((skill, index) => (
             <Card
               key={index}
