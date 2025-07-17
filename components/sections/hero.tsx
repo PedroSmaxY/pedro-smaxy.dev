@@ -11,7 +11,6 @@ export type HeroProps = {
   phone: string;
   description: string;
   cvUrl: string;
-  cvDownloadLabel?: string;
   downloadLabel: string;
   projectsLabel: string;
   profileImage: string;
@@ -24,7 +23,6 @@ export function Hero({
   phone,
   description,
   cvUrl,
-  cvDownloadLabel = "cv.pdf",
   downloadLabel,
   projectsLabel,
   profileImage,
@@ -75,7 +73,7 @@ export function Hero({
             asChild
             className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 py-3"
           >
-            <a href={cvUrl} download={cvDownloadLabel}>
+            <a href={cvUrl} download>
               <Download className="mr-2 h-4 w-4" />
               {downloadLabel}
             </a>
