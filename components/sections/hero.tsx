@@ -30,7 +30,7 @@ export function Hero({
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-32 sm:pt-20 xl:pt-0"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-purple-900/10"></div>
       <div className="container mx-auto px-6 text-center relative z-10">
