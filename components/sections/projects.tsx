@@ -19,7 +19,7 @@ export type Project = {
   image?: string;
   tech: string[];
   github: string;
-  live: string;
+  live?: string;
   period: string;
 };
 
@@ -51,7 +51,7 @@ export function Projects({ title, projects, label }: ProjectProps) {
                   width={200}
                   height={300}
                   alt={project.title}
-                  className="w-full h-48 object-cover rounded-t-lg"
+                  className="w-full h-60 object-cover rounded-t-lg"
                 />
               </CardHeader>
               <CardContent className="p-6">
@@ -93,13 +93,22 @@ export function Projects({ title, projects, label }: ProjectProps) {
                     <GithubLogoIcon className="mr-2 h-4 w-4" />
                     {label.code}
                   </Button>
-                  <Button
-                    size="sm"
-                    className="bg-purple-600 hover:bg-purple-700"
-                  >
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    {label.demo}
-                  </Button>
+                  {project.live ? (
+                    <Button
+                      size="sm"
+                      className="bg-purple-600 hover:bg-purple-700"
+                      onClick={() =>
+                        window.open(
+                          project.live,
+                          "_blank",
+                          "noopener,noreferrer"
+                        )
+                      }
+                    >
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      {label.demo}
+                    </Button>
+                  ) : null}
                 </div>
               </CardContent>
             </Card>
