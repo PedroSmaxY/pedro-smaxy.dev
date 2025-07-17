@@ -41,16 +41,20 @@ export default function Portfolio() {
       <About
         title="Sobre Mim"
         paragraphs={[
-          "Desenvolvedor Full Stack curioso, com paixão por construir sistemas de alta performance, do back-end ao front-end. Possuo experiência prática com Java, Spring Boot, Python, FastAPI, JavaScript e Next.js, além de automação de processos com Selenium e análise de dados com pandas.",
+          "Desenvolvedor Full Stack curioso, com paixão por construir sistemas de alta performance, do back-end ao front-end. Possuo experiência prática com Java, Spring Boot, Python, TypeScript e Next.js, além de automação de processos com Selenium e análise de dados com pandas.",
           "Atualmente, aplico uma visão integrada de negócios em consultoria, atuando em projetos de marketing, gestão de pessoas e processos comerciais. Busco colaborar em projetos com propósito, combinando conhecimento técnico com habilidades de gestão para entregar soluções completas e eficazes.",
         ]}
         badges={[
+          "Python",
+          "C#",
+          "ASP.NET",
           "Java",
           "Spring Boot",
-          "Python",
-          "FastAPI",
-          "Next.js",
           "TypeScript",
+          "React.js",
+          "Next.js",
+          "Node.js",
+          "Nest.js",
         ]}
         emoji="👨‍💻"
       />
