@@ -15,17 +15,7 @@ import { skillsData } from "@/data/skills-data";
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-black text-white">
-      <Header
-        name="Pedro SmaxY"
-        navItems={{
-          start: "Início",
-          about: "Sobre",
-          experience: "Experiência",
-          projects: "Projetos",
-          skills: "Habilidades",
-          contact: "Contato",
-        }}
-      />
+      <Header />
       <Hero
         name="Pedro Henrique da Silva Novais"
         role="Desenvolvedor Full Stack"
