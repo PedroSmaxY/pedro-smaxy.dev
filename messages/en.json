@@ -11,6 +11,15 @@
         "projects": "Projects",
         "contact": "Contact"
       }
+    },
+    "hero": {
+      "name": "Pedro Henrique da Silva Novais",
+      "role": "Full Stack Developer",
+      "location": "Rio de Janeiro, RJ",
+      "phone": "(21) 98602-6613",
+      "description": "Curious Full Stack Developer with a passion for building high-performance systems, from back-end to front-end. Hands-on experience with Java, Spring Boot, Python, FastAPI, TypeScript, and Next.js.",
+      "downloadLabel": "Download CV",
+      "projectsLabel": "View Projects"
     }
   }
 }
