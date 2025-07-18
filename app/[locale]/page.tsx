@@ -28,16 +28,7 @@ export default function Portfolio() {
         label={{ code: "Código", demo: "Demo" }}
       />
       <Skills title="Habilidades" skills={skillsData} />
-      <Education
-        title="Formação Acadêmica"
-        educationExperience={[
-          {
-            degree: "Bacharelado em Ciência da Computação",
-            institution: "Universidade Veiga de Almeida",
-            period: "maio 2023 – dezembro 2026",
-          },
-        ]}
-      />
+      <Education />
       <Contact
         title="Vamos Conversar?"
         subtitle="Estou sempre aberto a novas oportunidades e projetos interessantes. Entre em contato comigo!"
