@@ -208,7 +208,54 @@
         }
       ]
     },
-    "skills": {},
+    "skills": {
+      "title": "Skills",
+      "categories": {
+        "backend": {
+          "title": "Backend",
+          "skills": [
+            "Java",
+            "C#",
+            "Python",
+            "Spring Boot",
+            "ASP.NET",
+            "Node.js",
+            "Fastify",
+            "Nest.js"
+          ]
+        },
+        "frontend": {
+          "title": "Frontend",
+          "skills": [
+            "JavaScript",
+            "TypeScript",
+            "Next.js",
+            "React",
+            "TailwindCSS",
+            "shadcn/ui"
+          ]
+        },
+        "database": {
+          "title": "Database",
+          "skills": ["PostgreSQL", "MySQL", "MongoDB"]
+        },
+        "devops": {
+          "title": "DevOps & Tools",
+          "skills": [
+            "Docker",
+            "Git & GitHub",
+            "Vercel",
+            "Azure",
+            "CI/CD",
+            "Kafka"
+          ]
+        },
+        "mobile": {
+          "title": "Mobile",
+          "skills": ["Kotlin", "Android", "React Native"]
+        }
+      }
+    },
     "education": {
       "title": "Education",
       "educationExperience": [
