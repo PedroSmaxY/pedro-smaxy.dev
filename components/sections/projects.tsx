@@ -12,6 +12,7 @@ import {
 } from "../ui/card";
 import { GithubLogoIcon } from "@phosphor-icons/react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export type Project = {
   title: string;
@@ -23,13 +24,12 @@ export type Project = {
   period: string;
 };
 
-export type ProjectProps = {
-  title: string;
-  label: { code: string; demo: string };
-  projects: Project[];
-};
+export function Projects() {
+  const t = useTranslations("portfolio.projects");
 
-export function Projects({ title, projects, label }: ProjectProps) {
+  const projects = t.raw("items") as Project[];
+  const labels = t.raw("labels") as { code: string; demo: string };
+
   return (
     <section
       id="projects"
@@ -37,7 +37,7 @@ export function Projects({ title, projects, label }: ProjectProps) {
     >
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-          {title}
+          {t("title")}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
@@ -91,7 +91,7 @@ export function Projects({ title, projects, label }: ProjectProps) {
                     }
                   >
                     <GithubLogoIcon className="mr-2 h-4 w-4" />
-                    {label.code}
+                    {labels.code}
                   </Button>
                   {project.live ? (
                     <Button
@@ -106,7 +106,7 @@ export function Projects({ title, projects, label }: ProjectProps) {
                       }
                     >
                       <ExternalLink className="mr-2 h-4 w-4" />
-                      {label.demo}
+                      {labels.demo}
                     </Button>
                   ) : null}
                 </div>

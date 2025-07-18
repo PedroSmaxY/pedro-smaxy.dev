@@ -8,7 +8,6 @@ import { Education } from "@/components/sections/education";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
 
-import { projectsData } from "@/data/projects-data";
 import { skillsData } from "@/data/skills-data";
 
 export default function Portfolio() {
@@ -18,11 +17,7 @@ export default function Portfolio() {
       <Hero />
       <About />
       <Experiences />
-      <Projects
-        title="Projetos"
-        projects={projectsData}
-        label={{ code: "Código", demo: "Demo" }}
-      />
+      <Projects />
       <Skills title="Habilidades" skills={skillsData} />
       <Education />
       <Contact />
