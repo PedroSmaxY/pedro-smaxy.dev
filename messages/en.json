@@ -43,7 +43,16 @@
     "experiences": {},
     "projects": {},
     "skills": {},
-    "education": {},
+    "education": {
+      "title": "Education",
+      "educationExperience": [
+        {
+          "degree": "Bachelor's in Computer Science",
+          "institution": "Veiga de Almeida University",
+          "period": "May 2023 – December 2026"
+        }
+      ]
+    },
     "contact": {},
     "footer": {}
   }

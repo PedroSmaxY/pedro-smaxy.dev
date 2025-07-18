@@ -43,7 +43,16 @@
     "experiences": {},
     "projects": {},
     "skills": {},
-    "education": {},
+    "education": {
+      "title": "Formação Acadêmica",
+      "educationExperience": [
+        {
+          "degree": "Bacharelado em Ciência da Computação",
+          "institution": "Universidade Veiga de Almeida",
+          "period": "maio 2023 – dezembro 2026"
+        }
+      ]
+    },
     "contact": {},
     "footer": {}
   }
