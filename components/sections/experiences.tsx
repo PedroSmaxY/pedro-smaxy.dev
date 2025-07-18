@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
+import { useTranslations } from "next-intl";
 
 export type Experience = {
   company: string;
@@ -14,17 +15,16 @@ export type Experience = {
   description: string[];
 };
 
-export type ExperiencesProps = {
-  title: string;
-  experiences: Experience[];
-};
+export function Experiences() {
+  const t = useTranslations("portfolio.experiences");
 
-export function Experiences({ title, experiences }: ExperiencesProps) {
+  const experiences = t.raw("items") as Experience[];
+
   return (
     <section id="experience" className="py-20">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-          {title}
+          {t("title")}
         </h2>
         <div className="space-y-8">
           {experiences.map((exp, index) => (

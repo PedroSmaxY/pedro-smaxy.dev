@@ -18,10 +18,7 @@ export default function Portfolio() {
       <Header />
       <Hero />
       <About />
-      <Experiences
-        title="Experiência Profissional"
-        experiences={experiencesData}
-      />
+      <Experiences />
       <Projects
         title="Projetos"
         projects={projectsData}
