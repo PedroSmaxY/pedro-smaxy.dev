@@ -16,17 +16,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Header />
-      <Hero
-        name="Pedro Henrique da Silva Novais"
-        role="Desenvolvedor Full Stack"
-        location="Rio de Janeiro, RJ"
-        phone="(21) 98602-6613"
-        description="Desenvolvedor Full Stack curioso, com paixão por construir sistemas de alta performance, do back-end ao front-end. Experiência prática com Java, Spring Boot, Python, FastAPI, TypeScript e Next.js."
-        cvUrl="/pedro-novais-cv.pdf"
-        downloadLabel="Download CV"
-        projectsLabel="Ver Projetos"
-        profileImage="/perfil-logo.jpg"
-      />
+      <Hero />
       <About
         title="Sobre Mim"
         paragraphs={[
