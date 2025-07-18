@@ -29,13 +29,7 @@ export default function Portfolio() {
       />
       <Skills title="Habilidades" skills={skillsData} />
       <Education />
-      <Contact
-        title="Vamos Conversar?"
-        subtitle="Estou sempre aberto a novas oportunidades e projetos interessantes. Entre em contato comigo!"
-        email="pedrohenrique.nv@icloud.com"
-        linkedinUrl="https://www.linkedin.com/in/pedrohenriquenv/"
-        githubUrl="https://github.com/PedroSmaxY"
-      />
+      <Contact />
       <Footer license="Licenciado sob a Licença MIT" />
     </div>
   );
