@@ -20,6 +20,25 @@
       "description": "Curious Full Stack Developer with a passion for building high-performance systems, from back-end to front-end. Hands-on experience with Java, Spring Boot, Python, FastAPI, TypeScript, and Next.js.",
       "downloadLabel": "Download CV",
       "projectsLabel": "View Projects"
+    },
+    "about": {
+      "title": "About Me",
+      "paragraphs": [
+        "Curious Full Stack Developer passionate about building high-performance systems. My experience ranges from developing robust RESTful APIs with Java (Spring Boot), C# (ASP.NET), and Python (FastAPI), to creating dynamic and responsive interfaces with TypeScript, React.js, and Next.js. I am familiar with databases like PostgreSQL, MySQL, and SQLite, and I use tools like Docker and CI/CD practices to optimize the development workflow.",
+        "Currently, I apply a business-integrated vision in consulting, working on marketing, people management, and business process projects. I seek to collaborate on purpose-driven projects, combining technical knowledge with management skills to deliver complete and effective solutions."
+      ],
+      "badges": [
+        "Python",
+        "C#",
+        "ASP.NET Core",
+        "Java",
+        "Spring Boot",
+        "TypeScript",
+        "React.js",
+        "Next.js",
+        "Node.js",
+        "Nest.js"
+      ]
     }
   }
 }
