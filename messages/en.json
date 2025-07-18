@@ -40,7 +40,44 @@
         "Nest.js"
       ]
     },
-    "experiences": {},
+    "experiences": {
+      "title": "Experiences",
+      "items": [
+        {
+          "company": "Salto Consultoria",
+          "position": "Project Management Analyst",
+          "period": "June 2025 - Present",
+          "location": "Rio de Janeiro, Brazil",
+          "description": [
+            "Active participation in strategic projects with an integrated view of operations",
+            "Structuring flows for client acquisition and monitoring",
+            "Initiatives for organizational culture and defining corporate values",
+            "Creation of marketing campaigns and audience analysis"
+          ]
+        },
+        {
+          "company": "Salto Consultoria",
+          "position": "Trainee",
+          "period": "January 2024 - May 2025",
+          "location": "Rio de Janeiro, Brazil",
+          "description": [
+            "Support in project management tasks and client relations",
+            "Assistance in the development of marketing strategies and business processes"
+          ]
+        },
+        {
+          "company": "Seguros Fleet",
+          "position": "Automation Developer",
+          "period": "August 2024 - November 2024",
+          "location": "Rio de Janeiro, Brazil",
+          "description": [
+            "Development of an automation solution in Python with Pandas and Selenium",
+            "Reduction of 40% in time spent on repetitive tasks",
+            "Increased accuracy of processed data"
+          ]
+        }
+      ]
+    },
     "projects": {},
     "skills": {},
     "education": {
