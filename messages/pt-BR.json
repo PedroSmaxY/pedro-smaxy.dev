@@ -1,14 +1,16 @@
 {
-  "metadata": {},
-  "hero": {
-    "name": "Pedro SmaxY",
-    "navItems": {
-      "home": "Início",
-      "about": "Sobre Mim",
-      "skills": "Habilidades",
-      "experiences": "Experiências",
-      "projects": "Projetos",
-      "contact": "Contato"
+  "portfolio": {
+    "metadata": {},
+    "hero": {
+      "name": "Pedro SmaxY",
+      "navItems": {
+        "home": "Início",
+        "about": "Sobre Mim",
+        "skills": "Habilidades",
+        "experiences": "Experiências",
+        "projects": "Projetos",
+        "contact": "Contato"
+      }
     }
   }
 }
