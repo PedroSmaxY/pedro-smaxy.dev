@@ -1,3 +1,14 @@
 {
-  "test": "This is a test message."
+  "metadata": {},
+  "hero": {
+    "name": "Pedro SmaxY",
+    "navItems": {
+      "home": "Home",
+      "about": "About Me",
+      "skills": "Skills",
+      "experiences": "Experiences",
+      "projects": "Projects",
+      "contact": "Contact"
+    }
+  }
 }
