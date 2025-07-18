@@ -17,26 +17,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-black text-white">
       <Header />
       <Hero />
-      <About
-        title="Sobre Mim"
-        paragraphs={[
-          "Desenvolvedor Full Stack curioso, apaixonado por construir sistemas de alta performance. Minha experiência abrange desde o desenvolvimento de APIs RESTful robustas com Java (Spring Boot), C# (ASP.NET) e Python (FastAPI), até a criação de interfaces dinâmicas e responsivas com TypeScript, React.js e Next.js. Possuo familiaridade com bancos de dados como PostgreSQL, MySQL e SQLite, e utilizo ferramentas como Docker e práticas de CI/CD para otimizar o fluxo de desenvolvimento.",
-          "Atualmente, aplico uma visão integrada de negócios em consultoria, atuando em projetos de marketing, gestão de pessoas e processos comerciais. Busco colaborar em projetos com propósito, combinando conhecimento técnico com habilidades de gestão para entregar soluções completas e eficazes.",
-        ]}
-        badges={[
-          "Python",
-          "C#",
-          "ASP.NET Core",
-          "Java",
-          "Spring Boot",
-          "TypeScript",
-          "React.js",
-          "Next.js",
-          "Node.js",
-          "Nest.js",
-        ]}
-        emoji="👨‍💻"
-      />
+      <About />
       <Experiences
         title="Experiência Profissional"
         experiences={experiencesData}
