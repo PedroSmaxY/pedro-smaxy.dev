@@ -8,9 +8,9 @@ import { Education } from "@/components/sections/education";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
 
-import { projectsData } from "./_data/projects-data";
-import { experiencesData } from "./_data/experiences-data";
-import { skillsData } from "./_data/skills-data";
+import { projectsData } from "@/data/projects-data";
+import { experiencesData } from "@/data/experiences-data";
+import { skillsData } from "@/data/skills-data";
 
 export default function Portfolio() {
   return (
