@@ -57,6 +57,8 @@
       "title": "Let's Talk?",
       "subtitle": "I am always open to new opportunities and interesting projects. Get in touch with me!"
     },
-    "footer": {}
+    "footer": {
+      "license": "Licensed under the MIT License"
+    }
   }
 }
