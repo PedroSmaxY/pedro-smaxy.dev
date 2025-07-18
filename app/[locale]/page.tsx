@@ -8,8 +8,6 @@ import { Education } from "@/components/sections/education";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
 
-import { skillsData } from "@/data/skills-data";
-
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -18,7 +16,7 @@ export default function Portfolio() {
       <About />
       <Experiences />
       <Projects />
-      <Skills title="Habilidades" skills={skillsData} />
+      <Skills />
       <Education />
       <Contact />
       <Footer />
