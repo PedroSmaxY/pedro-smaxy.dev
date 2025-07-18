@@ -30,7 +30,7 @@ export default function Portfolio() {
       <Skills title="Habilidades" skills={skillsData} />
       <Education />
       <Contact />
-      <Footer license="Licenciado sob a Licença MIT" />
+      <Footer />
     </div>
   );
 }
