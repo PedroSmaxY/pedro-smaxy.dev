@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { useTranslations } from "next-intl";
-import { getSkillIcon } from "@/helpers/get-skill-icon";
+import { getSkillIcon } from "@/lib/get-skill-icon";
 
 export type Category = {
   title: string;
