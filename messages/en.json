@@ -78,7 +78,136 @@
         }
       ]
     },
-    "projects": {},
+    "projects": {
+      "title": "Projects",
+      "labels": {
+        "code": "Code",
+        "demo": "Demo"
+      },
+      "items": [
+        {
+          "title": "Hardware Store System",
+          "description": "Desktop application for managing a hardware store, developed for the Software Development Lab course using Python. The project follows clean architecture principles with patterns like Repository and Service Layer, a GUI built with PyQt6, and data persistence through SQLAlchemy.",
+          "image": "/labdevsoft-project.png",
+          "tech": [
+            "Python",
+            "PyQt6",
+            "SQLAlchemy",
+            "Clean Architecture",
+            "Repository Pattern",
+            "SQLite",
+            "MySQL"
+          ],
+          "github": "https://github.com/PedroSmaxY/hardware-store",
+          "period": "August - July 2025"
+        },
+        {
+          "title": "FURIA CS2 Fanbot",
+          "description": "Full-stack solution that offers a conversational experience for FURIA fans. The project integrates a Telegram Bot (Python), a REST API optimized with caching (Fastify.js), and a responsive landing page (Next.js), all orchestrated with Docker Compose. CI/CD is managed by Vercel.",
+          "image": "/furia-landingpage-project.png",
+          "tech": [
+            "Next.js",
+            "Fastify",
+            "Node.js",
+            "Python",
+            "TypeScript",
+            "React",
+            "TailwindCSS",
+            "shadcn/ui",
+            "Vercel",
+            "CI/CD",
+            "Docker",
+            "Docker Compose",
+            "Telegram Bot"
+          ],
+          "github": "https://github.com/PedroSmaxY/furia-fanbot",
+          "live": "https://furia-fanbot.vercel.app/",
+          "period": "April 2025"
+        },
+        {
+          "title": "Scheduling System API",
+          "description": "Robust RESTful API for managing appointments, developed with ASP.NET Core and Entity Framework. It implements JWT authentication, role-based access control (Admin/Client), and a complete flow for scheduling and managing time slots. The project is containerized with Docker and documented using Swagger UI.",
+          "image": "/cs-project-background.png",
+          "tech": [
+            "C#",
+            "ASP.NET",
+            "Entity Framework",
+            "PostgreSQL",
+            "Docker",
+            "JWT",
+            "Swagger"
+          ],
+          "github": "https://github.com/PedroSmaxY/SchedulingSystemAPI",
+          "period": "April 2025"
+        },
+        {
+          "title": "API From Scratch (Java)",
+          "description": "RESTful API built with plain Java (no frameworks), showcasing the fundamentals of the HTTP protocol and persistence patterns (SQLite and text files). It implements CRUD operations for user management.",
+          "image": "/java-project-background.png",
+          "tech": ["Java", "CRUD", "HTTP", "SQLite", "Maven"],
+          "github": "https://github.com/PedroSmaxY/apidozero",
+          "period": "April 2024"
+        },
+        {
+          "title": "Insight Web App",
+          "description": "Web application for a personality quiz, built with React and TailwindCSS. It consumes the Profile Insight API to fetch questions and calculate results, and features an offline mode that uses internal data when the server is unavailable.",
+          "image": "/insight-webpage-project.png",
+          "tech": ["React", "TailwindCSS", "JavaScript", "Vite", "CI/CD"],
+          "github": "https://github.com/PedroSmaxY/insight-web-app",
+          "live": "https://pedrosmaxy.github.io/insight-web-app/",
+          "period": "July - December 2024"
+        },
+        {
+          "title": "Profile Insight API",
+          "description": "Profile analysis API that combines SWI-Prolog's declarative logic with FastAPI’s performance (Python). The system uses a knowledge base to provide questions and calculate profile diagnostics (Dominance, Influence, etc.), and is fully containerized with Docker.",
+          "image": "/python-project-background.png",
+          "tech": ["Python", "FastAPI", "SWI-Prolog", "Docker", "CI/CD"],
+          "github": "https://github.com/PedroSmaxY/profile-insight-api",
+          "period": "July - December 2024"
+        },
+        {
+          "title": "JWT Login Auth API",
+          "description": "Authentication API built with Spring Boot and Spring Security. It uses JWT for access control and an in-memory H2 database for simplicity, focusing on a secure user registration and login system.",
+          "image": "/java-project-background.png",
+          "tech": [
+            "Java",
+            "Spring Boot",
+            "Spring Security",
+            "JWT",
+            "H2 Database",
+            "Maven"
+          ],
+          "github": "https://github.com/PedroSmaxY/login-auth-api",
+          "period": "August 2024"
+        },
+        {
+          "title": "Music Streaming API",
+          "description": "One of my first experiences with the Spring Boot ecosystem. REST API inspired by Spotify, using Spring Security for authentication and JPA/Hibernate for persistence with MySQL. The API manages users, songs, and playlists, and includes Swagger documentation.",
+          "image": "/java-project-background.png",
+          "tech": [
+            "Java",
+            "Spring Boot",
+            "Spring Security",
+            "JPA",
+            "Hibernate",
+            "MySQL",
+            "Maven",
+            "Swagger"
+          ],
+          "github": "https://github.com/PedroSmaxY/MusicAPI",
+          "period": "July - August 2024"
+        },
+        {
+          "title": "Pokédex Electron",
+          "description": "Cross-platform desktop application built with Electron and TypeScript. This Pokédex app consumes data from the PokéAPI and includes a releases page with builds for Windows, macOS, and Linux, demonstrating the ability to create and distribute installable software.",
+          "image": "/pokedex-electron-project.png",
+          "tech": ["Electron.js", "TypeScript", "Node.js", "PokéAPI"],
+          "github": "https://github.com/PedroSmaxY/PokedexElectron",
+          "live": "https://github.com/PedroSmaxY/PokedexElectron/releases",
+          "period": "December 2023"
+        }
+      ]
+    },
     "skills": {},
     "education": {
       "title": "Education",
