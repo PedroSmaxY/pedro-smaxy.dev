@@ -56,6 +56,7 @@ export async function generateMetadata({
           width: 1200,
           height: 630,
           alt: `${shortName} - Portfolio Open Graph Image`,
+          type: "image/jpeg",
         },
       ],
     },
