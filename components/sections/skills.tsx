@@ -30,10 +30,7 @@ export function Skills() {
                 className="bg-gray-900/50 border-purple-800/30 hover:border-purple-600/50 transition-all duration-300"
               >
                 <CardHeader className="text-center">
-                  {getSkillIcon(
-                    translatedTitle,
-                    "h-8 w-8 mx-auto mb-2 text-purple-400"
-                  )}
+                  {getSkillIcon(key, "h-8 w-8 mx-auto mb-2 text-purple-400")}
                   <CardTitle className="text-white">
                     {translatedTitle}
                   </CardTitle>
