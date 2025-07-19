@@ -31,7 +31,7 @@ export function Skills() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
-                  {category.skills.map((item, itemIndex) => (
+                  {category.map((item, itemIndex) => (
                     <li
                       key={itemIndex}
                       className="text-gray-300 text-center text-sm"

@@ -31,37 +31,36 @@ export const PORTFOLIO_CONFIG = {
   },
 
   categories: {
-    Backend: {
-      skills: [
-        "Java",
-        "C#",
-        "Python",
-        "Spring Boot",
-        "ASP.NET",
-        "Node.js",
-        "Fastify",
-        "Nest.js",
-      ],
-    },
-    Frontend: {
-      skills: [
-        "JavaScript",
-        "TypeScript",
-        "Next.js",
-        "React",
-        "TailwindCSS",
-        "shadcn/ui",
-      ],
-    },
-    Database: {
-      skills: ["PostgreSQL", "MySQL", "MongoDB"],
-    },
-    "Devops & Tools": {
-      skills: ["Docker", "Git & GitHub", "Vercel", "Azure", "CI/CD", "Kafka"],
-    },
-    Mobile: {
-      skills: ["Kotlin", "Android", "React Native"],
-    },
+    Backend: [
+      "Java",
+      "C#",
+      "Python",
+      "Spring Boot",
+      "ASP.NET",
+      "Node.js",
+      "Fastify",
+      "Nest.js",
+    ],
+
+    Frontend: [
+      "JavaScript",
+      "TypeScript",
+      "Next.js",
+      "React",
+      "TailwindCSS",
+      "shadcn/ui",
+    ],
+
+    Database: ["PostgreSQL", "MySQL", "MongoDB"],
+    "Devops & Tools": [
+      "Docker",
+      "Git & GitHub",
+      "Vercel",
+      "Azure",
+      "CI/CD",
+      "Kafka",
+    ],
+    Mobile: ["Kotlin", "Android", "React Native"],
   },
 } as const;
 
