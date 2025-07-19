@@ -2,15 +2,8 @@ import { PORTFOLIO_CONFIG } from "@/lib/config";
 import { Badge } from "../ui/badge";
 import { useTranslations } from "next-intl";
 
-export type AboutProps = {
-  title: string;
-  paragraphs: string[];
-  badges: string[];
-  emoji?: string;
-};
-
 export function About() {
-  const emoji = "👨‍💻";
+  const { emoji } = PORTFOLIO_CONFIG.personal;
   const badges = PORTFOLIO_CONFIG.technologies.mainBadges;
 
   const t = useTranslations("portfolio.about");
