@@ -2,17 +2,16 @@
 
 import { Download, MapPin, Phone } from "lucide-react";
 import { Button } from "../ui/button";
+import { PORTFOLIO_CONFIG } from "@/lib/config";
 import Image from "next/image";
 
 import { useTranslations } from "next-intl";
 
 export function Hero() {
-  const links = {
-    cvUrl: "/pedro-novais-cv.pdf",
-    profileImage: "/perfil-logo.jpg",
-  };
-
   const t = useTranslations("portfolio.hero");
+
+  const { profileImageUrl, cvDownloadUrl } = PORTFOLIO_CONFIG.links;
+  const { name, location, phone } = PORTFOLIO_CONFIG.personal;
 
   return (
     <section
@@ -25,8 +24,8 @@ export function Hero() {
           <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 mx-auto mb-8 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 p-1">
             <div className="w-full h-full rounded-full overflow-hidden bg-black">
               <Image
-                src={links.profileImage}
-                alt={`${t("name")} - Profile Image`}
+                src={profileImageUrl}
+                alt={`${name} - Profile Image`}
                 width={128}
                 height={128}
                 className="w-full h-full object-cover rounded-full"
@@ -36,7 +35,7 @@ export function Hero() {
         </div>
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
           <span className="bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 bg-clip-text text-transparent">
-            {t("name")}
+            {name}
           </span>
         </h1>
         <p className="text-xl md:text-2xl text-purple-300 mb-4 font-semibold">
@@ -45,11 +44,11 @@ export function Hero() {
         <div className="flex items-center justify-center gap-6 mb-8 text-gray-300">
           <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4 text-purple-400" />
-            <span>{t("location")}</span>
+            <span>{location}</span>
           </div>
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4 text-purple-400" />
-            <span>{t("phone")}</span>
+            <span>{phone}</span>
           </div>
         </div>
         <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -60,7 +59,7 @@ export function Hero() {
             asChild
             className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 py-3"
           >
-            <a href={links.cvUrl} download>
+            <a href={cvDownloadUrl} download>
               <Download className="mr-2 h-4 w-4" />
               {t("downloadLabel")}
             </a>
