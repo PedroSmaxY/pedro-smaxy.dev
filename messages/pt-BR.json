@@ -195,11 +195,11 @@
     "skills": {
       "title": "Habilidades",
       "categoryTitles": {
-        "Backend": "Backend",
-        "Frontend": "Frontend",
-        "Database": "Banco de Dados",
-        "Devops & Tools": "Devops & Ferramentas",
-        "Mobile": "Mobile"
+        "backend": "Backend",
+        "frontend": "Frontend",
+        "database": "Banco de Dados",
+        "devops": "Devops & Ferramentas",
+        "mobile": "Mobile"
       }
     },
     "education": {
