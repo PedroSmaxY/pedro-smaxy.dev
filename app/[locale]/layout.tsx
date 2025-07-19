@@ -12,6 +12,10 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "portfolio.metadata" });
 
+  // Extract personal and links information from the config
+  const { shortName } = PORTFOLIO_CONFIG.personal;
+  const { githubUrl } = PORTFOLIO_CONFIG.links;
+
   // Fetch messages for the current locale
   const title = t("title");
   const description = t("description");
@@ -23,25 +27,41 @@ export async function generateMetadata({
   return {
     title,
     description,
-    metadataBase: PORTFOLIO_CONFIG.baseMetadata.metadataBase,
+    metadataBase: new URL(process.env.METADATA_BASE || "http://localhost:3000"),
     keywords,
     icons: {
-      icon: [...PORTFOLIO_CONFIG.baseMetadata.icons.icon],
-      apple: PORTFOLIO_CONFIG.baseMetadata.icons.apple,
+      icon: [
+        { url: "/favicon.ico" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      ],
+      apple: "/apple-touch-icon.png",
     },
-    authors: [...PORTFOLIO_CONFIG.baseMetadata.authors],
+    authors: [
+      {
+        name: shortName,
+        url: githubUrl,
+      },
+    ],
     openGraph: {
-      type: PORTFOLIO_CONFIG.baseMetadata.openGraph.type,
+      type: "website",
       title: ogTitle,
       description: ogDescription,
       siteName,
       locale,
       alternateLocale: locale === "pt-BR" ? "en" : "pt-BR",
-      images: [...PORTFOLIO_CONFIG.baseMetadata.openGraph.images],
+      images: [
+        {
+          url: "/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: `${shortName} - Portfolio Open Graph Image`,
+        },
+      ],
     },
     alternates: {
       languages: {
-        "pt-BR": "/pt-br",
+        "pt-BR": "/pt-BR",
         en: "/en",
       },
     },
