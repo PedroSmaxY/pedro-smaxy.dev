@@ -54,13 +54,19 @@ export async function generateMetadata({
       alternateLocale: locale === "pt-BR" ? "en" : "pt-BR",
       images: [
         {
-          url: "/og-image.png",
+          url: `${baseUrl}/og-image.png`,
           width: 1200,
           height: 630,
           alt: `${shortName} - Portfolio Open Graph Image`,
           type: "image/png",
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description: ogDescription,
+      images: [`${baseUrl}/og-image.png`],
     },
     alternates: {
       languages: {
