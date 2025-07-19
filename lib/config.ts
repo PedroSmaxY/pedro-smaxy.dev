@@ -30,8 +30,8 @@ export const PORTFOLIO_CONFIG = {
     ],
   },
 
-  categories: {
-    Backend: [
+  skillCategories: {
+    backend: [
       "Java",
       "C#",
       "Python",
@@ -41,8 +41,7 @@ export const PORTFOLIO_CONFIG = {
       "Fastify",
       "Nest.js",
     ],
-
-    Frontend: [
+    frontend: [
       "JavaScript",
       "TypeScript",
       "Next.js",
@@ -50,17 +49,9 @@ export const PORTFOLIO_CONFIG = {
       "TailwindCSS",
       "shadcn/ui",
     ],
-
-    Database: ["PostgreSQL", "MySQL", "MongoDB"],
-    "Devops & Tools": [
-      "Docker",
-      "Git & GitHub",
-      "Vercel",
-      "Azure",
-      "CI/CD",
-      "Kafka",
-    ],
-    Mobile: ["Kotlin", "Android", "React Native"],
+    database: ["PostgreSQL", "MySQL", "MongoDB"],
+    devops: ["Docker", "Git & GitHub", "Vercel", "Azure", "CI/CD", "Kafka"],
+    mobile: ["Kotlin", "Android", "React Native"],
   },
 } as const;
 
@@ -68,4 +59,4 @@ export type PortfolioConfig = typeof PORTFOLIO_CONFIG;
 export type PersonalInfo = typeof PORTFOLIO_CONFIG.personal;
 export type SocialLinks = typeof PORTFOLIO_CONFIG.links;
 export type Technologies = typeof PORTFOLIO_CONFIG.technologies;
-export type Categories = typeof PORTFOLIO_CONFIG.categories;
+export type SkillCategories = typeof PORTFOLIO_CONFIG.skillCategories;
