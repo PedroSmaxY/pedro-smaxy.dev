@@ -1,5 +1,6 @@
 import { GraduationCap } from "lucide-react";
 import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
+import { useTranslations } from "next-intl";
 
 export type Education = {
   institution: string;
@@ -7,12 +8,11 @@ export type Education = {
   period: string;
 };
 
-export type EducationProps = {
-  title: string;
-  educationExperience: Education[];
-};
+export function Education() {
+  const t = useTranslations("portfolio.education");
 
-export function Education({ title, educationExperience }: EducationProps) {
+  const educationExperience = t.raw("educationExperience") as Education[];
+
   return (
     <section
       className="py-20 bg-gradient-to-b from-black to-purple-950/10"
@@ -23,7 +23,7 @@ export function Education({ title, educationExperience }: EducationProps) {
           id="education-title"
           className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent"
         >
-          {title}
+          {t("title")}
         </h2>
         <div className="max-w-2xl mx-auto">
           <ul>

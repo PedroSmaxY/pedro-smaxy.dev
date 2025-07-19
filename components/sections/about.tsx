@@ -1,4 +1,5 @@
 import { Badge } from "../ui/badge";
+import { useTranslations } from "next-intl";
 
 export type AboutProps = {
   title: string;
@@ -7,7 +8,14 @@ export type AboutProps = {
   emoji?: string;
 };
 
-export function About({ title, paragraphs, badges, emoji = "👨‍💻" }: AboutProps) {
+export function About() {
+  const emoji = "👨‍💻";
+
+  const t = useTranslations("portfolio.about");
+
+  const paragraphs = t.raw("paragraphs") as string[];
+  const badges = t.raw("badges") as string[];
+
   return (
     <section
       id="about"
@@ -15,7 +23,7 @@ export function About({ title, paragraphs, badges, emoji = "👨‍💻" }: Abou
     >
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-          {title}
+          {t("title")}
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>

@@ -1,0 +1,277 @@
+{
+  "portfolio": {
+    "metadata": {},
+    "header": {
+      "name": "Pedro SmaxY",
+      "navItems": {
+        "home": "Início",
+        "about": "Sobre Mim",
+        "skills": "Habilidades",
+        "experiences": "Experiências",
+        "projects": "Projetos",
+        "contact": "Contato"
+      }
+    },
+    "hero": {
+      "name": "Pedro Henrique da Silva Novais",
+      "role": "Desenvolvedor Full Stack",
+      "location": "Rio de Janeiro, RJ",
+      "phone": "(21) 98602-6613",
+      "description": "Desenvolvedor Full Stack curioso, com paixão por construir sistemas de alta performance, do back-end ao front-end. Experiência prática com Java, Spring Boot, Python, FastAPI, TypeScript e Next.js.",
+      "downloadLabel": "Baixar Currículo",
+      "projectsLabel": "Ver Projetos"
+    },
+    "about": {
+      "title": "Sobre Mim",
+      "paragraphs": [
+        "Desenvolvedor Full Stack curioso, apaixonado por construir sistemas de alta performance. Minha experiência abrange desde o desenvolvimento de APIs RESTful robustas com Java (Spring Boot), C# (ASP.NET) e Python (FastAPI), até a criação de interfaces dinâmicas e responsivas com TypeScript, React.js e Next.js. Possuo familiaridade com bancos de dados como PostgreSQL, MySQL e SQLite, e utilizo ferramentas como Docker e práticas de CI/CD para otimizar o fluxo de desenvolvimento.",
+        "Atualmente, aplico uma visão integrada de negócios em consultoria, atuando em projetos de marketing, gestão de pessoas e processos comerciais. Busco colaborar em projetos com propósito, combinando conhecimento técnico com habilidades de gestão para entregar soluções completas e eficazes."
+      ],
+      "badges": [
+        "Python",
+        "C#",
+        "ASP.NET Core",
+        "Java",
+        "Spring Boot",
+        "TypeScript",
+        "React.js",
+        "Next.js",
+        "Node.js",
+        "Nest.js"
+      ]
+    },
+    "experiences": {
+      "title": "Experiências",
+      "items": [
+        {
+          "company": "Salto Consultoria",
+          "position": "Analista de Gestão de Projetos",
+          "period": "Junho 2025 - Presente",
+          "location": "Rio de Janeiro, Brasil",
+          "description": [
+            "Participação ativa em projetos estratégicos com visão integrada das operações",
+            "Estruturação de fluxos para captação e acompanhamento de clientes",
+            "Iniciativas de cultura organizacional e definição de valores empresariais",
+            "Criação de campanhas de marketing e análise de público-alvo"
+          ]
+        },
+        {
+          "company": "Salto Consultoria",
+          "position": "Trainee",
+          "period": "Abril 2025 - Junho 2025",
+          "location": "Rio de Janeiro, Brasil",
+          "description": [
+            "Desenvolvimento de habilidades em gestão de projetos e consultoria",
+            "Apoio em processos de engajamento interno e cultura organizacional"
+          ]
+        },
+        {
+          "company": "Seguros Fleet",
+          "position": "Desenvolvedor de Automação",
+          "period": "Agosto 2024 - Novembro 2024",
+          "location": "Rio de Janeiro, Brasil",
+          "description": [
+            "Desenvolvimento de solução de automação em Python com Pandas e Selenium",
+            "Redução de 40% no tempo gasto em tarefas repetitivas",
+            "Aumento da precisão dos dados processados"
+          ]
+        }
+      ]
+    },
+    "projects": {
+      "title": "Projetos",
+      "labels": {
+        "code": "Código",
+        "demo": "Demo"
+      },
+      "items": [
+        {
+          "title": "Sistema de Loja de Hardware",
+          "description": "Aplicação de desktop para gestão de loja de hardware para a disciplina de Laboratório de Desenvolvimento de Software, desenvolvida em Python. O projeto utiliza arquitetura limpa com padrões como Repository e Service Layer, interface gráfica com PyQt6 e persistência de dados via SQLAlchemy.",
+          "image": "/labdevsoft-project.png",
+          "tech": [
+            "Python",
+            "PyQt6",
+            "SQLAlchemy",
+            "Clean Architecture",
+            "Repository Pattern",
+            "SQLite",
+            "MySQL"
+          ],
+          "github": "https://github.com/PedroSmaxY/hardware-store",
+          "period": "Agosto - Julho 2025"
+        },
+        {
+          "title": "FURIA CS2 Fanbot",
+          "description": "Solução full-stack que oferece uma experiência conversacional para fãs da FURIA. O projeto integra um Bot de Telegram (Python), uma API REST otimizada com cache (Fastify.js) e uma landing page responsiva (Next.js), tudo orquestrado com Docker Compose. O processo de CI/CD é gerenciado pela Vercel.",
+          "image": "/furia-landingpage-project.png",
+          "tech": [
+            "Next.js",
+            "Fastify",
+            "Node.js",
+            "Python",
+            "TypeScript",
+            "React",
+            "TailwindCSS",
+            "shadcn/ui",
+            "Vercel",
+            "CI/CD",
+            "Docker",
+            "Docker Compose",
+            "Telegram Bot"
+          ],
+          "github": "https://github.com/PedroSmaxY/furia-fanbot",
+          "live": "https://furia-fanbot.vercel.app/",
+          "period": "Abril 2025"
+        },
+        {
+          "title": "API de Sistema de Agendamento",
+          "description": "API RESTful robusta para gerenciamento de agendamentos, desenvolvida com ASP.NET Core e Entity Framework. Implementa autenticação JWT, controle de acesso baseado em papéis (Admin/Cliente) e um fluxo completo para agendar e gerenciar horários. O projeto é containerizado com Docker e documentado via Swagger UI.",
+          "image": "/cs-project-background.png",
+          "tech": [
+            "C#",
+            "ASP.NET",
+            "Entity Framework",
+            "PostgreSQL",
+            "Docker",
+            "JWT",
+            "Swagger"
+          ],
+          "github": "https://github.com/PedroSmaxY/SchedulingSystemAPI",
+          "period": "Abril 2025"
+        },
+        {
+          "title": "API do Zero (Java)",
+          "description": "API RESTful construída com Java puro (sem frameworks), demonstrando os fundamentos do protocolo HTTP e padrões de persistência (SQLite e arquivos de texto). Implementa operações CRUD para gerenciamento de usuários.",
+          "image": "/java-project-background.png",
+          "tech": ["Java", "CRUD", "HTTP", "SQLite", "Maven"],
+          "github": "https://github.com/PedroSmaxY/apidozero",
+          "period": "Abril 2024"
+        },
+        {
+          "title": "Insight Web App",
+          "description": "Aplicação web para um quiz de personalidade, construída com React e TailwindCSS. Consome a Profile Insight API para buscar perguntas e calcular resultados, e possui um modo offline funcional que utiliza dados internos caso o servidor esteja indisponível.",
+          "image": "/insight-webpage-project.png",
+          "tech": ["React", "TailwindCSS", "JavaScript", "Vite", "CI/CD"],
+          "github": "https://github.com/PedroSmaxY/insight-web-app",
+          "live": "https://pedrosmaxy.github.io/insight-web-app/",
+          "period": "Julho - Dezembro 2024"
+        },
+        {
+          "title": "Profile Insight API",
+          "description": "API de análise de perfil que integra a lógica declarativa do SWI-Prolog com a performance do FastAPI (Python). O sistema utiliza uma base de conhecimento para fornecer perguntas e calcular diagnósticos de perfis (Dominância, Influência, etc.), e é totalmente containerizado com Docker.",
+          "image": "/python-project-background.png",
+          "tech": ["Python", "FastAPI", "SWI-Prolog", "Docker", "CI/CD"],
+          "github": "https://github.com/PedroSmaxY/profile-insight-api",
+          "period": "Julho - Dezembro 2024"
+        },
+        {
+          "title": "Login Auth API com JWT",
+          "description": "API de autenticação construída com Spring Boot e Spring Security. Utiliza JWT para controle de acesso e um banco de dados em memória H2 para simplicidade, focando em um sistema de registro e login seguro.",
+          "image": "/java-project-background.png",
+          "tech": [
+            "Java",
+            "Spring Boot",
+            "Spring Security",
+            "JWT",
+            "H2 Database",
+            "Maven"
+          ],
+          "github": "https://github.com/PedroSmaxY/login-auth-api",
+          "period": "Agosto 2024"
+        },
+        {
+          "title": "API de Streaming de Música",
+          "description": "Uma das minhas primeiras experiências com o ecossistema Spring Boot. API REST inspirada no Spotify, Spring Security para autenticação, e JPA/Hibernate para persistência com MySQL. A API gerencia usuários, músicas e playlists, com documentação via Swagger.",
+          "image": "/java-project-background.png",
+          "tech": [
+            "Java",
+            "Spring Boot",
+            "Spring Security",
+            "JPA",
+            "Hibernate",
+            "MySQL",
+            "Maven",
+            "Swagger"
+          ],
+          "github": "https://github.com/PedroSmaxY/MusicAPI",
+          "period": "Julho - Agosto 2024"
+        },
+        {
+          "title": "Pokédex Electron",
+          "description": "Aplicação de desktop multiplataforma construída com Electron e TypeScript. O projeto, que funciona como uma Pokédex consumindo dados da PokéAPI, inclui uma página de releases com builds para Windows, macOS e Linux, demonstrando a capacidade de criar e distribuir software instalável.",
+          "image": "/pokedex-electron-project.png",
+          "tech": ["Electron.js", "TypeScript", "Node.js", "PokéAPI"],
+          "github": "https://github.com/PedroSmaxY/PokedexElectron",
+          "live": "https://github.com/PedroSmaxY/PokedexElectron/releases",
+          "period": "Dezembro 2023"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Habilidades",
+      "categories": {
+        "backend": {
+          "title": "Backend",
+          "skills": [
+            "Java",
+            "C#",
+            "Python",
+            "Spring Boot",
+            "ASP.NET",
+            "Node.js",
+            "Fastify",
+            "Nest.js"
+          ]
+        },
+        "frontend": {
+          "title": "Frontend",
+          "skills": [
+            "JavaScript",
+            "TypeScript",
+            "Next.js",
+            "React",
+            "TailwindCSS",
+            "shadcn/ui"
+          ]
+        },
+        "database": {
+          "title": "Banco de Dados",
+          "skills": ["PostgreSQL", "MySQL", "MongoDB"]
+        },
+        "devops": {
+          "title": "DevOps & Ferramentas",
+          "skills": [
+            "Docker",
+            "Git & GitHub",
+            "Vercel",
+            "Azure",
+            "CI/CD",
+            "Kafka"
+          ]
+        },
+        "mobile": {
+          "title": "Mobile",
+          "skills": ["Kotlin", "Android", "React Native"]
+        }
+      }
+    },
+    "education": {
+      "title": "Formação Acadêmica",
+      "educationExperience": [
+        {
+          "degree": "Bacharelado em Ciência da Computação",
+          "institution": "Universidade Veiga de Almeida",
+          "period": "Maio 2023 – Dezembro 2026"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Vamos Conversar?",
+      "subtitle": "Estou sempre aberto a novas oportunidades e projetos interessantes. Entre em contato comigo!"
+    },
+    "footer": {
+      "license": "Licenciado sob a Licença MIT"
+    }
+  }
+}

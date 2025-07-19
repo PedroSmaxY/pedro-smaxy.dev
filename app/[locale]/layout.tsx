@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -35,14 +37,24 @@ export const metadata: Metadata = {
   authors: [{ name: "Pedro SmaxY", url: "https://github.com/PedroSmaxY" }],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const messages = await getMessages();
+
+  const { locale } = await params;
+
   return (
-    <html lang="pt-BR" className="scroll-smooth">
-      <body>{children}</body>
+    <html lang={locale} className="scroll-smooth">
+      <body>
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }
