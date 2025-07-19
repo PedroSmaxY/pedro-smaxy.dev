@@ -52,11 +52,11 @@ export async function generateMetadata({
       alternateLocale: locale === "pt-BR" ? "en" : "pt-BR",
       images: [
         {
-          url: "/og-image.jpg",
+          url: "/og-image.png",
           width: 1200,
           height: 630,
           alt: `${shortName} - Portfolio Open Graph Image`,
-          type: "image/jpeg",
+          type: "image/png",
         },
       ],
     },
