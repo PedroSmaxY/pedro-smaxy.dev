@@ -7,7 +7,7 @@ export const getSkillIcon = (categoryName: string, className: string) => {
     frontend: Palette,
     database: Database,
     mobile: Smartphone,
-    devops: FlowArrowIcon,
+    "devops & tools": FlowArrowIcon,
   };
 
   const Icon: React.ElementType = iconMap[categoryName.toLowerCase()] || Code;
