@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { LanguageSwitcher } from "../language-switcher";
 
 export function Header() {
   const t = useTranslations("portfolio.header");
@@ -11,7 +12,7 @@ export function Header() {
             <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
               {t("name")}
             </div>
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden lg:flex space-x-8">
               <a
                 href="#home"
                 className="hover:text-purple-400 transition-colors"
@@ -49,6 +50,7 @@ export function Header() {
                 {t("navItems.contact")}
               </a>
             </div>
+            <LanguageSwitcher />
           </div>
         </div>
       </nav>
