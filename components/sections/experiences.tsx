@@ -146,10 +146,6 @@ export function Experiences() {
                             key={itemIndex}
                             className="text-gray-300"
                             variants={listItemVariants}
-                            whileHover={{
-                              x: 5,
-                              transition: { duration: 0.2 },
-                            }}
                           >
                             {item}
                           </motion.li>
