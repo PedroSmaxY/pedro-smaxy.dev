@@ -193,7 +193,14 @@
       ]
     },
     "skills": {
-      "title": "Skills"
+      "title": "Skills",
+      "categoryTitles": {
+        "Backend": "Backend",
+        "Frontend": "Frontend",
+        "Database": "Database",
+        "Devops & Tools": "Devops & Tools",
+        "Mobile": "Mobile"
+      }
     },
     "education": {
       "title": "Education",

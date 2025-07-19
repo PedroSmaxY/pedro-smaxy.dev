@@ -193,7 +193,14 @@
       ]
     },
     "skills": {
-      "title": "Habilidades"
+      "title": "Habilidades",
+      "categoryTitles": {
+        "Backend": "Backend",
+        "Frontend": "Frontend",
+        "Database": "Banco de Dados",
+        "Devops & Tools": "Devops & Ferramentas",
+        "Mobile": "Mobile"
+      }
     },
     "education": {
       "title": "Formação Acadêmica",
