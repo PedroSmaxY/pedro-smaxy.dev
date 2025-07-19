@@ -53,6 +53,23 @@ export const PORTFOLIO_CONFIG = {
     devops: ["Docker", "Git & GitHub", "Vercel", "Azure", "CI/CD", "Kafka"],
     mobile: ["Kotlin", "Android", "React Native"],
   },
+
+  baseMetadata: {
+    metadataBase: new URL(process.env.METADATA_BASE || "http://localhost:3000"),
+    icons: {
+      icon: [
+        { url: "/favicon.ico" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      ],
+      apple: "/apple-touch-icon.png",
+    },
+    openGraph: {
+      type: "website" as const,
+      images: ["/og-image.png"],
+    },
+    authors: [{ name: "Pedro SmaxY", url: "https://github.com/PedroSmaxY" }],
+  },
 } as const;
 
 export type PortfolioConfig = typeof PORTFOLIO_CONFIG;

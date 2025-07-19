@@ -1,6 +1,28 @@
 {
   "portfolio": {
-    "metadata": {},
+    "metadata": {
+      "title": "Pedro SmaxY - Portfolio",
+      "description": "Full Stack Developer passionate about technology and innovation. Experience with Java, Spring Boot, Python, FastAPI, Next.js, and TypeScript.",
+      "keywords": [
+        "Pedro SmaxY",
+        "Full Stack Developer",
+        "Portfolio",
+        "Java",
+        "Spring Boot",
+        "Python",
+        "FastAPI",
+        "Next.js",
+        "TypeScript",
+        "Developer",
+        "Brazil",
+        "Rio de Janeiro"
+      ],
+      "openGraph": {
+        "title": "Pedro SmaxY - Portfolio",
+        "description": "Curious Full Stack Developer with a passion for building high-performance systems.",
+        "siteName": "Pedro SmaxY - Portfolio"
+      }
+    },
     "header": {
       "navItems": {
         "home": "Home",

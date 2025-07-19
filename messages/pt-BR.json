@@ -1,6 +1,28 @@
 {
   "portfolio": {
-    "metadata": {},
+    "metadata":{
+      "title": "Pedro SmaxY - Portfólio",
+      "description": "Desenvolvedor Full Stack apaixonado por tecnologia e inovação. Experiência em Java, Spring Boot, Python, FastAPI, Next.js e TypeScript.",
+      "keywords": [
+        "Pedro SmaxY",
+        "Desenvolvedor Full Stack",
+        "Portfólio",
+        "Java",
+        "Spring Boot",
+        "Python",
+        "FastAPI",
+        "Next.js",
+        "TypeScript",
+        "Desenvolvedor",
+        "Brasil",
+        "Rio de Janeiro"
+      ],
+      "openGraph": {
+        "title": "Pedro SmaxY - Portfólio",
+        "description": "Desenvolvedor Full Stack curioso, com paixão por construir sistemas de alta performance.",
+        "siteName": "Pedro SmaxY - Portfólio"
+      }
+    },
     "header": {
       "navItems": {
         "home": "Início",
