@@ -66,7 +66,7 @@ export const PORTFOLIO_CONFIG = {
     },
     openGraph: {
       type: "website" as const,
-      images: ["/og-image.png"],
+      images: ["/og-image.jpg"],
     },
     authors: [{ name: "Pedro SmaxY", url: "https://github.com/PedroSmaxY" }],
   },
