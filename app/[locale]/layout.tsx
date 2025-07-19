@@ -24,10 +24,11 @@ export async function generateMetadata({
   const ogDescription = t("openGraph.description");
   const siteName = t("openGraph.siteName");
 
+  const baseUrl = "https://pedro-smaxy-dev.vercel.app";
+
   return {
     title,
     description,
-    metadataBase: new URL(process.env.METADATA_BASE || "http://localhost:3000"),
     keywords,
     icons: {
       icon: [
@@ -43,6 +44,7 @@ export async function generateMetadata({
         url: githubUrl,
       },
     ],
+    metadataBase: new URL(baseUrl),
     openGraph: {
       type: "website",
       title: ogTitle,
