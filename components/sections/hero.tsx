@@ -44,11 +44,11 @@ export function Hero() {
         <div className="flex items-center justify-center gap-6 mb-8 text-gray-300">
           <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4 text-purple-400" />
-            <span>{location}</span>
+            <span className="text-sm md:text-lg">{location}</span>
           </div>
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4 text-purple-400" />
-            <span>{phone}</span>
+            <span className="text-sm md:text-lg">{phone}</span>
           </div>
         </div>
         <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
