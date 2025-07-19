@@ -4,7 +4,6 @@ export const PORTFOLIO_CONFIG = {
     shortName: "Pedro SmaxY",
     email: "pedrohenrique.nv@icloud.com",
     phone: "+55 (21) 98602-6613",
-    location: "Rio de Janeiro, Brazil",
     emoji: "👨‍💻",
   },
 

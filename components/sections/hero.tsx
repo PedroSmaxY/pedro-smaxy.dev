@@ -11,7 +11,7 @@ export function Hero() {
   const t = useTranslations("portfolio.hero");
 
   const { profileImageUrl, cvDownloadUrl } = PORTFOLIO_CONFIG.links;
-  const { name, location, phone } = PORTFOLIO_CONFIG.personal;
+  const { name, phone } = PORTFOLIO_CONFIG.personal;
 
   return (
     <section
@@ -44,7 +44,7 @@ export function Hero() {
         <div className="flex items-center justify-center gap-6 mb-8 text-gray-300">
           <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4 text-purple-400" />
-            <span className="text-sm md:text-lg">{location}</span>
+            <span className="text-sm md:text-lg">{t("location")}</span>
           </div>
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4 text-purple-400" />
