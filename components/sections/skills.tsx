@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { useTranslations } from "next-intl";
 import { getSkillIcon } from "@/lib/get-skill-icon";
+import { PORTFOLIO_CONFIG } from "@/lib/config";
 
 export type Category = {
   title: string;
@@ -10,7 +11,7 @@ export type Category = {
 export function Skills() {
   const t = useTranslations("portfolio.skills");
 
-  const categories = t.raw("categories") as Record<string, Category>;
+  const categories = PORTFOLIO_CONFIG.categories;
 
   return (
     <section id="skills" className="py-20">
@@ -26,7 +27,7 @@ export function Skills() {
             >
               <CardHeader className="text-center">
                 {getSkillIcon(key, "h-8 w-8 mx-auto mb-2 text-purple-400")}
-                <CardTitle className="text-white">{category.title}</CardTitle>
+                <CardTitle className="text-white">{key}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">

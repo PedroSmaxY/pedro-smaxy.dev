@@ -2,7 +2,6 @@
   "portfolio": {
     "metadata": {},
     "header": {
-      "name": "Pedro SmaxY",
       "navItems": {
         "home": "Início",
         "about": "Sobre Mim",
@@ -13,10 +12,7 @@
       }
     },
     "hero": {
-      "name": "Pedro Henrique da Silva Novais",
       "role": "Desenvolvedor Full Stack",
-      "location": "Rio de Janeiro, RJ",
-      "phone": "(21) 98602-6613",
       "description": "Desenvolvedor Full Stack curioso, com paixão por construir sistemas de alta performance, do back-end ao front-end. Experiência prática com Java, Spring Boot, Python, FastAPI, TypeScript e Next.js.",
       "downloadLabel": "Baixar Currículo",
       "projectsLabel": "Ver Projetos"
@@ -26,18 +22,6 @@
       "paragraphs": [
         "Desenvolvedor Full Stack curioso, apaixonado por construir sistemas de alta performance. Minha experiência abrange desde o desenvolvimento de APIs RESTful robustas com Java (Spring Boot), C# (ASP.NET) e Python (FastAPI), até a criação de interfaces dinâmicas e responsivas com TypeScript, React.js e Next.js. Possuo familiaridade com bancos de dados como PostgreSQL, MySQL e SQLite, e utilizo ferramentas como Docker e práticas de CI/CD para otimizar o fluxo de desenvolvimento.",
         "Atualmente, aplico uma visão integrada de negócios em consultoria, atuando em projetos de marketing, gestão de pessoas e processos comerciais. Busco colaborar em projetos com propósito, combinando conhecimento técnico com habilidades de gestão para entregar soluções completas e eficazes."
-      ],
-      "badges": [
-        "Python",
-        "C#",
-        "ASP.NET Core",
-        "Java",
-        "Spring Boot",
-        "TypeScript",
-        "React.js",
-        "Next.js",
-        "Node.js",
-        "Nest.js"
       ]
     },
     "experiences": {
@@ -209,52 +193,7 @@
       ]
     },
     "skills": {
-      "title": "Habilidades",
-      "categories": {
-        "backend": {
-          "title": "Backend",
-          "skills": [
-            "Java",
-            "C#",
-            "Python",
-            "Spring Boot",
-            "ASP.NET",
-            "Node.js",
-            "Fastify",
-            "Nest.js"
-          ]
-        },
-        "frontend": {
-          "title": "Frontend",
-          "skills": [
-            "JavaScript",
-            "TypeScript",
-            "Next.js",
-            "React",
-            "TailwindCSS",
-            "shadcn/ui"
-          ]
-        },
-        "database": {
-          "title": "Banco de Dados",
-          "skills": ["PostgreSQL", "MySQL", "MongoDB"]
-        },
-        "devops": {
-          "title": "DevOps & Ferramentas",
-          "skills": [
-            "Docker",
-            "Git & GitHub",
-            "Vercel",
-            "Azure",
-            "CI/CD",
-            "Kafka"
-          ]
-        },
-        "mobile": {
-          "title": "Mobile",
-          "skills": ["Kotlin", "Android", "React Native"]
-        }
-      }
+      "title": "Habilidades"
     },
     "education": {
       "title": "Formação Acadêmica",

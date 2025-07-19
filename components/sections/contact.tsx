@@ -4,13 +4,11 @@ import { Mail } from "lucide-react";
 import { Button } from "../ui/button";
 import { GithubLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
+import { PORTFOLIO_CONFIG } from "@/lib/config";
 
 export function Contact() {
-  const links = {
-    linkedin: "https://www.linkedin.com/in/pedrohenriquenv/",
-    email: "pedrohenrique.nv@icloud.com",
-    github: "https://github.com/PedroSmaxY",
-  };
+  const { linkedinUrl, githubUrl } = PORTFOLIO_CONFIG.links;
+  const { email } = PORTFOLIO_CONFIG.personal;
 
   const t = useTranslations("portfolio.contact");
 
@@ -27,21 +25,17 @@ export function Contact() {
           <Button
             className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 py-3"
             onClick={() =>
-              window.open(
-                `mailto:${links.email}`,
-                "_blank",
-                "noopener,noreferrer"
-              )
+              window.open(`mailto:${email}`, "_blank", "noopener,noreferrer")
             }
           >
             <Mail className="mr-2 h-4 w-4" />
-            {links.email}
+            {email}
           </Button>
           <Button
             variant="outline"
             className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white px-8 py-3 bg-transparent"
             onClick={() =>
-              window.open(links.linkedin, "_blank", "noopener,noreferrer")
+              window.open(linkedinUrl, "_blank", "noopener,noreferrer")
             }
           >
             <LinkedinLogoIcon className="mr-2 h-4 w-4" />
@@ -51,7 +45,7 @@ export function Contact() {
             variant="outline"
             className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white px-8 py-3 bg-transparent"
             onClick={() =>
-              window.open(links.github, "_blank", "noopener,noreferrer")
+              window.open(githubUrl, "_blank", "noopener,noreferrer")
             }
           >
             <GithubLogoIcon className="mr-2 h-4 w-4" />
