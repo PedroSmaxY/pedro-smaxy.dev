@@ -19,7 +19,7 @@ export function Hero() {
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-32 sm:pt-20 xl:pt-0"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-purple-900/10"></div>
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="container mx-auto px-6 text-center relative z-10 md:mt-14">
         <div className="mb-8">
           <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 mx-auto mb-8 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 p-1">
             <div className="w-full h-full rounded-full overflow-hidden bg-black">
