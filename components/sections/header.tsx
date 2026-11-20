@@ -1,6 +1,23 @@
 import { useTranslations } from "next-intl";
+import { Menu } from "lucide-react";
 import { LanguageSwitcher } from "../language-switcher";
+import { Button } from "../ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 import { PORTFOLIO_CONFIG } from "@/lib/config";
+
+const NAV_LINKS = [
+  { href: "#home", key: "home" },
+  { href: "#about", key: "about" },
+  { href: "#experience", key: "experiences" },
+  { href: "#projects", key: "projects" },
+  { href: "#skills", key: "skills" },
+  { href: "#contact", key: "contact" },
+] as const;
 
 export function Header() {
   const t = useTranslations("portfolio.header");
@@ -16,44 +33,46 @@ export function Header() {
               {shortName}
             </div>
             <div className="hidden lg:flex space-x-8">
-              <a
-                href="#home"
-                className="hover:text-purple-400 transition-colors"
-              >
-                {t("navItems.home")}
-              </a>
-              <a
-                href="#about"
-                className="hover:text-purple-400 transition-colors"
-              >
-                {t("navItems.about")}
-              </a>
-              <a
-                href="#experience"
-                className="hover:text-purple-400 transition-colors"
-              >
-                {t("navItems.experiences")}
-              </a>
-              <a
-                href="#projects"
-                className="hover:text-purple-400 transition-colors"
-              >
-                {t("navItems.projects")}
-              </a>
-              <a
-                href="#skills"
-                className="hover:text-purple-400 transition-colors"
-              >
-                {t("navItems.skills")}
-              </a>
-              <a
-                href="#contact"
-                className="hover:text-purple-400 transition-colors"
-              >
-                {t("navItems.contact")}
-              </a>
+              {NAV_LINKS.map((item) => (
+                <a
+                  key={item.key}
+                  href={item.href}
+                  className="hover:text-purple-400 transition-colors"
+                >
+                  {t(`navItems.${item.key}`)}
+                </a>
+              ))}
             </div>
-            <LanguageSwitcher />
+            <div className="flex items-center gap-2">
+              <LanguageSwitcher />
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="lg:hidden text-gray-300 hover:text-white hover:bg-purple-600/20"
+                    aria-label="Menu"
+                  >
+                    <Menu className="h-5 w-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="end"
+                  className="bg-gray-900 border-gray-700 lg:hidden"
+                >
+                  {NAV_LINKS.map((item) => (
+                    <DropdownMenuItem key={item.key} asChild>
+                      <a
+                        href={item.href}
+                        className="cursor-pointer hover:bg-purple-600/20"
+                      >
+                        {t(`navItems.${item.key}`)}
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         </div>
       </nav>

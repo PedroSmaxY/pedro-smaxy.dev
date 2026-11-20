@@ -1,8 +1,6 @@
-"use client";
-
 import { Mail } from "lucide-react";
 import { Button } from "../ui/button";
-import { GithubLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
+import { GithubLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react/dist/ssr";
 import { useTranslations } from "next-intl";
 import { PORTFOLIO_CONFIG } from "@/lib/config";
 
@@ -23,33 +21,33 @@ export function Contact() {
         </p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <Button
+            asChild
             className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 py-3"
-            onClick={() =>
-              window.open(`mailto:${email}`, "_blank", "noopener,noreferrer")
-            }
           >
-            <Mail className="mr-2 h-4 w-4" />
-            {email}
+            <a href={`mailto:${email}`}>
+              <Mail className="mr-2 h-4 w-4" />
+              {email}
+            </a>
           </Button>
           <Button
+            asChild
             variant="outline"
             className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white px-8 py-3 bg-transparent"
-            onClick={() =>
-              window.open(linkedinUrl, "_blank", "noopener,noreferrer")
-            }
           >
-            <LinkedinLogoIcon className="mr-2 h-4 w-4" />
-            LinkedIn
+            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+              <LinkedinLogoIcon className="mr-2 h-4 w-4" />
+              LinkedIn
+            </a>
           </Button>
           <Button
+            asChild
             variant="outline"
             className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white px-8 py-3 bg-transparent"
-            onClick={() =>
-              window.open(githubUrl, "_blank", "noopener,noreferrer")
-            }
           >
-            <GithubLogoIcon className="mr-2 h-4 w-4" />
-            GitHub
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+              <GithubLogoIcon className="mr-2 h-4 w-4" />
+              GitHub
+            </a>
           </Button>
         </div>
       </div>

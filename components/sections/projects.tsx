@@ -1,5 +1,3 @@
-"use client";
-
 import { ExternalLink } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
@@ -10,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { GithubLogoIcon } from "@phosphor-icons/react";
+import { GithubLogoIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
@@ -79,34 +77,34 @@ export function Projects() {
                 </div>
                 <div className="flex gap-2">
                   <Button
+                    asChild
                     size="sm"
                     variant="outline"
                     className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white bg-transparent"
-                    onClick={() =>
-                      window.open(
-                        project.github,
-                        "_blank",
-                        "noopener,noreferrer"
-                      )
-                    }
                   >
-                    <GithubLogoIcon className="mr-2 h-4 w-4" />
-                    {labels.code}
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <GithubLogoIcon className="mr-2 h-4 w-4" />
+                      {labels.code}
+                    </a>
                   </Button>
                   {project.live ? (
                     <Button
+                      asChild
                       size="sm"
                       className="bg-purple-600 hover:bg-purple-700"
-                      onClick={() =>
-                        window.open(
-                          project.live,
-                          "_blank",
-                          "noopener,noreferrer"
-                        )
-                      }
                     >
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      {labels.demo}
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        {labels.demo}
+                      </a>
                     </Button>
                   ) : null}
                 </div>

@@ -26,8 +26,8 @@ export function Hero() {
               <Image
                 src={profileImageUrl}
                 alt={`${name} - Profile Image`}
-                width={128}
-                height={128}
+                width={256}
+                height={256}
                 className="w-full h-full object-cover rounded-full"
               />
             </div>
