@@ -1,11 +1,8 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
+"use client";
+
+import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
+import { createMotionScope, gsap, MOTION } from "@/lib/motion";
 
 export type Experience = {
   company: string;
@@ -17,47 +14,111 @@ export type Experience = {
 
 export function Experiences() {
   const t = useTranslations("portfolio.experiences");
-
+  const rootRef = useRef<HTMLElement | null>(null);
+  const progressRef = useRef<HTMLDivElement | null>(null);
   const experiences = t.raw("items") as Experience[];
 
+  useEffect(() => {
+    return createMotionScope(rootRef.current, ({ reduceMotion }) => {
+      if (reduceMotion) return;
+
+      if (progressRef.current) {
+        gsap.fromTo(
+          progressRef.current,
+          { scaleY: 0 },
+          {
+            scaleY: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: rootRef.current,
+              start: "top 65%",
+              end: "bottom 75%",
+              scrub: true,
+            },
+          }
+        );
+      }
+
+      gsap.from("[data-exp-item]", {
+        y: 16,
+        autoAlpha: 0,
+        duration: MOTION.duration.enter,
+        stagger: MOTION.stagger,
+        ease: MOTION.ease,
+        clearProps: "transform,opacity,visibility",
+        scrollTrigger: {
+          trigger: rootRef.current,
+          start: "top 80%",
+          once: true,
+        },
+      });
+    });
+  }, []);
+
   return (
-    <section id="experience" className="py-20">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+    <section
+      id="experience"
+      ref={rootRef}
+      className="grid lg:grid-cols-12 border-b border-[#EDEAE2]/10"
+    >
+      <div className="lg:col-span-4 px-6 sm:px-10 py-12 lg:border-r border-[#EDEAE2]/10">
+        <h2 className="font-serif text-3xl sm:text-4xl tracking-[-0.02em] text-[#EDEAE2] lg:sticky lg:top-24">
           {t("title")}
         </h2>
-        <div className="space-y-8">
+      </div>
+
+      <div className="lg:col-span-8 relative">
+        <div
+          aria-hidden="true"
+          className="hidden sm:block absolute left-10 top-12 bottom-12 w-px bg-[#EDEAE2]/10"
+        >
+          <div
+            ref={progressRef}
+            className="w-full h-full bg-[#FF4D00] origin-top"
+          />
+        </div>
+
+        <div className="divide-y divide-[#EDEAE2]/10">
           {experiences.map((exp, index) => (
-            <Card
-              key={index}
-              className="bg-gray-900/50 border-purple-800/30 hover:border-purple-600/50 transition-all duration-300"
+            <article
+              key={`${exp.company}-${index}`}
+              data-exp-item
+              className="px-6 sm:pl-20 sm:pr-10 py-10 relative"
             >
-              <CardHeader>
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                  <div>
-                    <CardTitle className="text-white text-xl mb-1">
-                      {exp.position}
-                    </CardTitle>
-                    <CardDescription className="text-purple-300 font-semibold text-lg">
-                      {exp.company}
-                    </CardDescription>
-                  </div>
-                  <div className="text-right mt-2 md:mt-0">
-                    <p className="text-gray-400">{exp.period}</p>
-                    <p className="text-gray-500 text-sm">{exp.location}</p>
-                  </div>
+              <span
+                aria-hidden="true"
+                className="hidden sm:block absolute left-[37px] top-12 w-[7px] h-[7px] bg-[#0A0B0D] border border-[#FF4D00]"
+              />
+
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-4">
+                <div>
+                  <h3 className="font-serif text-2xl text-[#EDEAE2]">
+                    {exp.position}
+                  </h3>
+                  <p className="font-mono text-xs text-[#FF8A4C] mt-0.5">
+                    {exp.company}
+                  </p>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 list-disc list-inside marker:text-purple-400">
-                  {exp.description.map((item, itemIndex) => (
-                    <li key={itemIndex} className="text-gray-300">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+                <div className="font-mono text-xs text-[#9A968E] sm:text-right tabular-nums">
+                  <p>{exp.period}</p>
+                  <p className="text-[#636059]">{exp.location}</p>
+                </div>
+              </div>
+
+              <ul className="space-y-2 max-w-[65ch]">
+                {exp.description.map((item, itemIndex) => (
+                  <li
+                    key={itemIndex}
+                    className="text-sm text-[#9A968E] leading-relaxed flex gap-3"
+                  >
+                    <span className="font-mono text-[#FF4D00] select-none">
+                      —
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
           ))}
         </div>
       </div>

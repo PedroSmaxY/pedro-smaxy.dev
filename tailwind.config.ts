@@ -20,12 +20,30 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ["var(--font-serif)", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        signal: {
+          DEFAULT: "#FF4D00",
+          soft: "#FF8A4C",
+        },
+        alabaster: {
+          DEFAULT: "#EDEAE2",
+          muted: "#9A968E",
+        },
+        obsidian: {
+          DEFAULT: "#0A0B0D",
+          surface: "#0F1013",
+          deep: "#07080A",
+        },
         primary: {
           DEFAULT: "#8b5cf6",
           foreground: "#ffffff",

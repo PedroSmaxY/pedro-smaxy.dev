@@ -1,8 +1,31 @@
 import type { Metadata } from "next";
+import { Instrument_Serif, Archivo, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import "./globals.css";
 import { PORTFOLIO_CONFIG } from "@/lib/config";
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export async function generateMetadata({
   params,
@@ -89,8 +112,11 @@ export default async function RootLayout({
   const { locale } = await params;
 
   return (
-    <html lang={locale} className="scroll-smooth">
-      <body>
+    <html
+      lang={locale}
+      className={`${instrumentSerif.variable} ${archivo.variable} ${jetbrainsMono.variable} dark scroll-smooth`}
+    >
+      <body className="bg-[#0A0B0D] text-[#EDEAE2] font-sans antialiased">
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

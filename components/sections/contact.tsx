@@ -1,54 +1,120 @@
-import { Mail } from "lucide-react";
-import { Button } from "../ui/button";
-import { GithubLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react/dist/ssr";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, Check, Copy, Mail } from "lucide-react";
+import { GithubLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 import { PORTFOLIO_CONFIG } from "@/lib/config";
+import { createMotionScope, gsap } from "@/lib/motion";
 
 export function Contact() {
+  const t = useTranslations("portfolio.contact");
   const { linkedinUrl, githubUrl } = PORTFOLIO_CONFIG.links;
   const { email } = PORTFOLIO_CONFIG.personal;
+  const [copied, setCopied] = useState(false);
+  const rootRef = useRef<HTMLElement | null>(null);
 
-  const t = useTranslations("portfolio.contact");
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${email}`;
+    }
+  };
+
+  useEffect(() => {
+    return createMotionScope(rootRef.current, ({ reduceMotion }) => {
+      if (reduceMotion) return;
+      if (!window.matchMedia("(pointer: fine)").matches) return;
+
+      const magnets =
+        rootRef.current?.querySelectorAll<HTMLElement>("[data-magnet]") ?? [];
+      magnets.forEach((el) => {
+        const xTo = gsap.quickTo(el, "x", { duration: 0.3, ease: "power3.out" });
+        const yTo = gsap.quickTo(el, "y", { duration: 0.3, ease: "power3.out" });
+
+        const onMove = (e: PointerEvent) => {
+          const rect = el.getBoundingClientRect();
+          const dx = (e.clientX - (rect.left + rect.width / 2)) * 0.14;
+          const dy = (e.clientY - (rect.top + rect.height / 2)) * 0.14;
+          xTo(Math.max(-6, Math.min(6, dx)));
+          yTo(Math.max(-6, Math.min(6, dy)));
+        };
+
+        const onLeave = () => {
+          xTo(0);
+          yTo(0);
+        };
+
+        el.addEventListener("pointermove", onMove);
+        el.addEventListener("pointerleave", onLeave);
+      });
+    });
+  }, []);
 
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+    <section
+      id="contact"
+      ref={rootRef}
+      className="px-6 sm:px-10 py-16 sm:py-20 dot-matrix border-b border-[#EDEAE2]/10"
+    >
+      <div className="max-w-3xl space-y-6">
+        <h2 className="font-serif text-4xl sm:text-5xl tracking-[-0.02em] text-[#EDEAE2]">
           {t("title")}
         </h2>
-        <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-[#9A968E] leading-relaxed max-w-[60ch]">
           {t("subtitle")}
         </p>
-        <div className="flex flex-col sm:flex-row gap-6 justify-center">
-          <Button
-            asChild
-            className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 py-3"
+
+        <div className="flex flex-wrap items-center gap-3 pt-4">
+          <button
+            type="button"
+            data-magnet
+            onClick={handleCopy}
+            className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#FF4D00] hover:bg-[#ff621f] text-[#0A0B0D] font-mono text-xs font-bold tracking-wider uppercase transition-colors cursor-pointer"
           >
-            <a href={`mailto:${email}`}>
-              <Mail className="mr-2 h-4 w-4" />
-              {email}
-            </a>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white px-8 py-3 bg-transparent"
+            {copied ? (
+              <Check className="h-3.5 w-3.5" />
+            ) : (
+              <Copy className="h-3.5 w-3.5" />
+            )}
+            <span>{copied ? t("copiedLabel") : email}</span>
+          </button>
+
+          <a
+            data-magnet
+            href={`mailto:${email}`}
+            className="inline-flex items-center gap-2 px-5 py-3 border border-[#EDEAE2]/20 hover:border-[#EDEAE2] text-[#EDEAE2] font-mono text-xs tracking-wider uppercase transition-colors"
           >
-            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-              <LinkedinLogoIcon className="mr-2 h-4 w-4" />
-              LinkedIn
-            </a>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white px-8 py-3 bg-transparent"
+            <Mail className="h-3.5 w-3.5" />
+            {t("sendEmailLabel")}
+          </a>
+
+          <a
+            data-magnet
+            href={linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-3 border border-[#EDEAE2]/20 hover:border-[#EDEAE2] text-[#EDEAE2] font-mono text-xs tracking-wider uppercase transition-colors"
           >
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-              <GithubLogoIcon className="mr-2 h-4 w-4" />
-              GitHub
-            </a>
-          </Button>
+            <LinkedinLogoIcon className="h-4 w-4" />
+            LinkedIn
+            <ArrowUpRight className="h-3.5 w-3.5 text-[#9A968E]" />
+          </a>
+
+          <a
+            data-magnet
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-3 border border-[#EDEAE2]/20 hover:border-[#EDEAE2] text-[#EDEAE2] font-mono text-xs tracking-wider uppercase transition-colors"
+          >
+            <GithubLogoIcon className="h-4 w-4" />
+            GitHub
+            <ArrowUpRight className="h-3.5 w-3.5 text-[#9A968E]" />
+          </a>
         </div>
       </div>
     </section>

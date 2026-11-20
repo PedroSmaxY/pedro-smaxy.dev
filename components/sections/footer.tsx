@@ -1,15 +1,18 @@
 import { useTranslations } from "next-intl";
+import { PORTFOLIO_CONFIG } from "@/lib/config";
 
 export function Footer() {
   const t = useTranslations("portfolio.footer");
-  
+  const { name, coordinates } = PORTFOLIO_CONFIG.personal;
+
   return (
-    <footer className="py-8 border-t border-purple-900/20">
-      <div className="container mx-auto px-6 text-center">
-        <p className="text-gray-400" suppressHydrationWarning>
-          © {new Date().getFullYear()} Pedro Henrique da Silva Novais. {t("license")}
-        </p>
-      </div>
+    <footer className="px-6 sm:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs text-[#9A968E]">
+      <p suppressHydrationWarning>
+        © {new Date().getFullYear()} {name}. {t("license")}
+      </p>
+      <span className="text-[#636059] tabular-nums">
+        {coordinates} · RELATIVISTIC MONOGRAPH
+      </span>
     </footer>
   );
 }

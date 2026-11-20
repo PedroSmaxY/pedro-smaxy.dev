@@ -1,81 +1,94 @@
 "use client";
 
-import { Download, MapPin, Phone } from "lucide-react";
-import { Button } from "../ui/button";
-import { PORTFOLIO_CONFIG } from "@/lib/config";
-import Image from "next/image";
-
+import { useEffect, useRef } from "react";
+import { ArrowRight, Download, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { PORTFOLIO_CONFIG } from "@/lib/config";
+import { BlackHoleCanvas } from "@/components/black-hole-canvas";
+import { createMotionScope, gsap, MOTION } from "@/lib/motion";
 
 export function Hero() {
   const t = useTranslations("portfolio.hero");
+  const rootRef = useRef<HTMLElement | null>(null);
+  const { cvDownloadUrl } = PORTFOLIO_CONFIG.links;
 
-  const { profileImageUrl, cvDownloadUrl } = PORTFOLIO_CONFIG.links;
-  const { name, phone } = PORTFOLIO_CONFIG.personal;
+  useEffect(() => {
+    return createMotionScope(rootRef.current, ({ reduceMotion }) => {
+      if (reduceMotion) return;
+
+      gsap.from("[data-hero-reveal]", {
+        y: 20,
+        autoAlpha: 0,
+        duration: MOTION.duration.enter,
+        stagger: MOTION.stagger,
+        ease: MOTION.ease,
+        clearProps: "transform,opacity,visibility",
+      });
+    });
+  }, []);
 
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-32 sm:pt-20 xl:pt-0"
+      ref={rootRef}
+      className="grid lg:grid-cols-12 border-b border-[#EDEAE2]/10"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-purple-900/10"></div>
-      <div className="container mx-auto px-6 text-center relative z-10 md:mt-14">
-        <div className="mb-8">
-          <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 mx-auto mb-8 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 p-1">
-            <div className="w-full h-full rounded-full overflow-hidden bg-black">
-              <Image
-                src={profileImageUrl}
-                alt={`${name} - Profile Image`}
-                width={256}
-                height={256}
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
-          </div>
-        </div>
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          <span className="bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 bg-clip-text text-transparent">
-            {name}
-          </span>
-        </h1>
-        <p className="text-xl md:text-2xl text-purple-300 mb-4 font-semibold">
-          {t("role")}
-        </p>
-        <div className="flex items-center justify-center gap-6 mb-8 text-gray-300">
-          <div className="flex items-center gap-2">
-            <MapPin className="h-4 w-4 text-purple-400" />
-            <span className="text-sm md:text-lg">{t("location")}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Phone className="h-4 w-4 text-purple-400" />
-            <span className="text-sm md:text-lg">{phone}</span>
-          </div>
-        </div>
-        <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-          {t("description")}
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            asChild
-            className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-8 py-3"
+      <div className="lg:col-span-7 px-6 sm:px-10 py-14 sm:py-20 flex flex-col justify-between gap-10 lg:border-r border-[#EDEAE2]/10 dot-matrix">
+        <div className="space-y-6">
+          <h1
+            data-hero-reveal
+            className="font-serif text-5xl sm:text-6xl lg:text-[4.25rem] leading-[0.98] tracking-[-0.025em] font-normal text-[#EDEAE2]"
           >
-            <a href={cvDownloadUrl} download>
-              <Download className="mr-2 h-4 w-4" />
-              {t("downloadLabel")}
-            </a>
-          </Button>
-          <Button
-            variant="outline"
-            className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white px-8 py-3 bg-transparent"
-            onClick={() =>
-              document
-                .getElementById("projects")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
+            {t("headlinePrefix")}{" "}
+            <em className="italic text-[#FF8A4C]">{t("headlineEmphasis")}</em>
+          </h1>
+
+          <div
+            data-hero-reveal
+            className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs text-[#9A968E]"
+          >
+            <span className="inline-flex items-center gap-2 text-[#EDEAE2]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF4D00]" />
+              {t("role")}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5 text-[#FF4D00]" />
+              {t("location")}
+            </span>
+          </div>
+
+          <p
+            data-hero-reveal
+            className="text-[#9A968E] text-base sm:text-lg leading-relaxed max-w-[65ch]"
+          >
+            {t("description")}
+          </p>
+        </div>
+
+        <div data-hero-reveal className="flex flex-wrap items-center gap-4 pt-2">
+          <a
+            href={cvDownloadUrl}
+            download
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#FF4D00] hover:bg-[#ff621f] text-[#0A0B0D] font-mono text-xs font-bold tracking-wider uppercase transition-colors"
+          >
+            <Download className="h-3.5 w-3.5" />
+            {t("downloadLabel")}
+          </a>
+          <a
+            href="#projects"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-[#EDEAE2]/20 hover:border-[#EDEAE2] text-[#EDEAE2] font-mono text-xs tracking-wider uppercase transition-colors group"
           >
             {t("projectsLabel")}
-          </Button>
+            <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
+      </div>
+
+      <div className="lg:col-span-5">
+        <BlackHoleCanvas
+          title={t("instrumentTitle")}
+          hint={t("instrumentHint")}
+        />
       </div>
     </section>
   );

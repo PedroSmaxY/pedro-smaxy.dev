@@ -1,54 +1,59 @@
 {
   "portfolio": {
     "metadata": {
-      "title": "Pedro SmaxY - Portfolio",
-      "description": "Full Stack Developer passionate about technology and innovation. Experience with Java, Spring Boot, Python, FastAPI, Next.js, and TypeScript.",
+      "title": "Pedro SmaxY — Systems Engineering, AI Tooling & Full Stack",
+      "description": "Software Engineer in Rio de Janeiro building Rust simulators, MCP developer tools, ASP.NET Core / Java APIs, and Next.js & TypeScript web products.",
       "keywords": [
         "Pedro SmaxY",
-        "Full Stack Developer",
-        "Portfolio",
+        "Software Engineer",
+        "Rust",
+        "Model Context Protocol",
+        "MCP",
+        "ASP.NET Core",
         "Java",
-        "Spring Boot",
         "Python",
-        "FastAPI",
         "Next.js",
         "TypeScript",
-        "Developer",
-        "Brazil",
+        "Tauri",
         "Rio de Janeiro"
       ],
       "openGraph": {
-        "title": "Pedro SmaxY - Portfolio",
-        "description": "Curious Full Stack Developer with a passion for building high-performance systems.",
-        "siteName": "Pedro SmaxY - Portfolio"
+        "title": "Pedro SmaxY — Systems Engineering & Full Stack",
+        "description": "Relativistic Rust simulators, MCP AI tooling, backend architecture, and high-precision web products.",
+        "siteName": "Pedro SmaxY"
       }
     },
     "header": {
       "navItems": {
-        "home": "Home",
-        "about": "About Me",
-        "skills": "Skills",
-        "experiences": "Experiences",
+        "about": "About",
+        "experiences": "Experience",
         "projects": "Projects",
+        "skills": "Stack",
         "contact": "Contact"
       }
     },
     "hero": {
-      "role": "Full Stack Developer",
+      "role": "Software Engineer · Rio de Janeiro",
       "location": "Rio de Janeiro, Brazil",
-      "description": "Curious Full Stack Developer with a passion for building high-performance systems, from back-end to front-end. Hands-on experience with Java, Spring Boot, Python, FastAPI, TypeScript, and Next.js.",
+      "headlinePrefix": "Systems, AI tooling &",
+      "headlineEmphasis": "relativistic craft.",
+      "description": "From 4D Kerr-Schild black hole simulators in Rust to MCP servers in Python/Typst and full-stack web products with TypeScript, Next.js, and ASP.NET Core 9.",
       "downloadLabel": "Download CV",
-      "projectsLabel": "View Projects"
+      "projectsLabel": "Explore Projects",
+      "instrumentTitle": "SIM // KERR_SCHILD_4D.RS",
+      "instrumentHint": "Move cursor to shift gravitational lensing"
     },
     "about": {
-      "title": "About Me",
+      "title": "From low-level systems to shipped products.",
       "paragraphs": [
-        "Curious Full Stack Developer passionate about building high-performance systems. My experience ranges from developing robust RESTful APIs with Java (Spring Boot), C# (ASP.NET), and Python (FastAPI), to creating dynamic and responsive interfaces with TypeScript, React.js, and Next.js. I am familiar with databases like PostgreSQL, MySQL, and SQLite, and I use tools like Docker and CI/CD practices to optimize the development workflow.",
-        "Currently, I apply a business-integrated vision in consulting, working on marketing, people management, and business process projects. I seek to collaborate on purpose-driven projects, combining technical knowledge with management skills to deliver complete and effective solutions."
-      ]
+        "I am a Full Stack Software Engineer in Rio de Janeiro focused on building software with strong foundations — from Rust terminal rendering pipelines and Model Context Protocol (MCP) developer tools to resilient REST APIs and responsive web interfaces.",
+        "At Salto Consulting, I also bring an integrated business and project management perspective, connecting technical architecture with measurable real-world delivery."
+      ],
+      "educationLabel": "Education",
+      "roleLabel": "Current Role"
     },
     "experiences": {
-      "title": "Experiences",
+      "title": "Experience",
       "items": [
         {
           "company": "Salto Consulting",
@@ -78,166 +83,99 @@
           "period": "August 2024 - November 2024",
           "location": "Rio de Janeiro, Brazil",
           "description": [
-            "Development of an automation solution in Python with Pandas and Selenium",
-            "Reduction of 40% in time spent on repetitive tasks",
+            "Developed an automation solution in Python using Pandas and Selenium",
+            "Reduced time spent on repetitive tasks by 40%",
             "Increased accuracy of processed data"
           ]
         }
       ]
     },
     "projects": {
-      "title": "Projects",
+      "title": "Selected Systems & Projects",
+      "hint": "Click to inspect",
       "labels": {
-        "code": "Code",
-        "demo": "Demo"
+        "code": "Repository",
+        "demo": "Live Demo"
       },
       "items": [
         {
-          "title": "Hardware Store System",
-          "description": "Desktop application for managing a hardware store, developed for the Software Development Lab course using Python. The project follows clean architecture principles with patterns like Repository and Service Layer, a GUI built with PyQt6, and data persistence through SQLAlchemy.",
-          "image": "/labdevsoft-project.png",
-          "tech": [
-            "Python",
-            "PyQt6",
-            "SQLAlchemy",
-            "Clean Architecture",
-            "Repository Pattern",
-            "SQLite",
-            "MySQL"
-          ],
-          "github": "https://github.com/PedroSmaxY/hardware-store",
-          "period": "August - July 2025"
+          "title": "Black Hole ASCII Simulation",
+          "subtitle": "4D Kerr-Schild Geodesic Raymarching in Rust",
+          "description": "Real-time relativistic black hole simulator rendered directly in the terminal in pure Rust with 24-bit TrueColor and Half-Block mode, integrating null geodesics via RK4, Doppler beaming, and Hawking evaporation.",
+          "tech": ["Rust", "Rayon", "RK4 Geodesics", "24-bit TrueColor", "TUI"],
+          "github": "https://github.com/PedroSmaxY/black-hole-ascii-simulation",
+          "period": "2026"
         },
         {
-          "title": "FURIA CS2 Fanbot",
-          "description": "Full-stack solution that offers a conversational experience for FURIA fans. The project integrates a Telegram Bot (Python), a REST API optimized with caching (Fastify.js), and a responsive landing page (Next.js), all orchestrated with Docker Compose. CI/CD is managed by Vercel.",
-          "image": "/furia-landingpage-project.png",
-          "tech": [
-            "Next.js",
-            "Fastify",
-            "Node.js",
-            "Python",
-            "TypeScript",
-            "React",
-            "TailwindCSS",
-            "shadcn/ui",
-            "Vercel",
-            "CI/CD",
-            "Docker",
-            "Docker Compose",
-            "Telegram Bot"
-          ],
-          "github": "https://github.com/PedroSmaxY/furia-fanbot",
-          "live": "https://furia-fanbot.vercel.app/",
-          "period": "April 2025"
+          "title": "Solar System ASCII",
+          "subtitle": "3D Keplerian Orbital Simulator in Rust",
+          "description": "3D terminal Solar System simulator built in pure Rust featuring Keplerian orbital mechanics, procedural raymarching, Rayon parallelism, and high-definition Half-Block/ASCII rendering.",
+          "tech": ["Rust", "Orbital Mechanics", "Raymarching", "TrueColor", "TUI"],
+          "github": "https://github.com/PedroSmaxY/solar-system-ascii",
+          "period": "2026"
+        },
+        {
+          "title": "ABNT MCP",
+          "subtitle": "Academic Research Copilot via Model Context Protocol",
+          "description": "MCP server for scientific research and ABNT-compliant academic writing, featuring normative auditing, Crossref/SciELO source lookup, citation validation, and PDF compilation via Typst and LaTeX.",
+          "tech": ["Python", "FastMCP", "Typst", "LaTeX", "Spec-Driven Dev"],
+          "github": "https://github.com/PedroSmaxY/abnt-mcp",
+          "period": "2026"
+        },
+        {
+          "title": "Memcard",
+          "subtitle": "Zero-Loss Emulator Save Versioning",
+          "description": "Cross-platform desktop application for zero-loss game save synchronization and versioning across retro emulators (DuckStation, PCSX2, RetroArch, RPCS3) and PC ports, built with Tauri, Rust, and React 19.",
+          "tech": ["Tauri", "Rust", "React 19", "TypeScript", "Cloud Sync"],
+          "github": "https://github.com/PedroSmaxY/memcard",
+          "period": "2026"
         },
         {
           "title": "Scheduling System API",
-          "description": "Robust RESTful API for managing appointments, developed with ASP.NET Core and Entity Framework. It implements JWT authentication, role-based access control (Admin/Client), and a complete flow for scheduling and managing time slots. The project is containerized with Docker and documented using Swagger UI.",
-          "image": "/cs-project-background.png",
-          "tech": [
-            "C#",
-            "ASP.NET",
-            "Entity Framework",
-            "PostgreSQL",
-            "Docker",
-            "JWT",
-            "Swagger"
-          ],
+          "subtitle": "Production-Oriented RESTful Architecture",
+          "description": "Appointment scheduling API built with ASP.NET Core 9 and Entity Framework Core featuring JWT authentication, role-based access control (Admin/Client), PostgreSQL, Docker, and Swagger UI.",
+          "tech": ["C#", "ASP.NET Core 9", "PostgreSQL", "EF Core", "Docker", "JWT"],
           "github": "https://github.com/PedroSmaxY/SchedulingSystemAPI",
-          "period": "April 2025"
+          "period": "2025"
         },
         {
-          "title": "API From Scratch (Java)",
-          "description": "RESTful API built with plain Java (no frameworks), showcasing the fundamentals of the HTTP protocol and persistence patterns (SQLite and text files). It implements CRUD operations for user management.",
-          "image": "/java-project-background.png",
-          "tech": ["Java", "CRUD", "HTTP", "SQLite", "Maven"],
-          "github": "https://github.com/PedroSmaxY/apidozero",
-          "period": "April 2024"
-        },
-        {
-          "title": "Insight Web App",
-          "description": "Web application for a personality quiz, built with React and TailwindCSS. It consumes the Profile Insight API to fetch questions and calculate results, and features an offline mode that uses internal data when the server is unavailable.",
-          "image": "/insight-webpage-project.png",
-          "tech": ["React", "TailwindCSS", "JavaScript", "Vite", "CI/CD"],
-          "github": "https://github.com/PedroSmaxY/insight-web-app",
-          "live": "https://pedrosmaxy.github.io/insight-web-app/",
-          "period": "July - December 2024"
-        },
-        {
-          "title": "Profile Insight API",
-          "description": "Profile analysis API that combines SWI-Prolog's declarative logic with FastAPI’s performance (Python). The system uses a knowledge base to provide questions and calculate profile diagnostics (Dominance, Influence, etc.), and is fully containerized with Docker.",
-          "image": "/python-project-background.png",
-          "tech": ["Python", "FastAPI", "SWI-Prolog", "Docker", "CI/CD"],
-          "github": "https://github.com/PedroSmaxY/profile-insight-api",
-          "period": "July - December 2024"
-        },
-        {
-          "title": "JWT Login Auth API",
-          "description": "Authentication API built with Spring Boot and Spring Security. It uses JWT for access control and an in-memory H2 database for simplicity, focusing on a secure user registration and login system.",
-          "image": "/java-project-background.png",
-          "tech": [
-            "Java",
-            "Spring Boot",
-            "Spring Security",
-            "JWT",
-            "H2 Database",
-            "Maven"
-          ],
-          "github": "https://github.com/PedroSmaxY/login-auth-api",
-          "period": "August 2024"
-        },
-        {
-          "title": "Music Streaming API",
-          "description": "One of my first experiences with the Spring Boot ecosystem. REST API inspired by Spotify, using Spring Security for authentication and JPA/Hibernate for persistence with MySQL. The API manages users, songs, and playlists, and includes Swagger documentation.",
-          "image": "/java-project-background.png",
-          "tech": [
-            "Java",
-            "Spring Boot",
-            "Spring Security",
-            "JPA",
-            "Hibernate",
-            "MySQL",
-            "Maven",
-            "Swagger"
-          ],
-          "github": "https://github.com/PedroSmaxY/MusicAPI",
-          "period": "July - August 2024"
-        },
-        {
-          "title": "Pokédex Electron",
-          "description": "Cross-platform desktop application built with Electron and TypeScript. This Pokédex app consumes data from the PokéAPI and includes a releases page with builds for Windows, macOS, and Linux, demonstrating the ability to create and distribute installable software.",
-          "image": "/pokedex-electron-project.png",
-          "tech": ["Electron.js", "TypeScript", "Node.js", "PokéAPI"],
-          "github": "https://github.com/PedroSmaxY/PokedexElectron",
-          "live": "https://github.com/PedroSmaxY/PokedexElectron/releases",
-          "period": "December 2023"
+          "title": "FURIA CS2 FanBot",
+          "subtitle": "Full-Stack Experience & Conversational Bot",
+          "description": "Full-stack fan platform integrating a Python Telegram bot, cached Fastify.js REST API, and responsive Next.js landing page orchestrated with Docker Compose.",
+          "image": "/furia-landingpage-project.png",
+          "tech": ["Next.js", "Fastify", "Python", "TypeScript", "Docker"],
+          "github": "https://github.com/PedroSmaxY/furia-fanbot",
+          "live": "https://furia-fanbot.vercel.app/",
+          "period": "2025"
         }
       ]
     },
     "skills": {
-      "title": "Skills",
+      "title": "Architecture & Tooling",
       "categoryTitles": {
-        "backend": "Backend",
-        "frontend": "Frontend",
-        "database": "Database",
-        "devops": "Devops & Tools",
-        "mobile": "Mobile"
+        "systems": "Systems & Performance",
+        "ai": "AI & Developer Tooling",
+        "backend": "Backend & Data",
+        "frontend": "Frontend & Product",
+        "devops": "Infrastructure & CI/CD"
       }
     },
     "education": {
-      "title": "Education",
+      "title": "Academic Background",
       "educationExperience": [
         {
-          "degree": "Bachelor's in Computer Science",
-          "institution": "Veiga de Almeida University",
+          "degree": "Bachelor's Degree in Computer Science",
+          "institution": "Universidade Veiga de Almeida",
           "period": "May 2023 – December 2026"
         }
       ]
     },
     "contact": {
-      "title": "Let's Talk?",
-      "subtitle": "I am always open to new opportunities and interesting projects. Get in touch with me!"
+      "title": "Let's build something resilient.",
+      "subtitle": "Open to software engineering challenges across systems, AI tooling, and full-stack architecture.",
+      "copyLabel": "Copy email",
+      "copiedLabel": "Copied",
+      "sendEmailLabel": "Send email"
     },
     "footer": {
       "license": "Licensed under the MIT License"

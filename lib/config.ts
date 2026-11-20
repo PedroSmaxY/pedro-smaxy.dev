@@ -4,7 +4,7 @@ export const PORTFOLIO_CONFIG = {
     shortName: "Pedro SmaxY",
     email: "pedrohenrique.nv@icloud.com",
     phone: "+55 (21) 98602-6613",
-    emoji: "👨‍💻",
+    coordinates: "22.9068° S",
   },
 
   links: {
@@ -16,41 +16,39 @@ export const PORTFOLIO_CONFIG = {
 
   technologies: {
     mainBadges: [
+      "Rust",
       "Python",
+      "MCP",
       "C#",
       "ASP.NET Core",
       "Java",
       "Spring Boot",
       "TypeScript",
-      "React.js",
+      "React 19",
       "Next.js",
-      "Node.js",
-      "Nest.js",
+      "Tauri",
+      "Docker",
     ],
   },
 
   skillCategories: {
+    systems: ["Rust", "Tauri", "Rayon", "Terminal UI", "C"],
+    ai: ["Model Context Protocol", "FastMCP", "Typst", "LaTeX", "Spec-Driven Dev"],
     backend: [
-      "Java",
-      "C#",
-      "Python",
-      "Spring Boot",
-      "ASP.NET",
-      "Node.js",
-      "Fastify",
-      "Nest.js",
+      "C# / ASP.NET Core 9",
+      "Java / Spring Boot",
+      "Python / FastAPI",
+      "Node.js / Fastify",
+      "PostgreSQL / MySQL / SQLite",
     ],
     frontend: [
-      "JavaScript",
       "TypeScript",
       "Next.js",
-      "React",
+      "React 19",
       "TailwindCSS",
-      "shadcn/ui",
+      "GSAP",
     ],
-    database: ["PostgreSQL", "MySQL", "MongoDB"],
-    devops: ["Docker", "Git & GitHub", "Vercel", "Azure", "CI/CD", "Kafka"],
-    mobile: ["Kotlin", "Android", "React Native"],
+    devops: ["Docker", "Git & GitHub", "CI/CD", "Vercel", "Azure"],
   },
 } as const;
 
