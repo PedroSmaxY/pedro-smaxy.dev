@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Menu } from "lucide-react";
 import { LanguageSwitcher } from "../language-switcher";
+import { ScrollProgress } from "../scroll-progress";
 import { Button } from "../ui/button";
 import {
   DropdownMenu,
@@ -80,6 +81,7 @@ export function Header() {
           </DropdownMenu>
         </div>
       </div>
+      <ScrollProgress />
     </header>
   );
 }

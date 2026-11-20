@@ -18,16 +18,14 @@ export function About() {
     return createMotionScope(rootRef.current, ({ reduceMotion }) => {
       if (reduceMotion) return;
 
-      gsap.from("[data-about-reveal]", {
-        y: 18,
-        autoAlpha: 0,
+      gsap.from("[data-about-portrait]", {
+        clipPath: "inset(0 0 100% 0)",
         duration: MOTION.duration.enter,
-        stagger: MOTION.stagger,
         ease: MOTION.ease,
-        clearProps: "transform,opacity,visibility",
+        clearProps: "clipPath",
         scrollTrigger: {
-          trigger: rootRef.current,
-          start: "top 82%",
+          trigger: "[data-about-portrait]",
+          start: "top 85%",
           once: true,
         },
       });
@@ -41,12 +39,15 @@ export function About() {
       className="grid lg:grid-cols-12 border-b border-[#EDEAE2]/10"
     >
       <div className="lg:col-span-4 px-6 sm:px-10 py-12 lg:border-r border-[#EDEAE2]/10 flex flex-col justify-between gap-8">
-        <div data-about-reveal className="space-y-6">
+        <div className="space-y-6">
           <h2 className="font-serif text-3xl sm:text-4xl leading-tight tracking-[-0.02em] text-[#EDEAE2]">
             {t("title")}
           </h2>
 
-          <div className="relative w-44 sm:w-52 aspect-square border border-[#EDEAE2]/15 bg-[#0F1013] p-1.5">
+          <div
+            data-about-portrait
+            className="relative w-44 sm:w-52 aspect-square border border-[#EDEAE2]/15 bg-[#0F1013] p-1.5"
+          >
             <Image
               src={profileImageUrl}
               alt={`${name} — Portrait`}
@@ -57,10 +58,7 @@ export function About() {
           </div>
         </div>
 
-        <div
-          data-about-reveal
-          className="pt-6 border-t border-[#EDEAE2]/10 font-mono text-xs text-[#9A968E] space-y-2"
-        >
+        <div className="pt-6 border-t border-[#EDEAE2]/10 font-mono text-xs text-[#9A968E] space-y-2">
           <div className="flex justify-between gap-4">
             <span>{t("educationLabel")}</span>
             <span className="text-[#EDEAE2] text-right">
@@ -79,7 +77,6 @@ export function About() {
           {paragraphs.map((paragraph, index) => (
             <p
               key={index}
-              data-about-reveal
               className={`leading-relaxed ${
                 index === 0
                   ? "text-base sm:text-lg text-[#EDEAE2]/90"
@@ -91,10 +88,7 @@ export function About() {
           ))}
         </div>
 
-        <div
-          data-about-reveal
-          className="flex flex-wrap gap-2 pt-4 border-t border-[#EDEAE2]/10"
-        >
+        <div className="flex flex-wrap gap-2 pt-4 border-t border-[#EDEAE2]/10">
           {badges.map((badge) => (
             <span
               key={badge}

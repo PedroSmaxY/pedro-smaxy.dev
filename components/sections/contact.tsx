@@ -31,16 +31,26 @@ export function Contact() {
 
       const magnets =
         rootRef.current?.querySelectorAll<HTMLElement>("[data-magnet]") ?? [];
+
       magnets.forEach((el) => {
-        const xTo = gsap.quickTo(el, "x", { duration: 0.3, ease: "power3.out" });
-        const yTo = gsap.quickTo(el, "y", { duration: 0.3, ease: "power3.out" });
+        const inner = el.querySelector<HTMLElement>("[data-magnet-inner]");
+        if (!inner) return;
+
+        const xTo = gsap.quickTo(inner, "x", {
+          duration: 0.25,
+          ease: "power3.out",
+        });
+        const yTo = gsap.quickTo(inner, "y", {
+          duration: 0.25,
+          ease: "power3.out",
+        });
 
         const onMove = (e: PointerEvent) => {
           const rect = el.getBoundingClientRect();
-          const dx = (e.clientX - (rect.left + rect.width / 2)) * 0.14;
-          const dy = (e.clientY - (rect.top + rect.height / 2)) * 0.14;
-          xTo(Math.max(-6, Math.min(6, dx)));
-          yTo(Math.max(-6, Math.min(6, dy)));
+          const dx = (e.clientX - (rect.left + rect.width / 2)) * 0.12;
+          const dy = (e.clientY - (rect.top + rect.height / 2)) * 0.12;
+          xTo(Math.max(-5, Math.min(5, dx)));
+          yTo(Math.max(-5, Math.min(5, dy)));
         };
 
         const onLeave = () => {
@@ -73,23 +83,30 @@ export function Contact() {
             type="button"
             data-magnet
             onClick={handleCopy}
-            className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#FF4D00] hover:bg-[#ff621f] text-[#0A0B0D] font-mono text-xs font-bold tracking-wider uppercase transition-colors cursor-pointer"
+            className="inline-flex items-center px-6 py-3 bg-[#FF4D00] hover:bg-[#ff621f] text-[#0A0B0D] font-mono text-xs font-bold tracking-wider uppercase transition-colors cursor-pointer"
           >
-            {copied ? (
-              <Check className="h-3.5 w-3.5" />
-            ) : (
-              <Copy className="h-3.5 w-3.5" />
-            )}
-            <span>{copied ? t("copiedLabel") : email}</span>
+            <span
+              data-magnet-inner
+              className="inline-flex items-center gap-2.5"
+            >
+              {copied ? (
+                <Check className="h-3.5 w-3.5" />
+              ) : (
+                <Copy className="h-3.5 w-3.5" />
+              )}
+              <span>{copied ? t("copiedLabel") : email}</span>
+            </span>
           </button>
 
           <a
             data-magnet
             href={`mailto:${email}`}
-            className="inline-flex items-center gap-2 px-5 py-3 border border-[#EDEAE2]/20 hover:border-[#EDEAE2] text-[#EDEAE2] font-mono text-xs tracking-wider uppercase transition-colors"
+            className="inline-flex items-center px-5 py-3 border border-[#EDEAE2]/20 hover:border-[#EDEAE2] text-[#EDEAE2] font-mono text-xs tracking-wider uppercase transition-colors"
           >
-            <Mail className="h-3.5 w-3.5" />
-            {t("sendEmailLabel")}
+            <span data-magnet-inner className="inline-flex items-center gap-2">
+              <Mail className="h-3.5 w-3.5" />
+              {t("sendEmailLabel")}
+            </span>
           </a>
 
           <a
@@ -97,11 +114,13 @@ export function Contact() {
             href={linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 border border-[#EDEAE2]/20 hover:border-[#EDEAE2] text-[#EDEAE2] font-mono text-xs tracking-wider uppercase transition-colors"
+            className="inline-flex items-center px-5 py-3 border border-[#EDEAE2]/20 hover:border-[#EDEAE2] text-[#EDEAE2] font-mono text-xs tracking-wider uppercase transition-colors"
           >
-            <LinkedinLogoIcon className="h-4 w-4" />
-            LinkedIn
-            <ArrowUpRight className="h-3.5 w-3.5 text-[#9A968E]" />
+            <span data-magnet-inner className="inline-flex items-center gap-2">
+              <LinkedinLogoIcon className="h-4 w-4" />
+              LinkedIn
+              <ArrowUpRight className="h-3.5 w-3.5 text-[#9A968E]" />
+            </span>
           </a>
 
           <a
@@ -109,11 +128,13 @@ export function Contact() {
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 border border-[#EDEAE2]/20 hover:border-[#EDEAE2] text-[#EDEAE2] font-mono text-xs tracking-wider uppercase transition-colors"
+            className="inline-flex items-center px-5 py-3 border border-[#EDEAE2]/20 hover:border-[#EDEAE2] text-[#EDEAE2] font-mono text-xs tracking-wider uppercase transition-colors"
           >
-            <GithubLogoIcon className="h-4 w-4" />
-            GitHub
-            <ArrowUpRight className="h-3.5 w-3.5 text-[#9A968E]" />
+            <span data-magnet-inner className="inline-flex items-center gap-2">
+              <GithubLogoIcon className="h-4 w-4" />
+              GitHub
+              <ArrowUpRight className="h-3.5 w-3.5 text-[#9A968E]" />
+            </span>
           </a>
         </div>
       </div>

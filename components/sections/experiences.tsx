@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
-import { createMotionScope, gsap, MOTION } from "@/lib/motion";
+import { createMotionScope, gsap } from "@/lib/motion";
 
 export type Experience = {
   company: string;
@@ -38,20 +38,6 @@ export function Experiences() {
           }
         );
       }
-
-      gsap.from("[data-exp-item]", {
-        y: 16,
-        autoAlpha: 0,
-        duration: MOTION.duration.enter,
-        stagger: MOTION.stagger,
-        ease: MOTION.ease,
-        clearProps: "transform,opacity,visibility",
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: "top 80%",
-          once: true,
-        },
-      });
     });
   }, []);
 

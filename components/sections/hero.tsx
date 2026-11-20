@@ -16,14 +16,34 @@ export function Hero() {
     return createMotionScope(rootRef.current, ({ reduceMotion }) => {
       if (reduceMotion) return;
 
-      gsap.from("[data-hero-reveal]", {
-        y: 20,
-        autoAlpha: 0,
+      const tl = gsap.timeline({ defaults: { ease: MOTION.ease } });
+      tl.from("[data-hero-title]", {
+        clipPath: "inset(0 0 100% 0)",
+        y: 14,
         duration: MOTION.duration.enter,
-        stagger: MOTION.stagger,
-        ease: MOTION.ease,
-        clearProps: "transform,opacity,visibility",
-      });
+        clearProps: "clipPath,transform",
+      })
+        .from(
+          "[data-hero-instrument]",
+          {
+            scale: 0.97,
+            autoAlpha: 0,
+            duration: 0.75,
+            clearProps: "transform,opacity,visibility",
+          },
+          "-=0.5"
+        )
+        .from(
+          "[data-hero-meta]",
+          {
+            y: 10,
+            autoAlpha: 0,
+            duration: 0.45,
+            stagger: MOTION.stagger,
+            clearProps: "transform,opacity,visibility",
+          },
+          "-=0.45"
+        );
     });
   }, []);
 
@@ -36,7 +56,7 @@ export function Hero() {
       <div className="lg:col-span-7 px-6 sm:px-10 py-14 sm:py-20 flex flex-col justify-between gap-10 lg:border-r border-[#EDEAE2]/10 dot-matrix">
         <div className="space-y-6">
           <h1
-            data-hero-reveal
+            data-hero-title
             className="font-serif text-5xl sm:text-6xl lg:text-[4.25rem] leading-[0.98] tracking-[-0.025em] font-normal text-[#EDEAE2]"
           >
             {t("headlinePrefix")}{" "}
@@ -44,7 +64,7 @@ export function Hero() {
           </h1>
 
           <div
-            data-hero-reveal
+            data-hero-meta
             className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs text-[#9A968E]"
           >
             <span className="inline-flex items-center gap-2 text-[#EDEAE2]">
@@ -58,14 +78,14 @@ export function Hero() {
           </div>
 
           <p
-            data-hero-reveal
+            data-hero-meta
             className="text-[#9A968E] text-base sm:text-lg leading-relaxed max-w-[65ch]"
           >
             {t("description")}
           </p>
         </div>
 
-        <div data-hero-reveal className="flex flex-wrap items-center gap-4 pt-2">
+        <div data-hero-meta className="flex flex-wrap items-center gap-4 pt-2">
           <a
             href={cvDownloadUrl}
             download
@@ -84,7 +104,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="lg:col-span-5">
+      <div data-hero-instrument className="lg:col-span-5">
         <BlackHoleCanvas
           title={t("instrumentTitle")}
           hint={t("instrumentHint")}

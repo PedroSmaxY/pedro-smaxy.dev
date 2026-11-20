@@ -13,14 +13,14 @@ export function ensureGsapRegistered() {
 }
 
 export const MOTION = {
-  ease: "power3.out",
+  ease: "expo.out",
   easeInOut: "power2.inOut",
   duration: {
-    micro: 0.2,
-    enter: 0.65,
-    section: 0.85,
+    micro: 0.18,
+    state: 0.28,
+    enter: 0.7,
   },
-  stagger: 0.06,
+  stagger: 0.05,
 } as const;
 
 /**

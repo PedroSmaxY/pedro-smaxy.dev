@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { GithubLogoIcon } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
-import { createMotionScope, gsap, MOTION } from "@/lib/motion";
 
 export type Project = {
   title: string;
@@ -20,38 +19,13 @@ export type Project = {
 
 export function Projects() {
   const t = useTranslations("portfolio.projects");
-  const rootRef = useRef<HTMLElement | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   const projects = t.raw("items") as Project[];
   const labels = t.raw("labels") as { code: string; demo: string };
 
-  useEffect(() => {
-    return createMotionScope(rootRef.current, ({ reduceMotion }) => {
-      if (reduceMotion) return;
-
-      gsap.from("[data-project-row]", {
-        y: 16,
-        autoAlpha: 0,
-        duration: MOTION.duration.enter,
-        stagger: MOTION.stagger,
-        ease: MOTION.ease,
-        clearProps: "transform,opacity,visibility",
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: "top 80%",
-          once: true,
-        },
-      });
-    });
-  }, []);
-
   return (
-    <section
-      id="projects"
-      ref={rootRef}
-      className="border-b border-[#EDEAE2]/10"
-    >
+    <section id="projects" className="border-b border-[#EDEAE2]/10">
       <div className="px-6 sm:px-10 py-8 border-b border-[#EDEAE2]/10 flex flex-wrap items-baseline justify-between gap-4">
         <h2 className="font-serif text-3xl sm:text-4xl tracking-[-0.02em] text-[#EDEAE2]">
           {t("title")}
@@ -69,8 +43,7 @@ export function Projects() {
           return (
             <div
               key={project.title}
-              data-project-row
-              className={`transition-colors ${
+              className={`transition-colors duration-200 ${
                 isOpen ? "bg-[#0F1013]" : "hover:bg-[#EDEAE2]/[0.02]"
               }`}
             >
@@ -82,7 +55,7 @@ export function Projects() {
               >
                 <div className="flex items-baseline gap-5 sm:gap-7">
                   <span
-                    className={`font-mono text-xs tabular-nums ${
+                    className={`font-mono text-xs tabular-nums transition-colors ${
                       isOpen ? "text-[#FF4D00]" : "text-[#9A968E]"
                     }`}
                   >
@@ -108,71 +81,82 @@ export function Projects() {
                     {project.period}
                   </span>
                   <ChevronRight
-                    className={`h-4 w-4 transition-transform duration-200 ${
+                    className={`h-4 w-4 transition-transform duration-200 motion-reduce:transition-none ${
                       isOpen ? "rotate-90 text-[#FF4D00]" : "text-[#EDEAE2]"
                     }`}
                   />
                 </div>
               </button>
 
-              {isOpen ? (
-                <div className="px-6 sm:px-10 pb-8 pt-2 sm:pl-[5.25rem] grid lg:grid-cols-12 gap-6 items-start">
-                  <div
-                    className={`${
-                      project.image ? "lg:col-span-7" : "lg:col-span-8"
-                    } space-y-5`}
-                  >
-                    <p className="text-sm sm:text-base text-[#EDEAE2]/85 leading-relaxed max-w-[65ch]">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2.5 py-0.5 border border-[#EDEAE2]/15 bg-[#0A0B0D] font-mono text-xs text-[#EDEAE2]/85"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex flex-wrap items-center gap-3 pt-1">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 border border-[#EDEAE2]/20 hover:border-[#FF4D00] font-mono text-xs text-[#EDEAE2] transition-colors"
-                      >
-                        <GithubLogoIcon className="h-4 w-4" />
-                        {labels.code}
-                        <ArrowUpRight className="h-3.5 w-3.5 text-[#FF4D00]" />
-                      </a>
-                      {project.live ? (
+              <div
+                className={`grid transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                  isOpen
+                    ? "grid-rows-[1fr] opacity-100"
+                    : "grid-rows-[0fr] opacity-0 pointer-events-none"
+                }`}
+                aria-hidden={!isOpen}
+              >
+                <div className="overflow-hidden">
+                  <div className="px-6 sm:px-10 pb-8 pt-2 sm:pl-[5.25rem] grid lg:grid-cols-12 gap-6 items-start">
+                    <div
+                      className={`${
+                        project.image ? "lg:col-span-7" : "lg:col-span-8"
+                      } space-y-5`}
+                    >
+                      <p className="text-sm sm:text-base text-[#EDEAE2]/85 leading-relaxed max-w-[65ch]">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.tech.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2.5 py-0.5 border border-[#EDEAE2]/15 bg-[#0A0B0D] font-mono text-xs text-[#EDEAE2]/85"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="flex flex-wrap items-center gap-3 pt-1">
                         <a
-                          href={project.live}
+                          href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-[#FF4D00] hover:bg-[#ff621f] font-mono text-xs font-bold text-[#0A0B0D] transition-colors"
+                          tabIndex={isOpen ? 0 : -1}
+                          className="inline-flex items-center gap-2 px-4 py-2 border border-[#EDEAE2]/20 hover:border-[#FF4D00] font-mono text-xs text-[#EDEAE2] transition-colors"
                         >
-                          {labels.demo}
-                          <ArrowUpRight className="h-3.5 w-3.5" />
+                          <GithubLogoIcon className="h-4 w-4" />
+                          {labels.code}
+                          <ArrowUpRight className="h-3.5 w-3.5 text-[#FF4D00]" />
                         </a>
-                      ) : null}
+                        {project.live ? (
+                          <a
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            tabIndex={isOpen ? 0 : -1}
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-[#FF4D00] hover:bg-[#ff621f] font-mono text-xs font-bold text-[#0A0B0D] transition-colors"
+                          >
+                            {labels.demo}
+                            <ArrowUpRight className="h-3.5 w-3.5" />
+                          </a>
+                        ) : null}
+                      </div>
                     </div>
-                  </div>
 
-                  {project.image ? (
-                    <div className="lg:col-span-5 border border-[#EDEAE2]/15 bg-[#07080A] overflow-hidden">
-                      <Image
-                        src={project.image}
-                        width={640}
-                        height={380}
-                        alt={project.title}
-                        className="w-full h-48 sm:h-56 object-cover"
-                      />
-                    </div>
-                  ) : null}
+                    {project.image ? (
+                      <div className="lg:col-span-5 border border-[#EDEAE2]/15 bg-[#07080A] overflow-hidden">
+                        <Image
+                          src={project.image}
+                          width={640}
+                          height={380}
+                          alt={project.title}
+                          className="w-full h-48 sm:h-56 object-cover"
+                        />
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
-              ) : null}
+              </div>
             </div>
           );
         })}
