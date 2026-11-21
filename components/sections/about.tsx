@@ -119,7 +119,7 @@ export function About() {
           {badges.map((badge) => (
             <span
               key={badge}
-              className="px-2.5 py-1 border border-[#EDEAE2]/12 bg-[#0F1013] font-mono text-xs text-[#EDEAE2]/85 hover:border-[#EDEAE2]/25 transition-colors cursor-default select-none"
+              className="px-2.5 py-1 border border-[#EDEAE2]/12 bg-[#0F1013] font-mono text-xs text-[#EDEAE2]/85 transition-colors duration-200 hover:border-[#EDEAE2]/30 hover:text-[#EDEAE2] cursor-default"
             >
               {badge}
             </span>

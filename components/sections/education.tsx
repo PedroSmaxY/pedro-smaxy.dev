@@ -99,7 +99,7 @@ export function Education() {
                   {focusAreas.map((area) => (
                     <span
                       key={area}
-                      className="px-2.5 py-1 border border-[#EDEAE2]/12 bg-[#0F1013] font-mono text-[11px] text-[#EDEAE2]/85"
+                      className="px-2.5 py-1 border border-[#EDEAE2]/12 bg-[#0F1013] font-mono text-[11px] text-[#EDEAE2]/85 transition-colors duration-200 hover:border-[#EDEAE2]/30 hover:text-[#EDEAE2] cursor-default"
                     >
                       {area}
                     </span>

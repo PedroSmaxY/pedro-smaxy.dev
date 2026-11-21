@@ -507,7 +507,7 @@ export function Projects() {
                     {selected.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-0.5 border border-[#EDEAE2]/15 bg-[#0A0B0D] font-mono text-xs text-[#EDEAE2]/85"
+                        className="px-2.5 py-0.5 border border-[#EDEAE2]/15 bg-[#0A0B0D] font-mono text-xs text-[#EDEAE2]/85 transition-colors duration-200 hover:border-[#EDEAE2]/30 hover:text-[#EDEAE2] cursor-default"
                       >
                         {tech}
                       </span>
@@ -614,7 +614,7 @@ export function Projects() {
                       {project.tech.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2.5 py-0.5 border border-[#EDEAE2]/15 bg-[#0A0B0D] font-mono text-xs text-[#EDEAE2]/85"
+                          className="px-2.5 py-0.5 border border-[#EDEAE2]/15 bg-[#0A0B0D] font-mono text-xs text-[#EDEAE2]/85 transition-colors duration-200 hover:border-[#EDEAE2]/30 hover:text-[#EDEAE2] cursor-default"
                         >
                           {tech}
                         </span>
