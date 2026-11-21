@@ -148,7 +148,7 @@
         },
         {
           "title": "FinAI",
-          "subtitle": "Plataforma de Inteligência Financeira (TCC)",
+          "subtitle": "Plataforma de Inteligência Financeira · Full-Stack & IA",
           "description": "Plataforma full-stack de inteligência financeira e patrimonial com IA: importa extratos OFX/CSV com anonimização LGPD, categoriza gastos, acompanha metas, carteira e IRPF/PJ, e traz assistente financeiro com IA em streaming SSE com chave BYOK (AES-256-GCM).",
           "image": "/finai-dashboard.png",
           "terminalPreview": [

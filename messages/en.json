@@ -148,7 +148,7 @@
         },
         {
           "title": "FinAI",
-          "subtitle": "Financial Intelligence Platform (Capstone)",
+          "subtitle": "Financial Intelligence Platform · Full-Stack & AI",
           "description": "Full-stack AI financial and wealth management platform: imports OFX/CSV statements with LGPD anonymization, auto-categorizes spending, tracks goals, portfolio, and tax modules, and streams an AI financial assistant via SSE with BYOK (AES-256-GCM) security.",
           "image": "/finai-dashboard.png",
           "terminalPreview": [
