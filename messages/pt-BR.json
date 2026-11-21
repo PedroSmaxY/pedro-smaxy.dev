@@ -68,7 +68,7 @@
             "Implementação de fluxo Spec-Driven Development (SDD) com especificações técnicas para execução assistida por agentes",
             "Desenvolvimento e integração de sistemas e ferramentas utilizando Model Context Protocol (MCP) e LLMs (Claude, OpenAI)",
             "Automação de processos operacionais e fluxos internos, reduzindo erros manuais e gargalos de entrega",
-            "Definição de arquitetura de software e governança técnica no uso de agentes de IA"
+            "Contribuição em decisões de arquitetura e padronização no uso de agentes de IA"
           ]
         },
         {
@@ -149,7 +149,7 @@
         {
           "title": "FinAI",
           "subtitle": "Plataforma de Inteligência Financeira (TCC)",
-          "description": "Plataforma full-stack de inteligência financeira e patrimonial com IA: importa extratos OFX/CSV com anonimização LGPD, categoriza gastos, acompanha metas, carteira e IRPF/PJ, e traz consultor CFP® em streaming SSE com chave BYOK (AES-256-GCM).",
+          "description": "Plataforma full-stack de inteligência financeira e patrimonial com IA: importa extratos OFX/CSV com anonimização LGPD, categoriza gastos, acompanha metas, carteira e IRPF/PJ, e traz assistente financeiro com IA em streaming SSE com chave BYOK (AES-256-GCM).",
           "image": "/finai-dashboard.png",
           "terminalPreview": [
             "$ spec-kit --verify finai",
@@ -202,7 +202,7 @@
     "education": {
       "title": "Formação Acadêmica",
       "cycleLabel": "CICLO ACADÊMICO // 95% CONCLUÍDO",
-      "focusLabel": "Ênfase & Pesquisa Aplicada",
+      "focusLabel": "Áreas de Foco",
       "focusAreas": [
         "Spec-Driven Development (SDD)",
         "Privacidade & Segurança (LGPD / BYOK)",
