@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
-import { createMotionScope, gsap } from "@/lib/motion";
+import { createMotionScope, gsap, MOTION } from "@/lib/motion";
 
 export type Experience = {
   company: string;
@@ -48,7 +48,7 @@ export function Experiences() {
           backgroundColor: "#FF4D00",
           scale: 1.15,
           duration: 0.22,
-          ease: "power2.out",
+          ease: MOTION.ease,
           scrollTrigger: {
             trigger: item,
             start: "top 68%",
@@ -74,7 +74,7 @@ export function Experiences() {
       <div className="lg:col-span-8 relative">
         <div
           aria-hidden="true"
-          className="hidden sm:block absolute left-10 top-12 bottom-12 w-px bg-[#EDEAE2]/10"
+          className="absolute left-5 sm:left-10 top-12 bottom-12 w-px bg-[#EDEAE2]/10"
         >
           <div
             ref={progressRef}
@@ -87,12 +87,12 @@ export function Experiences() {
             <article
               key={`${exp.company}-${index}`}
               data-exp-item
-              className="px-6 sm:pl-20 sm:pr-10 py-10 relative"
+              className="pl-11 pr-6 sm:pl-20 sm:pr-10 py-10 relative"
             >
               <span
                 aria-hidden="true"
                 data-exp-dot
-                className="hidden sm:block absolute left-[37px] top-12 w-[7px] h-[7px] bg-[#0A0B0D] border border-[#FF4D00] transition-colors"
+                className="absolute left-[17px] sm:left-[37px] top-12 w-[7px] h-[7px] bg-[#0A0B0D] border border-[#FF4D00] transition-colors"
               />
 
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-4">

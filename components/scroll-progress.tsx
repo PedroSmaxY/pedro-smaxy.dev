@@ -34,7 +34,7 @@ export function ScrollProgress() {
     <div
       ref={barRef}
       aria-hidden="true"
-      className="h-px w-full bg-[#FF4D00] origin-left scale-x-0 pointer-events-none"
+      className="h-px w-full bg-[#FF4D00] origin-left pointer-events-none"
     />
   );
 }

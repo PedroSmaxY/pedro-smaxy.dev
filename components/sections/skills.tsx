@@ -96,13 +96,21 @@ export function Skills() {
             <div
               key={key}
               data-skill-col
+              role="button"
               tabIndex={0}
+              aria-pressed={isFocused}
               onMouseEnter={() => setHoveredKey(key)}
               onFocus={() => setHoveredKey(key)}
               onBlur={() => setHoveredKey(null)}
               onClick={() =>
                 setHoveredKey((prev) => (prev === key ? null : key))
               }
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setHoveredKey((prev) => (prev === key ? null : key));
+                }
+              }}
               className={`relative p-6 sm:p-7 flex flex-col justify-between gap-6 transition-all duration-200 cursor-default focus-visible:outline-none focus-visible:bg-[#0F1013] ${spanClass} ${borderClass} ${
                 isFocused
                   ? "bg-[#0F1013] opacity-100"

@@ -62,11 +62,11 @@ export function Contact() {
 
         const xTo = gsap.quickTo(inner, "x", {
           duration: 0.25,
-          ease: "power3.out",
+          ease: MOTION.ease,
         });
         const yTo = gsap.quickTo(inner, "y", {
           duration: 0.25,
-          ease: "power3.out",
+          ease: MOTION.ease,
         });
 
         const onMove = (e: PointerEvent) => {
