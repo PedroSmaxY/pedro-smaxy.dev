@@ -70,8 +70,8 @@ function sampleGalacticSky(
   }
 
   const gridN = 26.0;
-  const density = 0.045;
-  const invR2 = 34.0;
+  const density = 0.058;
+  const invR2 = 22.0;
   const gx = (u * 0.5 + 0.5) * gridN;
   const gy = (v * 0.5 + 0.5) * gridN;
   const cx = Math.floor(gx);
@@ -99,7 +99,7 @@ function sampleGalacticSky(
       const tempSeed = hash3(nx + 7, ny - 11, face * 19);
       const twinkle = 0.88 + 0.12 * Math.sin(time * 2.0 + h * 40.0);
       const mag = 0.45 + 0.55 * ((h - (1.0 - density)) / density);
-      const b = mag * core * twinkle * 0.42;
+      const b = mag * core * twinkle * 0.78;
 
       // Stellar temperature variation (cool blue-white to warm ivory/amber)
       if (tempSeed < 0.35) {
@@ -496,21 +496,22 @@ export function BlackHoleCanvas({
           );
 
           const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-          if (lum < 0.012) continue;
+          if (lum < 0.018) continue;
 
-          const ir = Math.min(255, Math.round(r * 255));
-          const ig = Math.min(255, Math.round(g * 255));
-          const ib = Math.min(255, Math.round(b * 255));
+          const ir = Math.min(255, Math.round(Math.pow(r, 0.8) * 255));
+          const ig = Math.min(255, Math.round(Math.pow(g, 0.8) * 255));
+          const ib = Math.min(255, Math.round(Math.pow(b, 0.8) * 255));
           ctx.fillStyle = `rgb(${ir}, ${ig}, ${ib})`;
 
-          const idx = Math.min(
-            ASCII_RAMP.length - 1,
-            Math.floor(Math.min(1, lum) * ASCII_RAMP.length)
+          const idx = Math.max(
+            1,
+            Math.min(
+              ASCII_RAMP.length - 1,
+              Math.floor(Math.pow(Math.min(1, lum), 0.72) * ASCII_RAMP.length)
+            )
           );
           const ch = ASCII_RAMP[idx];
-          if (ch !== " ") {
-            ctx.fillText(ch, (x + 0.5) * cellW, (y + 0.5) * cellH);
-          }
+          ctx.fillText(ch, (x + 0.5) * cellW, (y + 0.5) * cellH);
         }
       }
     };
