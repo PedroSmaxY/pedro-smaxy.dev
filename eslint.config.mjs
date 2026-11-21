@@ -13,6 +13,8 @@ const eslintConfig = defineConfig([
     ".agents/**",
     ".codex/**",
     ".impeccable/**",
+    "playwright-report/**",
+    "test-results/**",
   ]),
 ]);
 
