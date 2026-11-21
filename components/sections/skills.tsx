@@ -21,7 +21,7 @@ const CATEGORY_META: Record<string, { code: string; appliedIn: string }> = {
   },
   frontend: {
     code: "04 // PRODUCT",
-    appliedIn: "FINAI · MONOGRAPH.DEV · FURIA",
+    appliedIn: "FINAI · FURIA WEB",
   },
   devops: {
     code: "05 // INFRA",

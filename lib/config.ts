@@ -33,7 +33,7 @@ export const PORTFOLIO_CONFIG = {
   },
 
   skillCategories: {
-    systems: ["Rust", "Rayon", "Terminal UI", "RK4 / Raymarching", "C"],
+    systems: ["Rust", "Rayon", "Terminal UI", "RK4 / Raymarching", "Concurrency"],
     ai: [
       "Model Context Protocol",
       "FastMCP",
@@ -55,7 +55,7 @@ export const PORTFOLIO_CONFIG = {
       "TailwindCSS",
       "GSAP",
     ],
-    devops: ["Docker", "Git & GitHub", "CI/CD", "Vercel", "Azure"],
+    devops: ["Docker", "Git & GitHub", "GitHub Actions", "CI/CD", "Vercel"],
   },
 } as const;
 
