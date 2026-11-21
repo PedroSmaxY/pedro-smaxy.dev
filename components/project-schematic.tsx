@@ -542,9 +542,21 @@ function SolarSystemSchematic({ lines }: { lines?: string[] }) {
 
 function FinAISchematic({ lines }: { lines?: string[] }) {
   const outputs = [
-    { title: "MongoDB 7.0 (NoSQL)", sub: "24h TTL Cache · <15ms Hit", y: 42 },
-    { title: "Gemini BYOK · SSE Stream", sub: "11 JSON Categories · CFP® AI", y: 88 },
-    { title: "Next.js 16 · React 19", sub: "TanStack Query · 434 Tests", y: 134 },
+    {
+      title: "Dashboard & Patrimônio",
+      sub: "KPIs · Carteira · Multi-Mês",
+      y: 42,
+    },
+    {
+      title: "Consultor IA CFP® (SSE)",
+      sub: "Diagnóstico & Chat Tempo Real",
+      y: 88,
+    },
+    {
+      title: "Metas & Módulo Fiscal",
+      sub: "11 Categorias · IRPF & PJ",
+      y: 134,
+    },
   ];
 
   return (
@@ -557,11 +569,11 @@ function FinAISchematic({ lines }: { lines?: string[] }) {
           aria-hidden="true"
         >
           <SvgHudHeader
-            left="FINAI // SPEC-KIT SDD · 17 SPECS · LGPD ZERO-PII"
-            right="BYOK AES-256-GCM · -95% TOKENS · 434 TESTS"
+            left="FINAI // FINANCIAL INTELLIGENCE & WEALTH · SDD"
+            right="BYOK AES-256-GCM · LGPD ZERO-PII · 434 TESTS"
           />
 
-          {/* Column 1: Ingest & Privacy Gate */}
+          {/* Column 1: Statement Ingestion & LGPD Privacy */}
           <rect
             x="16"
             y="44"
@@ -575,17 +587,17 @@ function FinAISchematic({ lines }: { lines?: string[] }) {
             x="78"
             y="61"
             textAnchor="middle"
-            className="fill-[#EDEAE2] font-mono text-[8.8px]"
+            className="fill-[#EDEAE2] font-mono text-[8.5px]"
           >
-            OFX SGML / CSV
+            EXTRATOS OFX / CSV
           </text>
           <text
             x="78"
             y="75"
             textAnchor="middle"
-            className="fill-[#9A968E] font-mono text-[7.4px]"
+            className="fill-[#9A968E] font-mono text-[7.3px]"
           >
-            UTF-8 · Win-1252 Parser
+            Importação &amp; Conciliação
           </text>
 
           <line
@@ -622,17 +634,17 @@ function FinAISchematic({ lines }: { lines?: string[] }) {
             x="78"
             y="124"
             textAnchor="middle"
-            className="fill-[#FF8A4C] font-mono text-[8.8px]"
+            className="fill-[#FF8A4C] font-mono text-[8.5px]"
           >
-            LGPD SANITIZER
+            ANONIMIZADOR LGPD
           </text>
           <text
             x="78"
             y="139"
             textAnchor="middle"
-            className="fill-[#EDEAE2] font-mono text-[7.4px]"
+            className="fill-[#EDEAE2] font-mono text-[7.3px]"
           >
-            CPF/CNPJ Purge · Dedup
+            CPF/CNPJ Purge · Zero-PII
           </text>
 
           {/* Connector Col 1 -> Col 2 */}
@@ -653,87 +665,118 @@ function FinAISchematic({ lines }: { lines?: string[] }) {
             className="animate-[flowDash_2.4s_linear_infinite] motion-reduce:animate-none"
           />
 
-          {/* Column 2: Fastify 4 SDD Kernel */}
+          {/* Column 2: FinAI Intelligence Engine with Visual Cashflow Telemetry */}
           <rect
             x="174"
-            y="44"
+            y="42"
             width="164"
-            height="126"
+            height="130"
             fill="#0F1013"
             stroke="#FF4D00"
             strokeWidth="1.4"
           />
-          <circle cx="186" cy="57" r="2" fill="#FF4D00" />
+          <circle cx="185" cy="54" r="2" fill="#FF4D00" />
           <text
             x="260"
-            y="60"
+            y="57"
             textAnchor="middle"
-            className="fill-[#FF8A4C] font-mono text-[8.8px]"
+            className="fill-[#FF8A4C] font-mono text-[8.4px]"
           >
-            FASTIFY 4 · SDD KERNEL
+            FINAI ENGINE · GEMINI BYOK
           </text>
           <line
-            x1="184"
-            y1="68"
-            x2="328"
-            y2="68"
+            x1="183"
+            y1="64"
+            x2="329"
+            y2="64"
             stroke="#EDEAE2"
             strokeOpacity="0.12"
           />
 
+          {/* Visual Cashflow & Savings Chart Box */}
           <rect
-            x="184"
-            y="75"
-            width="144"
-            height="38"
+            x="183"
+            y="70"
+            width="146"
+            height="58"
+            fill="#0A0B0D"
+            stroke="#EDEAE2"
+            strokeOpacity="0.18"
+          />
+          <text x="190" y="81" className="fill-[#9A968E] font-mono text-[6.8px]">
+            FLUXO &amp; POUPANÇA
+          </text>
+          <text
+            x="322"
+            y="81"
+            textAnchor="end"
+            className="fill-[#FF8A4C] font-mono text-[6.8px]"
+          >
+            +34.2% SAVED
+          </text>
+          <line
+            x1="190"
+            y1="114"
+            x2="322"
+            y2="114"
+            stroke="#EDEAE2"
+            strokeOpacity="0.1"
+            strokeDasharray="2 2"
+          />
+          <path
+            d="M 190 112 Q 222 106 254 109 T 322 104"
+            fill="none"
+            stroke="#9A968E"
+            strokeOpacity="0.45"
+            strokeWidth="1"
+          />
+          <path
+            d="M 190 110 C 215 106, 235 95, 262 96 C 285 97, 302 85, 322 86"
+            fill="none"
+            stroke="#FF4D00"
+            strokeWidth="1.5"
+          />
+          <circle cx="262" cy="96" r="1.8" fill="#FF8A4C" />
+          <circle cx="322" cy="86" r="2.2" fill="#FF4D00" />
+          <rect x="190" y="120" width="56" height="2.5" fill="#FF4D00" />
+          <rect x="249" y="120" width="42" height="2.5" fill="#FF8A4C" />
+          <rect
+            x="294"
+            y="120"
+            width="28"
+            height="2.5"
+            fill="#EDEAE2"
+            fillOpacity="0.45"
+          />
+
+          {/* Security & Cache Telemetry Strip */}
+          <rect
+            x="183"
+            y="134"
+            width="146"
+            height="30"
             fill="#0A0B0D"
             stroke="#EDEAE2"
             strokeOpacity="0.18"
           />
           <text
             x="256"
-            y="90"
+            y="146"
             textAnchor="middle"
-            className="fill-[#EDEAE2] font-mono text-[8px]"
+            className="fill-[#EDEAE2] font-mono text-[7.8px]"
           >
             BYOK Vault · AES-256-GCM
           </text>
           <text
             x="256"
-            y="103"
+            y="158"
             textAnchor="middle"
-            className="fill-[#9A968E] font-mono text-[7.1px]"
+            className="fill-[#9A968E] font-mono text-[7px]"
           >
-            12B IV · 16B Tag · RAM Only
+            Cache 24h · -95% Tokens (&lt;15ms)
           </text>
 
-          <rect
-            x="184"
-            y="121"
-            width="144"
-            height="38"
-            fill="#0A0B0D"
-            stroke="#EDEAE2"
-            strokeOpacity="0.18"
-          />
-          <text
-            x="256"
-            y="136"
-            textAnchor="middle"
-            className="fill-[#EDEAE2] font-mono text-[8px]"
-          >
-            SHA-256 StateHash Engine
-          </text>
-          <text
-            x="256"
-            y="149"
-            textAnchor="middle"
-            className="fill-[#9A968E] font-mono text-[7.1px]"
-          >
-            Merchant Dedup · -95% Tokens
-          </text>
-
-          {/* Column 3: Persistence, AI Stream & Client */}
+          {/* Column 3: Product Modules */}
           {outputs.map((out) => {
             const targetY = out.y + 19;
             const pathD = `M 338 108 C 358 108 358 ${targetY} 376 ${targetY}`;
@@ -767,14 +810,14 @@ function FinAISchematic({ lines }: { lines?: string[] }) {
                 <text
                   x="388"
                   y={out.y + 16}
-                  className="fill-[#EDEAE2] font-mono text-[8.8px]"
+                  className="fill-[#EDEAE2] font-mono text-[8.6px]"
                 >
                   {out.title}
                 </text>
                 <text
                   x="388"
                   y={out.y + 29}
-                  className="fill-[#9A968E] font-mono text-[7.5px]"
+                  className="fill-[#9A968E] font-mono text-[7.3px]"
                 >
                   {out.sub}
                 </text>
@@ -784,9 +827,9 @@ function FinAISchematic({ lines }: { lines?: string[] }) {
 
           <SvgBottomMetrics
             items={[
-              "INGEST: OFX/CSV -> LGPD REGEX",
-              "CACHE: SHA-256 + 24H TTL (<15MS)",
-              "VITEST: 434 PASSED (89 FILES)",
+              "INGEST: OFX/CSV (LGPD CLEAN)",
+              "AI: GEMINI SSE + CACHE 24H",
+              "QUALITY: 434 VITEST · 17 SPECS",
             ]}
           />
         </svg>

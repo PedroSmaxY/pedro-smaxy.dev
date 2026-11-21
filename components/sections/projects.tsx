@@ -19,6 +19,8 @@ export type Project = {
   period: string;
 };
 
+const SCRAMBLE_CHARS = "0123456789ABCDEF/#_";
+
 function ProjectViewport({
   project,
   projectIndex,
@@ -32,6 +34,57 @@ function ProjectViewport({
   const [capturedForIndex, setCapturedForIndex] = useState<number | null>(null);
   const activeMode =
     hasCapture && capturedForIndex === projectIndex ? "capture" : "schematic";
+  const headerCodeText = `PRJ_${indexCode} // ${
+    activeMode === "capture" ? "RENDER_CAPTURE" : "LIVE_SCHEMATIC"
+  }`;
+
+  const codeRef = useRef<HTMLSpanElement | null>(null);
+  const hasMountedRef = useRef(false);
+
+  useEffect(() => {
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true;
+      return;
+    }
+
+    const el = codeRef.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = headerCodeText;
+      return;
+    }
+
+    let frameId = 0;
+    const start = performance.now();
+    const durationMs = 280;
+
+    const step = (now: number) => {
+      const progress = Math.min(1, (now - start) / durationMs);
+      if (progress >= 1) {
+        el.textContent = headerCodeText;
+        return;
+      }
+      const resolved = Math.floor(progress * headerCodeText.length);
+      let out = "";
+      for (let i = 0; i < headerCodeText.length; i++) {
+        const ch = headerCodeText[i];
+        if (i < resolved || ch === " " || ch === "/") {
+          out += ch;
+        } else {
+          out +=
+            SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+        }
+      }
+      el.textContent = out;
+      frameId = window.requestAnimationFrame(step);
+    };
+
+    frameId = window.requestAnimationFrame(step);
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      el.textContent = headerCodeText;
+    };
+  }, [headerCodeText]);
 
   return (
     <div
@@ -39,9 +92,8 @@ function ProjectViewport({
       className="border border-[#EDEAE2]/15 bg-[#07080A] overflow-hidden"
     >
       <div className="h-9 flex items-center justify-between px-4 border-b border-[#EDEAE2]/10 font-mono text-[10px] text-[#9A968E] uppercase tracking-wider gap-3">
-        <span>
-          PRJ_{indexCode} {"//"}{" "}
-          {activeMode === "capture" ? "RENDER_CAPTURE" : "LIVE_SCHEMATIC"}
+        <span ref={codeRef} data-proj-code={headerCodeText}>
+          {headerCodeText}
         </span>
         <div className="flex items-center gap-3">
           {hasCapture ? (
@@ -67,6 +119,11 @@ function ProjectViewport({
       </div>
 
       <div className="relative aspect-video w-full overflow-hidden bg-[#050608]">
+        <div
+          data-proj-scanline
+          aria-hidden="true"
+          className="pointer-events-none absolute top-0 left-0 right-0 h-0.5 bg-[#FF4D00] origin-left opacity-0 z-20"
+        />
         <div className="absolute inset-0">
           <ProjectSchematic project={project} viewMode={activeMode} />
         </div>
@@ -121,9 +178,24 @@ export function Projects() {
     return createMotionScope(stageRef.current, ({ reduceMotion }) => {
       if (reduceMotion) return;
 
+      const stage = stageRef.current;
+      if (!stage) return;
+
       const tl = gsap.timeline({
         defaults: { ease: MOTION.ease, overwrite: true },
       });
+
+      tl.fromTo(
+        "[data-proj-scanline]",
+        { scaleX: 0, autoAlpha: 0.95 },
+        {
+          scaleX: 1,
+          autoAlpha: 0,
+          duration: 0.45,
+          clearProps: "transform,opacity,visibility",
+        },
+        0
+      );
 
       tl.fromTo(
         "[data-proj-viewport]",
@@ -138,7 +210,7 @@ export function Projects() {
         0
       );
 
-      if (stageRef.current?.querySelector("[data-schematic-canvas]")) {
+      if (stage.querySelector("[data-schematic-canvas]")) {
         tl.fromTo(
           "[data-schematic-canvas]",
           { autoAlpha: 0.25, scale: 0.965, transformOrigin: "50% 50%" },
@@ -152,18 +224,27 @@ export function Projects() {
         );
       }
 
-      tl.fromTo(
-        "[data-proj-title], [data-proj-desc], [data-proj-tech], [data-proj-actions]",
-        { autoAlpha: 0, y: 12 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.38,
-          stagger: 0.045,
-          clearProps: "transform,opacity,visibility",
-        },
-        0.05
-      );
+      const cascadeTargets = [
+        stage.querySelector("[data-proj-title]"),
+        stage.querySelector("[data-proj-desc]"),
+        ...Array.from(stage.querySelectorAll("[data-proj-tech] > span")),
+        ...Array.from(stage.querySelectorAll("[data-proj-actions] > a")),
+      ].filter((el): el is Element => el !== null);
+
+      if (cascadeTargets.length > 0) {
+        tl.fromTo(
+          cascadeTargets,
+          { autoAlpha: 0, y: 12 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.38,
+            stagger: 0.035,
+            clearProps: "transform,opacity,visibility",
+          },
+          0.05
+        );
+      }
     });
   }, [activeIndex]);
 

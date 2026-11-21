@@ -148,7 +148,8 @@
         {
           "title": "FinAI",
           "subtitle": "Plataforma de Inteligência Financeira (TCC)",
-          "description": "Plataforma full-stack de inteligência financeira construída com Spec-Kit (SDD), ingestão OFX/CSV com sanitização LGPD, criptografia BYOK (AES-256-GCM), consultor de IA em streaming SSE, cache MongoDB TTL 24h e 434 testes automatizados.",
+          "description": "Plataforma full-stack de inteligência financeira e patrimonial com IA: importa extratos OFX/CSV com anonimização LGPD, categoriza gastos, acompanha metas, carteira e IRPF/PJ, e traz consultor CFP® em streaming SSE com chave BYOK (AES-256-GCM).",
+          "image": "/finai-dashboard.png",
           "terminalPreview": [
             "$ spec-kit --verify finai",
             "ingest(OFX/CSV) -> LGPD sanitizer -> MongoDB TTL (24h)",
@@ -157,6 +158,7 @@
           ],
           "tech": ["Next.js 16", "Fastify / TS", "MongoDB", "SSE / BYOK", "Spec-Kit"],
           "github": "https://github.com/Projeto-TCC-Dash",
+          "live": "https://finai-project-dashboard.vercel.app/login",
           "period": "2026"
         },
         {

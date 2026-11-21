@@ -148,7 +148,8 @@
         {
           "title": "FinAI",
           "subtitle": "Financial Intelligence Platform (Capstone)",
-          "description": "Full-stack financial intelligence platform built with Spec-Kit (SDD), featuring OFX/CSV ingestion with LGPD sanitization, BYOK encryption (AES-256-GCM), real-time SSE AI advisor, 24h MongoDB TTL cache, and 434 automated tests.",
+          "description": "Full-stack AI financial and wealth management platform: imports OFX/CSV statements with LGPD anonymization, auto-categorizes spending, tracks goals, portfolio, and tax modules, and streams a CFP® AI advisor via SSE with BYOK (AES-256-GCM) security.",
+          "image": "/finai-dashboard.png",
           "terminalPreview": [
             "$ spec-kit --verify finai",
             "ingest(OFX/CSV) -> LGPD sanitizer -> MongoDB TTL (24h)",
@@ -157,6 +158,7 @@
           ],
           "tech": ["Next.js 16", "Fastify / TS", "MongoDB", "SSE / BYOK", "Spec-Kit"],
           "github": "https://github.com/Projeto-TCC-Dash",
+          "live": "https://finai-project-dashboard.vercel.app/login",
           "period": "2026"
         },
         {
