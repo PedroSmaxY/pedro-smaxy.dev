@@ -1,10 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Bot, Code, Cpu, Layers, Terminal } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { getSkillIcon } from "@/lib/get-skill-icon";
 import { PORTFOLIO_CONFIG } from "@/lib/config";
 import { createMotionScope, gsap, MOTION } from "@/lib/motion";
+
+const SKILL_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  systems: Cpu,
+  ai: Bot,
+  backend: Code,
+  frontend: Layers,
+  devops: Terminal,
+};
 
 const CATEGORY_META: Record<string, { code: string; appliedIn: string }> = {
   systems: {
@@ -83,6 +91,7 @@ export function Skills() {
             code: "00 // MODULE",
             appliedIn: "SYSTEMS",
           };
+          const SkillIcon = SKILL_ICONS[key] ?? Code;
           const spanClass = idx === 4 ? "sm:col-span-2 lg:col-span-1" : "";
           const borderClass = [
             "border-b lg:border-b-0 last:border-b-0 border-[#EDEAE2]/10",
@@ -137,7 +146,7 @@ export function Skills() {
                 </div>
 
                 <div className="flex items-center gap-2.5 text-[#FF4D00]">
-                  {getSkillIcon(key, "h-4 w-4 shrink-0")}
+                  <SkillIcon className="h-4 w-4 shrink-0" />
                   <h3 className="font-mono text-xs uppercase tracking-wider text-[#EDEAE2]">
                     {categoryTitles[key]}
                   </h3>

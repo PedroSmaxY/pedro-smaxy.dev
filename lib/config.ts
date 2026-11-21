@@ -3,7 +3,6 @@ export const PORTFOLIO_CONFIG = {
     name: "Pedro Henrique da Silva Novais",
     shortName: "Pedro Novais",
     email: "pedrohenrique.nv@icloud.com",
-    phone: "+55 (21) 98602-6613",
     coordinates: "22.3886° S",
   },
 

@@ -31,79 +31,11 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        signal: {
-          DEFAULT: "#FF4D00",
-          soft: "#FF8A4C",
-        },
-        alabaster: {
-          DEFAULT: "#EDEAE2",
-          muted: "#9A968E",
-        },
-        obsidian: {
-          DEFAULT: "#0A0B0D",
-          surface: "#0F1013",
-          deep: "#07080A",
-        },
-        primary: {
-          DEFAULT: "#8b5cf6",
-          foreground: "#ffffff",
-        },
-        secondary: {
-          DEFAULT: "#1f2937",
-          foreground: "#f9fafb",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "#374151",
-          foreground: "#9ca3af",
-        },
-        accent: {
-          DEFAULT: "#7c3aed",
-          foreground: "#ffffff",
-        },
-        popover: {
-          DEFAULT: "#111827",
-          foreground: "#f9fafb",
-        },
-        card: {
-          DEFAULT: "#1f2937",
-          foreground: "#f9fafb",
-        },
-        purple: {
-          50: "#faf5ff",
-          100: "#f3e8ff",
-          200: "#e9d5ff",
-          300: "#d8b4fe",
-          400: "#c084fc",
-          500: "#a855f7",
-          600: "#9333ea",
-          700: "#7c3aed",
-          800: "#6b21a8",
-          900: "#581c87",
-          950: "#3b0764",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
