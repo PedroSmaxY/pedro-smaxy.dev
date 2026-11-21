@@ -133,20 +133,6 @@
           "period": "2026"
         },
         {
-          "title": "ABNT MCP",
-          "subtitle": "Academic Research Copilot via Model Context Protocol",
-          "description": "MCP server for scientific research and ABNT-compliant academic writing, featuring normative auditing, Crossref/SciELO source lookup, citation validation, and PDF compilation via Typst and LaTeX.",
-          "terminalPreview": [
-            "$ abnt-mcp --transport stdio",
-            "validate_citations()  -> 42 refs verified (NBR 10520)",
-            "audit_illustrations() -> 0 normative violations",
-            "compile_tcc(typst)    -> out/thesis.pdf [48p]"
-          ],
-          "tech": ["Python", "FastMCP", "Typst", "LaTeX", "Spec-Driven Dev"],
-          "github": "https://github.com/PedroSmaxY/abnt-mcp",
-          "period": "2026"
-        },
-        {
           "title": "FinAI",
           "subtitle": "Full-Stack AI Financial Platform",
           "description": "Full-stack AI financial and wealth management platform: imports OFX/CSV statements with LGPD anonymization, auto-categorizes spending, tracks goals, portfolio, and tax modules, and streams an AI financial assistant via SSE with BYOK (AES-256-GCM) security.",
@@ -160,6 +146,20 @@
           "tech": ["Next.js 16", "Fastify / TS", "MongoDB", "SSE / BYOK", "Spec-Kit"],
           "github": "https://github.com/Projeto-TCC-Dash",
           "live": "https://finai-project-dashboard.vercel.app/login",
+          "period": "2026"
+        },
+        {
+          "title": "ABNT MCP",
+          "subtitle": "Academic Research Copilot via Model Context Protocol",
+          "description": "MCP server for scientific research and ABNT-compliant academic writing, featuring normative auditing, Crossref/SciELO source lookup, citation validation, and PDF compilation via Typst and LaTeX.",
+          "terminalPreview": [
+            "$ abnt-mcp --transport stdio",
+            "validate_citations()  -> 42 refs verified (NBR 10520)",
+            "audit_illustrations() -> 0 normative violations",
+            "compile_tcc(typst)    -> out/thesis.pdf [48p]"
+          ],
+          "tech": ["Python", "FastMCP", "Typst", "LaTeX", "Spec-Driven Dev"],
+          "github": "https://github.com/PedroSmaxY/abnt-mcp",
           "period": "2026"
         },
         {
