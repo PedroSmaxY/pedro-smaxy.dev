@@ -94,8 +94,8 @@ The motion language ([`lib/motion.ts`](./lib/motion.ts)) enforces a **Calm × Sh
 
 1. **5 Custom Domain SVG Schematics ([`components/project-schematic.tsx`](./components/project-schematic.tsx)):**
    - **01 · Black Hole ASCII:** Kerr-Schild gravitational lensing geometry with upper/lower Einstein ring halos and Doppler disk gradients.
-   - **02 · ABNT MCP:** FastMCP normative auditor (`NBR 14724 · 10520:23 · 6023 · IBGE 1993`) wired to an A4 academic sheet blueprint (`3-3-2-2 cm`) and Typst/abnTeX2 compilers.
-   - **03 · FinAI (Capstone):** `OFX/CSV` statement ingestion, `LGPD Zero-PII` sanitizer, `BYOK AES-256-GCM` kernel, cashflow & savings curve, and product modules.
+   - **02 · FinAI:** `OFX/CSV` statement ingestion, `LGPD Zero-PII` sanitizer, `BYOK AES-256-GCM` kernel, cashflow & savings curve, and product modules.
+   - **03 · ABNT MCP:** FastMCP normative auditor (`NBR 14724 · 10520:23 · 6023 · IBGE 1993`) wired to an A4 academic sheet blueprint (`3-3-2-2 cm`) and Typst/abnTeX2 compilers.
    - **04 · Solar System ASCII:** Animated Keplerian observatory with 5 concentric orbits driven by native SVG `<animateTransform>` and Rust HUD telemetry.
    - **05 · FURIA CS2 FanBot:** Python Telegram command console (`/proximaspartidas`, `/resumo`, `/elenco`), Fastify TTL cache + Docker Compose stack, and CS2 roster rating bars.
 2. **`Optical Laser Scan Wipe` ([`components/sections/projects.tsx`](./components/sections/projects.tsx)):**
