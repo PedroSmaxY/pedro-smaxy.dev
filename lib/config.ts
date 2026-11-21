@@ -35,11 +35,11 @@ export const PORTFOLIO_CONFIG = {
   skillCategories: {
     systems: ["Rust", "Rayon", "Terminal UI", "Linux", "Concurrency"],
     ai: [
-      "Model Context Protocol",
-      "FastMCP",
+      "MCP / FastMCP",
       "Spec-Driven Dev (SDD)",
+      "AI Agents & Skills",
       "LLM Orchestration",
-      "Typst / LaTeX",
+      "Claude / OpenAI APIs",
     ],
     backend: [
       "Node.js / Fastify",
