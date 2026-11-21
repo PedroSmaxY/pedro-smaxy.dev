@@ -92,8 +92,9 @@ export function Contact() {
 
       const geoCard =
         rootRef.current?.querySelector<HTMLElement>("[data-geo-card]");
+      const geoSvg = geoCard?.querySelector<SVGSVGElement>("svg");
       const geoCore = geoCard?.querySelector<SVGGElement>("[data-geo-core]");
-      if (geoCard && geoCore) {
+      if (geoCard && geoSvg && geoCore) {
         const gxTo = gsap.quickTo(geoCore, "x", {
           duration: 0.35,
           ease: MOTION.ease,
@@ -104,11 +105,24 @@ export function Contact() {
         });
 
         const onGeoMove = (e: PointerEvent) => {
-          const rect = geoCard.getBoundingClientRect();
-          const nx = (e.clientX - rect.left) / rect.width - 0.5;
-          const ny = (e.clientY - rect.top) / rect.height - 0.5;
-          gxTo(Math.max(-5, Math.min(5, nx * 10)));
-          gyTo(Math.max(-5, Math.min(5, ny * 10)));
+          const svgRect = geoSvg.getBoundingClientRect();
+          const scale = Math.min(svgRect.width / 260, svgRect.height / 72);
+          const viewOffsetX = (svgRect.width - 260 * scale) / 2;
+          const viewOffsetY = (svgRect.height - 72 * scale) / 2;
+          const centerX = svgRect.left + viewOffsetX + 56 * scale;
+          const centerY = svgRect.top + viewOffsetY + 36 * scale;
+          const dx = e.clientX - centerX;
+          const dy = e.clientY - centerY;
+          const dist = Math.hypot(dx, dy);
+
+          if (dist > 0.001) {
+            const offset = Math.min(1, dist / 72) * 5;
+            gxTo((dx / dist) * offset);
+            gyTo((dy / dist) * offset);
+          } else {
+            gxTo(0);
+            gyTo(0);
+          }
           setIsTracking((prev) => (prev ? prev : true));
         };
 
