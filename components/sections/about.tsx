@@ -18,17 +18,30 @@ export function About() {
     return createMotionScope(rootRef.current, ({ reduceMotion }) => {
       if (reduceMotion) return;
 
-      gsap.from("[data-about-portrait]", {
-        clipPath: "inset(0 0 100% 0)",
-        duration: MOTION.duration.enter,
-        ease: MOTION.ease,
-        clearProps: "clipPath",
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: "[data-about-portrait]",
           start: "top 85%",
           once: true,
         },
       });
+
+      tl.from("[data-about-portrait]", {
+        clipPath: "inset(0 0 100% 0)",
+        autoAlpha: 0,
+        duration: 0.85,
+        ease: MOTION.ease,
+        clearProps: "clipPath,opacity,visibility",
+      }).from(
+        "[data-about-img]",
+        {
+          scale: 1.08,
+          duration: 0.95,
+          ease: MOTION.ease,
+          clearProps: "transform",
+        },
+        0
+      );
     });
   }, []);
 
@@ -46,9 +59,10 @@ export function About() {
 
           <div
             data-about-portrait
-            className="relative w-44 sm:w-52 aspect-square border border-[#EDEAE2]/15 bg-[#0F1013] p-1.5"
+            className="relative w-44 sm:w-52 aspect-square border border-[#EDEAE2]/15 bg-[#0F1013] p-1.5 overflow-hidden"
           >
             <Image
+              data-about-img
               src={profileImageUrl}
               alt={`${name} — Portrait`}
               width={240}

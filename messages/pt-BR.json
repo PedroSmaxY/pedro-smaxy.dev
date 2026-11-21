@@ -102,6 +102,7 @@
           "title": "Black Hole ASCII Simulation",
           "subtitle": "Raymarching Geodésico 4D Kerr-Schild em Rust",
           "description": "Simulador relativístico em tempo real renderizado diretamente no terminal em Rust puro com TrueColor 24-bit e modo Half-Block, integrando geodésicas nulas via RK4, Doppler beaming e evaporação de Hawking.",
+          "image": "/black-hole-project.png",
           "tech": ["Rust", "Rayon", "RK4 Geodesics", "24-bit TrueColor", "TUI"],
           "github": "https://github.com/PedroSmaxY/black-hole-ascii-simulation",
           "period": "2026"
@@ -110,6 +111,12 @@
           "title": "Solar System ASCII",
           "subtitle": "Simulador Orbital 3D Kepleriano em Rust",
           "description": "Simulador do Sistema Solar em 3D no terminal com mecânica orbital de Kepler, raymarching procedural, paralelismo via Rayon e renderização em alta definição Half-Block/ASCII.",
+          "terminalPreview": [
+            "$ cargo run --release -- --half-block",
+            "integrator: rk4_kepler | threads: rayon_pool",
+            "bodies: 8 planets + rings | mode: 24bit_ansi",
+            "frame_time: 11.4ms (87 fps) · locked 60hz"
+          ],
           "tech": ["Rust", "Orbital Mechanics", "Raymarching", "TrueColor", "TUI"],
           "github": "https://github.com/PedroSmaxY/solar-system-ascii",
           "period": "2026"
@@ -118,6 +125,12 @@
           "title": "ABNT MCP",
           "subtitle": "Copiloto Acadêmico via Model Context Protocol",
           "description": "Servidor MCP para pesquisa científica e produção acadêmica no padrão ABNT, com auditoria normativa, busca bibliográfica (Crossref/SciELO), validação de citações e compilação PDF via Typst e LaTeX.",
+          "terminalPreview": [
+            "$ abnt-mcp --transport stdio",
+            "validate_citations()  -> 42 refs verified (NBR 10520)",
+            "audit_illustrations() -> 0 normative violations",
+            "compile_tcc(typst)    -> out/monografia.pdf [48p]"
+          ],
           "tech": ["Python", "FastMCP", "Typst", "LaTeX", "Spec-Driven Dev"],
           "github": "https://github.com/PedroSmaxY/abnt-mcp",
           "period": "2026"
@@ -126,6 +139,12 @@
           "title": "Memcard",
           "subtitle": "Sincronização & Versionamento de Saves",
           "description": "Aplicação desktop multiplataforma com zero-loss versioning para saves de emuladores retrô (DuckStation, PCSX2, RetroArch, RPCS3) e jogos de PC, construída com Tauri, Rust e React 19.",
+          "terminalPreview": [
+            "memcard://sync-engine [tauri-v2 + rust]",
+            "target: PCSX2 / DuckStation / RPCS3",
+            "snapshot: sha256:9f4c..e21a -> 0 bytes lost",
+            "status: cloud delta synced (142ms)"
+          ],
           "tech": ["Tauri", "Rust", "React 19", "TypeScript", "Cloud Sync"],
           "github": "https://github.com/PedroSmaxY/memcard",
           "period": "2026"
@@ -134,6 +153,12 @@
           "title": "Scheduling System API",
           "subtitle": "API RESTful Orientada a Produção",
           "description": "API de agendamentos em ASP.NET Core 9 e Entity Framework Core com autenticação JWT, controle de acesso baseado em papéis (Admin/Cliente), PostgreSQL, containerização Docker e Swagger UI.",
+          "terminalPreview": [
+            "ASP.NET Core 9.0 · EF Core · PostgreSQL 17",
+            "POST /api/auth/login       -> 200 OK (JWT + RBAC)",
+            "GET  /api/availability     -> 200 OK (18ms)",
+            "docker compose up -d       -> healthy"
+          ],
           "tech": ["C#", "ASP.NET Core 9", "PostgreSQL", "EF Core", "Docker", "JWT"],
           "github": "https://github.com/PedroSmaxY/SchedulingSystemAPI",
           "period": "2025"
@@ -175,7 +200,9 @@
       "subtitle": "Aberto a desafios em engenharia de software, sistemas, AI tooling e arquitetura full-stack.",
       "copyLabel": "Copiar e-mail",
       "copiedLabel": "Copiado",
-      "sendEmailLabel": "Enviar e-mail"
+      "sendEmailLabel": "Enviar e-mail",
+      "localTimeLabel": "Hora Local · Rio de Janeiro",
+      "availabilityLabel": "Disponível para projetos e posições"
     },
     "footer": {
       "license": "Licenciado sob a Licença MIT"

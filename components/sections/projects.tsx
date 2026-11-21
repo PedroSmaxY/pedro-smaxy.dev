@@ -11,6 +11,7 @@ export type Project = {
   subtitle?: string;
   description: string;
   image?: string;
+  terminalPreview?: string[];
   tech: string[];
   github: string;
   live?: string;
@@ -98,11 +99,7 @@ export function Projects() {
               >
                 <div className="overflow-hidden">
                   <div className="px-6 sm:px-10 pb-8 pt-2 sm:pl-[5.25rem] grid lg:grid-cols-12 gap-6 items-start">
-                    <div
-                      className={`${
-                        project.image ? "lg:col-span-7" : "lg:col-span-8"
-                      } space-y-5`}
-                    >
+                    <div className="lg:col-span-7 space-y-5">
                       <p className="text-sm sm:text-base text-[#EDEAE2]/85 leading-relaxed max-w-[65ch]">
                         {project.description}
                       </p>
@@ -152,6 +149,27 @@ export function Projects() {
                           alt={project.title}
                           className="w-full h-48 sm:h-56 object-cover"
                         />
+                      </div>
+                    ) : project.terminalPreview ? (
+                      <div className="lg:col-span-5 border border-[#EDEAE2]/15 bg-[#07080A]">
+                        <div className="flex items-center justify-between px-3.5 py-2 border-b border-[#EDEAE2]/10 font-mono text-[10px] text-[#9A968E] uppercase tracking-wider">
+                          <span>STDOUT // TELEMETRY</span>
+                          <span className="text-[#FF4D00]">{project.period}</span>
+                        </div>
+                        <div className="p-4 font-mono text-xs leading-relaxed space-y-1.5 overflow-x-auto">
+                          {project.terminalPreview.map((line, lineIndex) => (
+                            <div
+                              key={lineIndex}
+                              className={
+                                lineIndex === 0
+                                  ? "text-[#EDEAE2]"
+                                  : "text-[#9A968E]"
+                              }
+                            >
+                              {line}
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     ) : null}
                   </div>

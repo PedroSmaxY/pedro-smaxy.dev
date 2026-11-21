@@ -5,6 +5,7 @@ import { ArrowRight, Download, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { PORTFOLIO_CONFIG } from "@/lib/config";
 import { BlackHoleCanvas } from "@/components/black-hole-canvas";
+import { GravitationalGrid } from "@/components/gravitational-grid";
 import { createMotionScope, gsap, MOTION } from "@/lib/motion";
 
 export function Hero() {
@@ -53,8 +54,9 @@ export function Hero() {
       ref={rootRef}
       className="grid lg:grid-cols-12 border-b border-[#EDEAE2]/10"
     >
-      <div className="lg:col-span-7 px-6 sm:px-10 py-14 sm:py-20 flex flex-col justify-between gap-10 lg:border-r border-[#EDEAE2]/10 dot-matrix">
-        <div className="space-y-6">
+      <div className="relative overflow-hidden lg:col-span-7 px-6 sm:px-10 py-14 sm:py-20 flex flex-col justify-between gap-10 lg:border-r border-[#EDEAE2]/10 dot-matrix [@media(pointer:fine)]:bg-none">
+        <GravitationalGrid />
+        <div className="relative z-10 space-y-6">
           <h1
             data-hero-title
             className="font-serif text-5xl sm:text-6xl lg:text-[4.25rem] leading-[0.98] tracking-[-0.025em] font-normal text-[#EDEAE2]"
@@ -85,7 +87,10 @@ export function Hero() {
           </p>
         </div>
 
-        <div data-hero-meta className="flex flex-wrap items-center gap-4 pt-2">
+        <div
+          data-hero-meta
+          className="relative z-10 flex flex-wrap items-center gap-4 pt-2"
+        >
           <a
             href={cvDownloadUrl}
             download
