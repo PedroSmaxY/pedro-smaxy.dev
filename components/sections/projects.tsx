@@ -34,7 +34,10 @@ function ProjectViewport({
     hasCapture && capturedForIndex === projectIndex ? "capture" : "schematic";
 
   return (
-    <div className="border border-[#EDEAE2]/15 bg-[#07080A] overflow-hidden">
+    <div
+      data-proj-viewport
+      className="border border-[#EDEAE2]/15 bg-[#07080A] overflow-hidden"
+    >
       <div className="h-9 flex items-center justify-between px-4 border-b border-[#EDEAE2]/10 font-mono text-[10px] text-[#9A968E] uppercase tracking-wider gap-3">
         <span>
           PRJ_{indexCode} {"//"}{" "}
@@ -54,18 +57,18 @@ function ProjectViewport({
             >
               [{activeMode === "schematic" ? "CAPTURE" : "SCHEMATIC"}]
             </button>
-          ) : null}
+          ) : (
+            <span className="px-2 py-0.5 border border-[#EDEAE2]/12 text-[#9A968E]">
+              [LIVE_SPEC]
+            </span>
+          )}
           <span className="text-[#FF4D00] tabular-nums">{project.period}</span>
         </div>
       </div>
 
       <div className="relative aspect-video w-full overflow-hidden bg-[#050608]">
         <div className="absolute inset-0">
-          <ProjectSchematic
-            index={projectIndex}
-            project={project}
-            viewMode={activeMode}
-          />
+          <ProjectSchematic project={project} viewMode={activeMode} />
         </div>
       </div>
     </div>
@@ -118,17 +121,48 @@ export function Projects() {
     return createMotionScope(stageRef.current, ({ reduceMotion }) => {
       if (reduceMotion) return;
 
-      gsap.fromTo(
-        stageRef.current,
-        { autoAlpha: 0.55, y: 4 },
+      const tl = gsap.timeline({
+        defaults: { ease: MOTION.ease, overwrite: true },
+      });
+
+      tl.fromTo(
+        "[data-proj-viewport]",
+        { autoAlpha: 0, y: 10, scale: 0.988 },
         {
           autoAlpha: 1,
           y: 0,
-          duration: 0.24,
-          ease: MOTION.ease,
-          overwrite: true,
+          scale: 1,
+          duration: 0.36,
           clearProps: "transform,opacity,visibility",
-        }
+        },
+        0
+      );
+
+      if (stageRef.current?.querySelector("[data-schematic-canvas]")) {
+        tl.fromTo(
+          "[data-schematic-canvas]",
+          { autoAlpha: 0.25, scale: 0.965, transformOrigin: "50% 50%" },
+          {
+            autoAlpha: 1,
+            scale: 1,
+            duration: 0.42,
+            clearProps: "transform,opacity,visibility",
+          },
+          0.03
+        );
+      }
+
+      tl.fromTo(
+        "[data-proj-title], [data-proj-desc], [data-proj-tech], [data-proj-actions]",
+        { autoAlpha: 0, y: 12 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.38,
+          stagger: 0.045,
+          clearProps: "transform,opacity,visibility",
+        },
+        0.05
       );
     });
   }, [activeIndex]);
@@ -213,7 +247,7 @@ export function Projects() {
                 indexCode={selectedCode}
               />
 
-              <div className="min-h-[228px] flex flex-col justify-between gap-5">
+              <div className="min-h-[256px] flex flex-col justify-between gap-5">
                 <div className="space-y-4">
                   <div
                     data-proj-title
@@ -229,12 +263,15 @@ export function Projects() {
 
                   <p
                     data-proj-desc
-                    className="min-h-[4.5rem] text-base text-[#EDEAE2]/85 leading-relaxed max-w-[65ch]"
+                    className="min-h-[6.5rem] text-base text-[#EDEAE2]/85 leading-relaxed max-w-[65ch]"
                   >
                     {selected.description}
                   </p>
 
-                  <div data-proj-tech className="flex flex-wrap gap-1.5">
+                  <div
+                    data-proj-tech
+                    className="min-h-[28px] flex flex-wrap items-center gap-1.5"
+                  >
                     {selected.tech.map((tech) => (
                       <span
                         key={tech}

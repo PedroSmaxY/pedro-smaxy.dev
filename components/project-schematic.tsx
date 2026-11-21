@@ -10,7 +10,6 @@ export type ProjectPreviewData = {
 };
 
 type SchematicProps = {
-  index: number;
   project: ProjectPreviewData;
   viewMode: "schematic" | "capture";
 };
@@ -105,6 +104,7 @@ function ArchitectureBlueprint({ spec }: { spec: BlueprintSpec }) {
     <div className="absolute inset-0 flex flex-col justify-between bg-[#07080A] dot-matrix">
       <div className="relative flex-1 flex items-center justify-center p-3 sm:p-4">
         <svg
+          data-schematic-canvas
           viewBox="0 0 560 220"
           className="w-full h-full max-h-[220px]"
           aria-hidden="true"
@@ -249,6 +249,7 @@ function BlackHoleSchematic() {
     <div className="absolute inset-0 flex flex-col justify-between bg-[#07080A] dot-matrix">
       <div className="relative flex-1 flex items-center justify-center overflow-hidden p-3 sm:p-4">
         <svg
+          data-schematic-canvas
           viewBox="0 0 560 220"
           className="w-full h-full max-h-[220px]"
           aria-hidden="true"
@@ -375,6 +376,7 @@ function SolarSystemSchematic({ lines }: { lines?: string[] }) {
     <div className="absolute inset-0 flex flex-col justify-between bg-[#07080A] dot-matrix">
       <div className="relative flex-1 flex items-center justify-center overflow-hidden p-3 sm:p-4">
         <svg
+          data-schematic-canvas
           viewBox="0 0 560 220"
           className="w-full h-full max-h-[220px]"
           aria-hidden="true"
@@ -538,7 +540,274 @@ function SolarSystemSchematic({ lines }: { lines?: string[] }) {
   );
 }
 
-export function ProjectSchematic({ index, project, viewMode }: SchematicProps) {
+function FinAISchematic({ lines }: { lines?: string[] }) {
+  const outputs = [
+    { title: "MongoDB 7.0 (NoSQL)", sub: "24h TTL Cache · <15ms Hit", y: 42 },
+    { title: "Gemini BYOK · SSE Stream", sub: "11 JSON Categories · CFP® AI", y: 88 },
+    { title: "Next.js 16 · React 19", sub: "TanStack Query · 434 Tests", y: 134 },
+  ];
+
+  return (
+    <div className="absolute inset-0 flex flex-col justify-between bg-[#07080A] dot-matrix">
+      <div className="relative flex-1 flex items-center justify-center p-3 sm:p-4">
+        <svg
+          data-schematic-canvas
+          viewBox="0 0 560 220"
+          className="w-full h-full max-h-[220px]"
+          aria-hidden="true"
+        >
+          <SvgHudHeader
+            left="FINAI // SPEC-KIT SDD · 17 SPECS · LGPD ZERO-PII"
+            right="BYOK AES-256-GCM · -95% TOKENS · 434 TESTS"
+          />
+
+          {/* Column 1: Ingest & Privacy Gate */}
+          <rect
+            x="16"
+            y="44"
+            width="124"
+            height="42"
+            fill="#0F1013"
+            stroke="#EDEAE2"
+            strokeOpacity="0.22"
+          />
+          <text
+            x="78"
+            y="61"
+            textAnchor="middle"
+            className="fill-[#EDEAE2] font-mono text-[8.8px]"
+          >
+            OFX SGML / CSV
+          </text>
+          <text
+            x="78"
+            y="75"
+            textAnchor="middle"
+            className="fill-[#9A968E] font-mono text-[7.4px]"
+          >
+            UTF-8 · Win-1252 Parser
+          </text>
+
+          <line
+            x1="78"
+            y1="86"
+            x2="78"
+            y2="106"
+            stroke="#EDEAE2"
+            strokeOpacity="0.22"
+            strokeWidth="1"
+          />
+          <line
+            x1="78"
+            y1="86"
+            x2="78"
+            y2="106"
+            stroke="#FF4D00"
+            strokeOpacity="0.8"
+            strokeWidth="1.3"
+            strokeDasharray="4 8"
+            className="animate-[flowDash_2.4s_linear_infinite] motion-reduce:animate-none"
+          />
+
+          <rect
+            x="16"
+            y="106"
+            width="124"
+            height="44"
+            fill="#0F1013"
+            stroke="#FF8A4C"
+            strokeOpacity="0.55"
+          />
+          <text
+            x="78"
+            y="124"
+            textAnchor="middle"
+            className="fill-[#FF8A4C] font-mono text-[8.8px]"
+          >
+            LGPD SANITIZER
+          </text>
+          <text
+            x="78"
+            y="139"
+            textAnchor="middle"
+            className="fill-[#EDEAE2] font-mono text-[7.4px]"
+          >
+            CPF/CNPJ Purge · Dedup
+          </text>
+
+          {/* Connector Col 1 -> Col 2 */}
+          <path
+            d="M 140 128 C 157 128 157 108 174 108"
+            fill="none"
+            stroke="#EDEAE2"
+            strokeOpacity="0.22"
+            strokeWidth="1"
+          />
+          <path
+            d="M 140 128 C 157 128 157 108 174 108"
+            fill="none"
+            stroke="#FF4D00"
+            strokeOpacity="0.8"
+            strokeWidth="1.4"
+            strokeDasharray="4 8"
+            className="animate-[flowDash_2.4s_linear_infinite] motion-reduce:animate-none"
+          />
+
+          {/* Column 2: Fastify 4 SDD Kernel */}
+          <rect
+            x="174"
+            y="44"
+            width="164"
+            height="126"
+            fill="#0F1013"
+            stroke="#FF4D00"
+            strokeWidth="1.4"
+          />
+          <circle cx="186" cy="57" r="2" fill="#FF4D00" />
+          <text
+            x="260"
+            y="60"
+            textAnchor="middle"
+            className="fill-[#FF8A4C] font-mono text-[8.8px]"
+          >
+            FASTIFY 4 · SDD KERNEL
+          </text>
+          <line
+            x1="184"
+            y1="68"
+            x2="328"
+            y2="68"
+            stroke="#EDEAE2"
+            strokeOpacity="0.12"
+          />
+
+          <rect
+            x="184"
+            y="75"
+            width="144"
+            height="38"
+            fill="#0A0B0D"
+            stroke="#EDEAE2"
+            strokeOpacity="0.18"
+          />
+          <text
+            x="256"
+            y="90"
+            textAnchor="middle"
+            className="fill-[#EDEAE2] font-mono text-[8px]"
+          >
+            BYOK Vault · AES-256-GCM
+          </text>
+          <text
+            x="256"
+            y="103"
+            textAnchor="middle"
+            className="fill-[#9A968E] font-mono text-[7.1px]"
+          >
+            12B IV · 16B Tag · RAM Only
+          </text>
+
+          <rect
+            x="184"
+            y="121"
+            width="144"
+            height="38"
+            fill="#0A0B0D"
+            stroke="#EDEAE2"
+            strokeOpacity="0.18"
+          />
+          <text
+            x="256"
+            y="136"
+            textAnchor="middle"
+            className="fill-[#EDEAE2] font-mono text-[8px]"
+          >
+            SHA-256 StateHash Engine
+          </text>
+          <text
+            x="256"
+            y="149"
+            textAnchor="middle"
+            className="fill-[#9A968E] font-mono text-[7.1px]"
+          >
+            Merchant Dedup · -95% Tokens
+          </text>
+
+          {/* Column 3: Persistence, AI Stream & Client */}
+          {outputs.map((out) => {
+            const targetY = out.y + 19;
+            const pathD = `M 338 108 C 358 108 358 ${targetY} 376 ${targetY}`;
+            return (
+              <g key={out.title}>
+                <path
+                  d={pathD}
+                  fill="none"
+                  stroke="#EDEAE2"
+                  strokeOpacity="0.18"
+                  strokeWidth="1"
+                />
+                <path
+                  d={pathD}
+                  fill="none"
+                  stroke="#FF8A4C"
+                  strokeOpacity="0.7"
+                  strokeWidth="1.3"
+                  strokeDasharray="4 8"
+                  className="animate-[flowDash_2.4s_linear_infinite] motion-reduce:animate-none"
+                />
+                <rect
+                  x="376"
+                  y={out.y}
+                  width="168"
+                  height="38"
+                  fill="#0F1013"
+                  stroke="#EDEAE2"
+                  strokeOpacity="0.22"
+                />
+                <text
+                  x="388"
+                  y={out.y + 16}
+                  className="fill-[#EDEAE2] font-mono text-[8.8px]"
+                >
+                  {out.title}
+                </text>
+                <text
+                  x="388"
+                  y={out.y + 29}
+                  className="fill-[#9A968E] font-mono text-[7.5px]"
+                >
+                  {out.sub}
+                </text>
+              </g>
+            );
+          })}
+
+          <SvgBottomMetrics
+            items={[
+              "INGEST: OFX/CSV -> LGPD REGEX",
+              "CACHE: SHA-256 + 24H TTL (<15MS)",
+              "VITEST: 434 PASSED (89 FILES)",
+            ]}
+          />
+        </svg>
+      </div>
+      <TerminalStrip command={lines?.[0] ?? "$ spec-kit --verify finai"} />
+    </div>
+  );
+}
+
+type ProjectKind = "black-hole" | "solar-system" | "abnt-mcp" | "furia" | "finai";
+
+function resolveProjectKind(title: string): ProjectKind {
+  const normalized = title.toLowerCase();
+  if (normalized.includes("black hole")) return "black-hole";
+  if (normalized.includes("solar system")) return "solar-system";
+  if (normalized.includes("abnt")) return "abnt-mcp";
+  if (normalized.includes("furia")) return "furia";
+  return "finai";
+}
+
+export function ProjectSchematic({ project, viewMode }: SchematicProps) {
   if (viewMode === "capture" && project.image) {
     return (
       <div className="absolute inset-0 overflow-hidden bg-[#050608]">
@@ -553,12 +822,12 @@ export function ProjectSchematic({ index, project, viewMode }: SchematicProps) {
     );
   }
 
-  switch (index) {
-    case 0:
+  switch (resolveProjectKind(project.title)) {
+    case "black-hole":
       return <BlackHoleSchematic />;
-    case 1:
+    case "solar-system":
       return <SolarSystemSchematic lines={project.terminalPreview} />;
-    case 2:
+    case "abnt-mcp":
       return (
         <ArchitectureBlueprint
           spec={{
@@ -580,7 +849,7 @@ export function ProjectSchematic({ index, project, viewMode }: SchematicProps) {
           }}
         />
       );
-    case 3:
+    case "furia":
       return (
         <ArchitectureBlueprint
           spec={{
@@ -602,27 +871,7 @@ export function ProjectSchematic({ index, project, viewMode }: SchematicProps) {
           }}
         />
       );
-    default:
-      return (
-        <ArchitectureBlueprint
-          spec={{
-            systemTag: "FINAI // SPEC-DRIVEN SDD",
-            perfTag: "434 TESTS · BYOK AES-256",
-            input: { title: "OFX / CSV", sub: "LGPD Sanitizer" },
-            hub: { title: "FASTIFY + SSE", sub: "BYOK AES-256-GCM" },
-            outputs: [
-              { title: "MongoDB 7.0", sub: "24h TTL Analysis Cache" },
-              { title: "Next.js 16 + React", sub: "TanStack Query + Stream" },
-              { title: "Vitest + RTL", sub: "434 Passed / 89 Files" },
-            ],
-            metrics: [
-              "SPEC: SPEC-KIT SDD",
-              "COMPLIANCE: LGPD",
-              "ORG: PROJETO-TCC-DASH",
-            ],
-            command: project.terminalPreview?.[0],
-          }}
-        />
-      );
+    case "finai":
+      return <FinAISchematic lines={project.terminalPreview} />;
   }
 }

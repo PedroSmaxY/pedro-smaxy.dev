@@ -132,6 +132,34 @@
           "period": "2026"
         },
         {
+          "title": "ABNT MCP",
+          "subtitle": "Copiloto Acadêmico via Model Context Protocol",
+          "description": "Servidor MCP para pesquisa científica e produção acadêmica no padrão ABNT, com auditoria normativa, busca bibliográfica (Crossref/SciELO), validação de citações e compilação PDF via Typst e LaTeX.",
+          "terminalPreview": [
+            "$ abnt-mcp --transport stdio",
+            "validate_citations()  -> 42 refs verified (NBR 10520)",
+            "audit_illustrations() -> 0 normative violations",
+            "compile_tcc(typst)    -> out/monografia.pdf [48p]"
+          ],
+          "tech": ["Python", "FastMCP", "Typst", "LaTeX", "Spec-Driven Dev"],
+          "github": "https://github.com/PedroSmaxY/abnt-mcp",
+          "period": "2026"
+        },
+        {
+          "title": "FinAI",
+          "subtitle": "Plataforma de Inteligência Financeira (TCC)",
+          "description": "Plataforma full-stack de inteligência financeira construída com Spec-Kit (SDD), ingestão OFX/CSV com sanitização LGPD, criptografia BYOK (AES-256-GCM), consultor de IA em streaming SSE, cache MongoDB TTL 24h e 434 testes automatizados.",
+          "terminalPreview": [
+            "$ spec-kit --verify finai",
+            "ingest(OFX/CSV) -> LGPD sanitizer -> MongoDB TTL (24h)",
+            "byok(AES-256-GCM) -> Fastify SSE stream -> Next.js 16",
+            "vitest run -> 434 passed (89 test files)"
+          ],
+          "tech": ["Next.js 16", "Fastify / TS", "MongoDB", "SSE / BYOK", "Spec-Kit"],
+          "github": "https://github.com/Projeto-TCC-Dash",
+          "period": "2026"
+        },
+        {
           "title": "Solar System ASCII",
           "subtitle": "Simulador Orbital 3D Kepleriano em Rust",
           "description": "Simulador do Sistema Solar em 3D no terminal com mecânica orbital de Kepler, raymarching procedural, paralelismo via Rayon e renderização em alta definição Half-Block/ASCII.",
@@ -147,20 +175,6 @@
           "period": "2026"
         },
         {
-          "title": "ABNT MCP",
-          "subtitle": "Copiloto Acadêmico via Model Context Protocol",
-          "description": "Servidor MCP para pesquisa científica e produção acadêmica no padrão ABNT, com auditoria normativa, busca bibliográfica (Crossref/SciELO), validação de citações e compilação PDF via Typst e LaTeX.",
-          "terminalPreview": [
-            "$ abnt-mcp --transport stdio",
-            "validate_citations()  -> 42 refs verified (NBR 10520)",
-            "audit_illustrations() -> 0 normative violations",
-            "compile_tcc(typst)    -> out/monografia.pdf [48p]"
-          ],
-          "tech": ["Python", "FastMCP", "Typst", "LaTeX", "Spec-Driven Dev"],
-          "github": "https://github.com/PedroSmaxY/abnt-mcp",
-          "period": "2026"
-        },
-        {
           "title": "FURIA CS2 FanBot",
           "subtitle": "Desafio Técnico · Processo Seletivo FURIA",
           "description": "Solução full-stack desenvolvida como desafio de código para o processo seletivo da FURIA, integrando Bot de Telegram em Python, API REST em Fastify com cache e landing page responsiva em Next.js orquestrada via Docker Compose.",
@@ -169,20 +183,6 @@
           "github": "https://github.com/PedroSmaxY/furia-fanbot",
           "live": "https://furia-fanbot.vercel.app/",
           "period": "2025"
-        },
-        {
-          "title": "FinAI",
-          "subtitle": "Plataforma de Inteligência Financeira (TCC)",
-          "description": "Sistema full-stack de inteligência financeira pessoal construído sob Spec-Driven Development (Spec-Kit), com ingestão de extratos OFX SGML e CSV, sanitização LGPD, segurança BYOK (AES-256-GCM), consultor financeiro em streaming SSE, cache TTL de 24h no MongoDB e 434 testes automatizados no frontend.",
-          "terminalPreview": [
-            "$ spec-kit --verify finai",
-            "ingest(OFX/CSV) -> LGPD sanitizer -> MongoDB TTL (24h)",
-            "byok(AES-256-GCM) -> Fastify SSE stream -> Next.js 16",
-            "vitest run -> 434 passed (89 test files)"
-          ],
-          "tech": ["Next.js 16", "React", "Fastify", "TypeScript", "MongoDB", "SSE", "Spec-Kit"],
-          "github": "https://github.com/Projeto-TCC-Dash",
-          "period": "2026"
         }
       ]
     },
