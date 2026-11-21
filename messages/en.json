@@ -1,9 +1,10 @@
 {
   "portfolio": {
     "metadata": {
-      "title": "Pedro SmaxY — Software Engineer · AI Tooling, Rust & Full Stack",
+      "title": "Pedro Novais — Software Engineer · AI Tooling, Rust & Full Stack",
       "description": "Software Engineer in Rio de Janeiro building AI tools and MCP servers, Rust systems, typed backend APIs, and full-stack web products.",
       "keywords": [
+        "Pedro Novais",
         "Pedro SmaxY",
         "Software Engineer",
         "Rust",
@@ -12,15 +13,14 @@
         "Spec-Driven Development",
         "Fastify",
         "Ruby on Rails",
-        "ASP.NET Core",
         "Next.js",
         "TypeScript",
         "Rio de Janeiro"
       ],
       "openGraph": {
-        "title": "Pedro SmaxY — Software Engineer · AI Tooling, Rust & Full Stack",
+        "title": "Pedro Novais — Software Engineer · AI Tooling, Rust & Full Stack",
         "description": "AI tooling (MCP/SDD), Rust systems, typed backend architecture, and full-stack web products.",
-        "siteName": "Pedro SmaxY"
+        "siteName": "Pedro Novais"
       }
     },
     "header": {
