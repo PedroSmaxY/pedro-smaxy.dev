@@ -1,8 +1,8 @@
 {
   "portfolio": {
     "metadata": {
-      "title": "Pedro Novais — Engenheiro de Software · AI Tooling, Rust & Full Stack",
-      "description": "Engenheiro de Software no Rio de Janeiro construindo ferramentas de IA e servidores MCP, sistemas em Rust, APIs tipadas e produtos web full-stack.",
+      "title": "Pedro Novais | Engenheiro de Software",
+      "description": "Engenheiro de Software em Petrópolis, RJ construindo ferramentas de IA e servidores MCP, sistemas em Rust, APIs tipadas e produtos web full-stack.",
       "keywords": [
         "Pedro Novais",
         "Pedro SmaxY",
@@ -15,10 +15,11 @@
         "Ruby on Rails",
         "Next.js",
         "TypeScript",
+        "Petrópolis",
         "Rio de Janeiro"
       ],
       "openGraph": {
-        "title": "Pedro Novais — Engenheiro de Software · AI Tooling, Rust & Full Stack",
+        "title": "Pedro Novais | Engenheiro de Software",
         "description": "Ferramentas de IA (MCP/SDD), simuladores em Rust, arquitetura backend tipada e produtos web full-stack.",
         "siteName": "Pedro Novais"
       }
@@ -33,8 +34,8 @@
       }
     },
     "hero": {
-      "role": "Engenheiro de Software · Rio de Janeiro",
-      "location": "Rio de Janeiro, Brasil",
+      "role": "Engenheiro de Software",
+      "location": "Petrópolis, RJ · Brasil",
       "headlinePrefix": "Sistemas, AI tooling &",
       "headlineEmphasis": "arquitetura.",
       "description": "Construindo ferramentas de IA e servidores MCP, sistemas de alta performance em Rust, APIs tipadas e produtos web full-stack.",
@@ -46,7 +47,7 @@
     "about": {
       "title": "Do baixo nível ao produto final.",
       "paragraphs": [
-        "Sou Engenheiro de Software no Rio de Janeiro focado em AI tooling, sistemas em Rust, arquitetura backend e produtos full-stack. Construo software prático com bases sólidas em APIs tipadas, ferramentas de desenvolvedor (MCP e Spec-Driven Development), automação e sistemas orientados a performance.",
+        "Sou Engenheiro de Software focado em AI tooling, sistemas em Rust, arquitetura backend e produtos full-stack. Construo software prático com bases sólidas em APIs tipadas, ferramentas de desenvolvedor (MCP e Spec-Driven Development), automação e sistemas orientados a performance.",
         "Atualmente na MLP Rent, atuo com engenharia de software, automação e integração de agentes de IA; anteriormente na ABEPE, trabalhei no desenvolvimento de aplicações web em Ruby on Rails e automações assistidas por IA."
       ],
       "educationLabel": "Formação",
@@ -219,7 +220,7 @@
       "copyLabel": "Copiar e-mail",
       "copiedLabel": "Copiado",
       "sendEmailLabel": "Enviar e-mail",
-      "localTimeLabel": "Hora Local · Rio de Janeiro",
+      "localTimeLabel": "Hora Local · Petrópolis, RJ",
       "availabilityLabel": "Disponível para projetos e posições"
     },
     "footer": {

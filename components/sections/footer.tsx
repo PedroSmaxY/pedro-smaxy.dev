@@ -12,7 +12,7 @@ export function Footer() {
       </p>
       <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
         <span className="text-[#636059] tabular-nums whitespace-nowrap">
-          {coordinates} · RELATIVISTIC MONOGRAPH
+          {coordinates} · PETRÓPOLIS, RJ
         </span>
         <a
           href="#home"

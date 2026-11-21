@@ -53,7 +53,7 @@ export function About() {
             className="relative w-32 sm:w-44 lg:w-52 border border-[#EDEAE2]/15 bg-[#0F1013] flex flex-col overflow-hidden"
           >
             <div className="flex items-center justify-between px-2.5 py-1.5 border-b border-[#EDEAE2]/10 font-mono text-[9px] tracking-wider text-[#9A968E] uppercase whitespace-nowrap">
-              <span>IMG_01 // RIO</span>
+              <span>IMG_01 // PETRÓPOLIS</span>
               <span
                 className="w-1.5 h-1.5 rounded-full bg-[#FF4D00] shrink-0"
                 aria-hidden="true"

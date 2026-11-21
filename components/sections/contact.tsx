@@ -162,7 +162,7 @@ export function Contact() {
 
         <div className="border border-[#EDEAE2]/12 bg-[#0A0B0D] p-3.5">
           <div className="flex items-center justify-between font-mono text-[9px] text-[#636059] uppercase tracking-wider mb-2">
-            <span>RIO_DE_JANEIRO // TELEMETRY_LOCK</span>
+            <span>PETROPOLIS_RJ // TELEMETRY_LOCK</span>
             <span className="text-[#FF4D00]">UTC-3</span>
           </div>
           <svg
@@ -177,13 +177,13 @@ export function Contact() {
             <circle cx="56" cy="36" r="34" fill="none" stroke="#EDEAE2" strokeOpacity="0.09" strokeWidth="1" />
             <circle cx="56" cy="36" r="2.5" fill="#FF4D00" />
             <text x="124" y="25" className="fill-[#EDEAE2] font-mono text-[9px]">
-              LAT: -22.9068° S
+              LAT: -22.3886° S
             </text>
             <text x="124" y="40" className="fill-[#9A968E] font-mono text-[9px]">
-              LON: -43.1729° W
+              LON: -43.1331° W
             </text>
             <text x="124" y="55" className="fill-[#FF8A4C] font-mono text-[8.5px]">
-              SIGNAL: NOMINAL · RIO
+              SIGNAL: NOMINAL · PETRÓPOLIS
             </text>
           </svg>
         </div>

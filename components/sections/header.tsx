@@ -94,7 +94,7 @@ export function Header() {
             {shortName}
           </a>
           <span className="hidden md:inline font-mono text-[11px] text-[#9A968E] border-l border-[#EDEAE2]/15 pl-4 tabular-nums">
-            {coordinates} · RIO
+            {coordinates} · PETRÓPOLIS
           </span>
         </div>
 

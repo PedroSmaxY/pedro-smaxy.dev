@@ -1,8 +1,8 @@
 {
   "portfolio": {
     "metadata": {
-      "title": "Pedro Novais — Software Engineer · AI Tooling, Rust & Full Stack",
-      "description": "Software Engineer in Rio de Janeiro building AI tools and MCP servers, Rust systems, typed backend APIs, and full-stack web products.",
+      "title": "Pedro Novais | Software Engineer",
+      "description": "Software Engineer in Petrópolis, RJ (Brazil) building AI tools and MCP servers, Rust systems, typed backend APIs, and full-stack web products.",
       "keywords": [
         "Pedro Novais",
         "Pedro SmaxY",
@@ -15,10 +15,11 @@
         "Ruby on Rails",
         "Next.js",
         "TypeScript",
+        "Petrópolis",
         "Rio de Janeiro"
       ],
       "openGraph": {
-        "title": "Pedro Novais — Software Engineer · AI Tooling, Rust & Full Stack",
+        "title": "Pedro Novais | Software Engineer",
         "description": "AI tooling (MCP/SDD), Rust systems, typed backend architecture, and full-stack web products.",
         "siteName": "Pedro Novais"
       }
@@ -33,8 +34,8 @@
       }
     },
     "hero": {
-      "role": "Software Engineer · Rio de Janeiro",
-      "location": "Rio de Janeiro, Brazil",
+      "role": "Software Engineer",
+      "location": "Petrópolis, RJ · Brazil",
       "headlinePrefix": "Systems, AI tooling &",
       "headlineEmphasis": "architecture.",
       "description": "Building AI tools, MCP servers, Rust systems, typed backend APIs, and full-stack web products.",
@@ -46,7 +47,7 @@
     "about": {
       "title": "From low-level systems to shipped products.",
       "paragraphs": [
-        "I am a Software Engineer in Rio de Janeiro focused on AI tooling, Rust systems, backend architecture, and full-stack products. I build practical software with strong foundations in typed APIs, developer tools (MCP and Spec-Driven Development), automation, and performance-oriented systems.",
+        "I am a Software Engineer focused on AI tooling, Rust systems, backend architecture, and full-stack products. I build practical software with strong foundations in typed APIs, developer tools (MCP and Spec-Driven Development), automation, and performance-oriented systems.",
         "Currently at MLP Rent, I work on software engineering, automation, and AI agent integrations; previously at ABEPE, I built and maintained Ruby on Rails web applications and introduced AI-assisted workflow automations."
       ],
       "educationLabel": "Education",
@@ -219,7 +220,7 @@
       "copyLabel": "Copy email",
       "copiedLabel": "Copied",
       "sendEmailLabel": "Send email",
-      "localTimeLabel": "Local Time · Rio de Janeiro",
+      "localTimeLabel": "Local Time · Petrópolis, RJ",
       "availabilityLabel": "Available for select projects & roles"
     },
     "footer": {
