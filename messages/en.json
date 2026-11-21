@@ -204,10 +204,10 @@
       "cycleLabel": "ACADEMIC CYCLE // 95% COMPLETED",
       "focusLabel": "Focus Areas",
       "focusAreas": [
-        "Spec-Driven Development (SDD)",
-        "Privacy & Security (LGPD / BYOK)",
-        "Scientific Computing & Simulation",
-        "Normative Automation (ABNT/MCP)"
+        "Full-Stack Engineering & APIs",
+        "AI Tooling & Automation (MCP / SDD)",
+        "Security & Privacy (LGPD / BYOK)",
+        "Software Testing & Quality"
       ],
       "educationExperience": [
         {
