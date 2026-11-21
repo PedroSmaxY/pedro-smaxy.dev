@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { GithubLogoIcon } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
@@ -39,7 +40,12 @@ function ProjectViewport({
   }`;
 
   const codeRef = useRef<HTMLSpanElement | null>(null);
+  const viewportBodyRef = useRef<HTMLDivElement | null>(null);
+  const captureLayerRef = useRef<HTMLDivElement | null>(null);
+  const laserRef = useRef<HTMLDivElement | null>(null);
   const hasMountedRef = useRef(false);
+  const prevIndexRef = useRef(projectIndex);
+  const prevModeRef = useRef(activeMode);
 
   useEffect(() => {
     if (!hasMountedRef.current) {
@@ -86,6 +92,106 @@ function ProjectViewport({
     };
   }, [headerCodeText]);
 
+  useEffect(() => {
+    const captureLayer = captureLayerRef.current;
+    const targetClip =
+      activeMode === "capture" ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)";
+
+    if (prevIndexRef.current !== projectIndex) {
+      prevIndexRef.current = projectIndex;
+      prevModeRef.current = activeMode;
+      if (captureLayer) {
+        gsap.killTweensOf(captureLayer);
+        captureLayer.style.clipPath = targetClip;
+      }
+      if (laserRef.current) {
+        gsap.killTweensOf(laserRef.current);
+        gsap.set(laserRef.current, { autoAlpha: 0 });
+      }
+      return;
+    }
+
+    if (prevModeRef.current === activeMode) return;
+    prevModeRef.current = activeMode;
+
+    return createMotionScope(viewportBodyRef.current, ({ reduceMotion }) => {
+      if (reduceMotion) {
+        if (captureLayer) captureLayer.style.clipPath = targetClip;
+        return;
+      }
+
+      const tl = gsap.timeline({
+        defaults: { ease: MOTION.ease, overwrite: true },
+      });
+
+      if (activeMode === "capture") {
+        if (laserRef.current) {
+          tl.fromTo(
+            laserRef.current,
+            { left: "0%", autoAlpha: 1 },
+            { left: "100%", autoAlpha: 0, duration: 0.48 },
+            0
+          );
+        }
+        if (captureLayer) {
+          tl.fromTo(
+            captureLayer,
+            { clipPath: "inset(0 100% 0 0)" },
+            { clipPath: "inset(0 0% 0 0)", duration: 0.48 },
+            0
+          );
+          const img = captureLayer.querySelector("img");
+          if (img) {
+            tl.fromTo(
+              img,
+              { scale: 1.035, filter: "brightness(1.16) contrast(1.1)" },
+              {
+                scale: 1,
+                filter: "brightness(1) contrast(1)",
+                duration: 0.54,
+                clearProps: "transform,filter",
+              },
+              0
+            );
+          }
+        }
+      } else {
+        if (laserRef.current) {
+          tl.fromTo(
+            laserRef.current,
+            { left: "100%", autoAlpha: 1 },
+            { left: "0%", autoAlpha: 0, duration: 0.46 },
+            0
+          );
+        }
+        if (captureLayer) {
+          tl.fromTo(
+            captureLayer,
+            { clipPath: "inset(0 0% 0 0)" },
+            { clipPath: "inset(0 100% 0 0)", duration: 0.46 },
+            0
+          );
+        }
+        const svg = viewportBodyRef.current?.querySelector(
+          "[data-schematic-canvas]"
+        );
+        if (svg) {
+          tl.fromTo(
+            svg,
+            { scale: 0.98, autoAlpha: 0.6, transformOrigin: "50% 50%" },
+            {
+              scale: 1,
+              autoAlpha: 1,
+              duration: 0.46,
+              clearProps: "transform,opacity,visibility",
+            },
+            0.04
+          );
+        }
+      }
+    });
+  }, [activeMode, projectIndex]);
+
   return (
     <div
       data-proj-viewport
@@ -118,15 +224,48 @@ function ProjectViewport({
         </div>
       </div>
 
-      <div className="relative aspect-video w-full overflow-hidden bg-[#050608]">
+      <div
+        ref={viewportBodyRef}
+        className="relative aspect-video w-full overflow-hidden bg-[#050608]"
+      >
         <div
           data-proj-scanline
           aria-hidden="true"
           className="pointer-events-none absolute top-0 left-0 right-0 h-0.5 bg-[#FF4D00] origin-left opacity-0 z-20"
         />
+        <div
+          ref={laserRef}
+          data-mode-laser
+          aria-hidden="true"
+          className="pointer-events-none absolute top-0 bottom-0 left-0 w-[2px] bg-[#FF4D00] shadow-[0_0_14px_2px_rgba(255,77,0,0.85)] opacity-0 z-30"
+        />
         <div className="absolute inset-0">
-          <ProjectSchematic project={project} viewMode={activeMode} />
+          <ProjectSchematic project={project} />
         </div>
+        {project.image ? (
+          <div
+            ref={captureLayerRef}
+            data-capture-layer
+            aria-hidden={activeMode !== "capture"}
+            style={{
+              clipPath:
+                activeMode === "capture"
+                  ? "inset(0 0% 0 0)"
+                  : "inset(0 100% 0 0)",
+            }}
+            className={`absolute inset-0 overflow-hidden bg-[#050608] z-10 ${
+              activeMode === "capture" ? "" : "pointer-events-none"
+            }`}
+          >
+            <Image
+              src={project.image}
+              fill
+              sizes="(max-width: 1024px) 100vw, 60vw"
+              alt={project.title}
+              className="object-cover"
+            />
+          </div>
+        ) : null}
       </div>
     </div>
   );

@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 export type ProjectPreviewData = {
   title: string;
   image?: string;
@@ -11,7 +9,6 @@ export type ProjectPreviewData = {
 
 type SchematicProps = {
   project: ProjectPreviewData;
-  viewMode: "schematic" | "capture";
 };
 
 function TerminalStrip({ command }: { command?: string }) {
@@ -80,164 +77,6 @@ function SvgBottomMetrics({ items }: { items: [string, string, string] }) {
         {items[2]}
       </text>
     </g>
-  );
-}
-
-type BlueprintSpec = {
-  systemTag: string;
-  perfTag: string;
-  input: { title: string; sub: string };
-  hub: { title: string; sub: string };
-  outputs: [
-    { title: string; sub: string },
-    { title: string; sub: string },
-    { title: string; sub: string },
-  ];
-  metrics: [string, string, string];
-  command?: string;
-};
-
-function ArchitectureBlueprint({ spec }: { spec: BlueprintSpec }) {
-  const outputYs = [42, 88, 134];
-
-  return (
-    <div className="absolute inset-0 flex flex-col justify-between bg-[#07080A] dot-matrix">
-      <div className="relative flex-1 flex items-center justify-center p-3 sm:p-4">
-        <svg
-          data-schematic-canvas
-          viewBox="0 0 560 220"
-          className="w-full h-full max-h-[220px]"
-          aria-hidden="true"
-        >
-          <SvgHudHeader left={spec.systemTag} right={spec.perfTag} />
-
-          <line
-            x1="128"
-            y1="108"
-            x2="176"
-            y2="108"
-            stroke="#EDEAE2"
-            strokeOpacity="0.22"
-            strokeWidth="1"
-          />
-          <line
-            x1="128"
-            y1="108"
-            x2="176"
-            y2="108"
-            stroke="#FF4D00"
-            strokeOpacity="0.8"
-            strokeWidth="1.4"
-            strokeDasharray="4 8"
-            className="animate-[flowDash_2.4s_linear_infinite] motion-reduce:animate-none"
-          />
-
-          {outputYs.map((y, idx) => {
-            const targetY = y + 19;
-            const pathD = `M 326 108 C 352 108 352 ${targetY} 376 ${targetY}`;
-            return (
-              <g key={spec.outputs[idx].title}>
-                <path
-                  d={pathD}
-                  fill="none"
-                  stroke="#EDEAE2"
-                  strokeOpacity="0.18"
-                  strokeWidth="1"
-                />
-                <path
-                  d={pathD}
-                  fill="none"
-                  stroke="#FF8A4C"
-                  strokeOpacity="0.7"
-                  strokeWidth="1.3"
-                  strokeDasharray="4 8"
-                  className="animate-[flowDash_2.4s_linear_infinite] motion-reduce:animate-none"
-                />
-                <rect
-                  x="376"
-                  y={y}
-                  width="168"
-                  height="38"
-                  fill="#0F1013"
-                  stroke="#EDEAE2"
-                  strokeOpacity="0.22"
-                />
-                <text
-                  x="388"
-                  y={y + 16}
-                  className="fill-[#EDEAE2] font-mono text-[9px]"
-                >
-                  {spec.outputs[idx].title}
-                </text>
-                <text
-                  x="388"
-                  y={y + 29}
-                  className="fill-[#9A968E] font-mono text-[7.8px]"
-                >
-                  {spec.outputs[idx].sub}
-                </text>
-              </g>
-            );
-          })}
-
-          <rect
-            x="16"
-            y="82"
-            width="112"
-            height="52"
-            fill="#0F1013"
-            stroke="#EDEAE2"
-            strokeOpacity="0.22"
-          />
-          <text
-            x="72"
-            y="105"
-            textAnchor="middle"
-            className="fill-[#EDEAE2] font-mono text-[9px]"
-          >
-            {spec.input.title}
-          </text>
-          <text
-            x="72"
-            y="120"
-            textAnchor="middle"
-            className="fill-[#9A968E] font-mono text-[7.8px]"
-          >
-            {spec.input.sub}
-          </text>
-
-          <rect
-            x="176"
-            y="72"
-            width="150"
-            height="72"
-            fill="#0F1013"
-            stroke="#FF4D00"
-            strokeWidth="1.4"
-          />
-          <circle cx="187" cy="84" r="2" fill="#FF4D00" />
-          <text
-            x="251"
-            y="105"
-            textAnchor="middle"
-            className="fill-[#FF8A4C] font-mono text-[9.5px]"
-          >
-            {spec.hub.title}
-          </text>
-          <text
-            x="251"
-            y="122"
-            textAnchor="middle"
-            className="fill-[#EDEAE2] font-mono text-[8px]"
-          >
-            {spec.hub.sub}
-          </text>
-
-          <SvgBottomMetrics items={spec.metrics} />
-        </svg>
-      </div>
-      <TerminalStrip command={spec.command} />
-    </div>
   );
 }
 
@@ -839,6 +678,772 @@ function FinAISchematic({ lines }: { lines?: string[] }) {
   );
 }
 
+function AbntMcpSchematic({ lines }: { lines?: string[] }) {
+  const rules = [
+    { y: 70, accent: "#FF4D00", text: "NBR 14724 · Estrutura 3-3-2-2" },
+    { y: 94, accent: "#FF4D00", text: "NBR 10520:23 · (Autor, Ano)" },
+    { y: 118, accent: "#FF8A4C", text: "NBR 6023 · BibTeX Cross-Audit" },
+    { y: 142, accent: "#FF8A4C", text: "IBGE 1993 · Tabelas & BancaSim" },
+  ];
+
+  return (
+    <div className="absolute inset-0 flex flex-col justify-between bg-[#07080A] dot-matrix">
+      <div className="relative flex-1 flex items-center justify-center p-3 sm:p-4">
+        <svg
+          data-schematic-canvas
+          viewBox="0 0 560 220"
+          className="w-full h-full max-h-[220px]"
+          aria-hidden="true"
+        >
+          <SvgHudHeader
+            left="ABNT_MCP // NORMATIVE ACADEMIC COMPILER · FASTMCP 4.1.3"
+            right="19 TOOLS · 80 TESTS (87% COV) · TYPST / LATEX"
+          />
+
+          {/* Column 1: AI Client & Scientific Index */}
+          <rect
+            x="16"
+            y="44"
+            width="124"
+            height="54"
+            fill="#0F1013"
+            stroke="#EDEAE2"
+            strokeOpacity="0.22"
+          />
+          <text
+            x="78"
+            y="58"
+            textAnchor="middle"
+            className="fill-[#EDEAE2] font-mono text-[8.2px]"
+          >
+            CLAUDE / IDE CLIENT
+          </text>
+          <text
+            x="78"
+            y="71"
+            textAnchor="middle"
+            className="fill-[#9A968E] font-mono text-[7.1px]"
+          >
+            MCP JSON-RPC · stdio
+          </text>
+          <text
+            x="78"
+            y="84"
+            textAnchor="middle"
+            className="fill-[#FF8A4C] font-mono text-[7.1px]"
+          >
+            19 Tools · 8 Resources
+          </text>
+
+          <line
+            x1="78"
+            y1="98"
+            x2="78"
+            y2="114"
+            stroke="#EDEAE2"
+            strokeOpacity="0.22"
+            strokeWidth="1"
+          />
+          <line
+            x1="78"
+            y1="98"
+            x2="78"
+            y2="114"
+            stroke="#FF4D00"
+            strokeOpacity="0.8"
+            strokeWidth="1.3"
+            strokeDasharray="4 8"
+            className="animate-[flowDash_2.4s_linear_infinite] motion-reduce:animate-none"
+          />
+
+          <rect
+            x="16"
+            y="114"
+            width="124"
+            height="54"
+            fill="#0F1013"
+            stroke="#EDEAE2"
+            strokeOpacity="0.22"
+          />
+          <text
+            x="78"
+            y="128"
+            textAnchor="middle"
+            className="fill-[#EDEAE2] font-mono text-[8.2px]"
+          >
+            CROSSREF &amp; SCIELO
+          </text>
+          <text
+            x="78"
+            y="141"
+            textAnchor="middle"
+            className="fill-[#9A968E] font-mono text-[7.1px]"
+          >
+            DOI Lookup · BibTeX Clean
+          </text>
+          <text
+            x="78"
+            y="154"
+            textAnchor="middle"
+            className="fill-[#FF8A4C] font-mono text-[7.1px]"
+          >
+            abnt.spec.json (SDD)
+          </text>
+
+          {/* Connectors Col 1 -> Col 2 */}
+          {[71, 141].map((startY) => {
+            const d = `M 140 ${startY} C 156 ${startY} 156 108 172 108`;
+            return (
+              <g key={startY}>
+                <path
+                  d={d}
+                  fill="none"
+                  stroke="#EDEAE2"
+                  strokeOpacity="0.2"
+                  strokeWidth="1"
+                />
+                <path
+                  d={d}
+                  fill="none"
+                  stroke="#FF4D00"
+                  strokeOpacity="0.8"
+                  strokeWidth="1.3"
+                  strokeDasharray="4 8"
+                  className="animate-[flowDash_2.4s_linear_infinite] motion-reduce:animate-none"
+                />
+              </g>
+            );
+          })}
+
+          {/* Column 2: Normative Auditor Engine */}
+          <rect
+            x="172"
+            y="42"
+            width="168"
+            height="130"
+            fill="#0F1013"
+            stroke="#FF4D00"
+            strokeWidth="1.4"
+          />
+          <circle cx="183" cy="54" r="2" fill="#FF4D00" />
+          <text
+            x="260"
+            y="57"
+            textAnchor="middle"
+            className="fill-[#FF8A4C] font-mono text-[8.3px]"
+          >
+            NORMATIVE AUDITOR ENGINE
+          </text>
+          <line
+            x1="181"
+            y1="64"
+            x2="331"
+            y2="64"
+            stroke="#EDEAE2"
+            strokeOpacity="0.12"
+          />
+
+          {rules.map((rule) => (
+            <g key={rule.text}>
+              <rect
+                x="181"
+                y={rule.y}
+                width="150"
+                height="21"
+                fill="#0A0B0D"
+                stroke="#EDEAE2"
+                strokeOpacity="0.16"
+              />
+              <rect
+                x="187"
+                y={rule.y + 9}
+                width="3"
+                height="3"
+                fill={rule.accent}
+              />
+              <text
+                x="195"
+                y={rule.y + 13}
+                className="fill-[#EDEAE2] font-mono text-[7.3px]"
+              >
+                {rule.text}
+              </text>
+            </g>
+          ))}
+
+          {/* Connector Col 2 -> Col 3 */}
+          <line
+            x1="340"
+            y1="108"
+            x2="376"
+            y2="108"
+            stroke="#EDEAE2"
+            strokeOpacity="0.2"
+            strokeWidth="1"
+          />
+          <line
+            x1="340"
+            y1="108"
+            x2="376"
+            y2="108"
+            stroke="#FF8A4C"
+            strokeOpacity="0.8"
+            strokeWidth="1.4"
+            strokeDasharray="4 8"
+            className="animate-[flowDash_2.4s_linear_infinite] motion-reduce:animate-none"
+          />
+
+          {/* Column 3: Vector ABNT Academic Page Blueprint */}
+          <rect
+            x="376"
+            y="42"
+            width="168"
+            height="130"
+            fill="#0F1013"
+            stroke="#EDEAE2"
+            strokeOpacity="0.25"
+          />
+          <text
+            x="384"
+            y="54"
+            className="fill-[#EDEAE2] font-mono text-[7.5px]"
+          >
+            A4 // MONOGRAFIA.PDF
+          </text>
+          <text
+            x="536"
+            y="54"
+            textAnchor="end"
+            className="fill-[#FF8A4C] font-mono text-[7.2px]"
+          >
+            3-3-2-2 CM
+          </text>
+          <line
+            x1="376"
+            y1="60"
+            x2="544"
+            y2="60"
+            stroke="#EDEAE2"
+            strokeOpacity="0.12"
+          />
+
+          {/* Mini A4 Sheet Wireframe */}
+          <rect
+            x="386"
+            y="67"
+            width="64"
+            height="84"
+            fill="#0A0B0D"
+            stroke="#EDEAE2"
+            strokeOpacity="0.35"
+          />
+          <rect
+            x="394"
+            y="75"
+            width="50"
+            height="70"
+            fill="none"
+            stroke="#FF4D00"
+            strokeOpacity="0.4"
+            strokeDasharray="2 2"
+          />
+          <line
+            x1="398"
+            y1="82"
+            x2="422"
+            y2="82"
+            stroke="#EDEAE2"
+            strokeWidth="1.5"
+          />
+          {[88, 93, 98].map((lineY) => (
+            <line
+              key={lineY}
+              x1="398"
+              y1={lineY}
+              x2="438"
+              y2={lineY}
+              stroke="#9A968E"
+              strokeOpacity="0.6"
+              strokeWidth="1"
+            />
+          ))}
+          <rect
+            x="410"
+            y="103"
+            width="28"
+            height="13"
+            fill="#FF4D00"
+            fillOpacity="0.15"
+            stroke="#FF8A4C"
+            strokeWidth="0.8"
+          />
+          {/* Open IBGE Table Wireframe */}
+          {[123, 127, 136].map((rowY) => (
+            <line
+              key={rowY}
+              x1="398"
+              y1={rowY}
+              x2="438"
+              y2={rowY}
+              stroke="#EDEAE2"
+              strokeOpacity="0.7"
+              strokeWidth="0.8"
+            />
+          ))}
+          <line
+            x1="418"
+            y1="123"
+            x2="418"
+            y2="136"
+            stroke="#EDEAE2"
+            strokeOpacity="0.35"
+            strokeWidth="0.7"
+          />
+
+          {/* Compiler Badges */}
+          <rect
+            x="458"
+            y="67"
+            width="78"
+            height="26"
+            fill="#0A0B0D"
+            stroke="#FF4D00"
+            strokeOpacity="0.6"
+          />
+          <text
+            x="497"
+            y="78"
+            textAnchor="middle"
+            className="fill-[#FF8A4C] font-mono text-[7.5px]"
+          >
+            TYPST RUST
+          </text>
+          <text
+            x="497"
+            y="88"
+            textAnchor="middle"
+            className="fill-[#9A968E] font-mono text-[6.7px]"
+          >
+            Native PDF
+          </text>
+
+          <rect
+            x="458"
+            y="98"
+            width="78"
+            height="26"
+            fill="#0A0B0D"
+            stroke="#EDEAE2"
+            strokeOpacity="0.18"
+          />
+          <text
+            x="497"
+            y="109"
+            textAnchor="middle"
+            className="fill-[#EDEAE2] font-mono text-[7.5px]"
+          >
+            abnTeX2
+          </text>
+          <text
+            x="497"
+            y="119"
+            textAnchor="middle"
+            className="fill-[#9A968E] font-mono text-[6.7px]"
+          >
+            LaTeX 4-Pass
+          </text>
+
+          <rect
+            x="458"
+            y="129"
+            width="78"
+            height="22"
+            fill="#0A0B0D"
+            stroke="#EDEAE2"
+            strokeOpacity="0.18"
+          />
+          <text
+            x="497"
+            y="143"
+            textAnchor="middle"
+            className="fill-[#FF4D00] font-mono text-[7.2px]"
+          >
+            0 VIOLATIONS
+          </text>
+
+          <text
+            x="460"
+            y="164"
+            textAnchor="middle"
+            className="fill-[#9A968E] font-mono text-[6.8px]"
+          >
+            NBR 14724 · 10520:2023 VERIFIED
+          </text>
+
+          <SvgBottomMetrics
+            items={[
+              "PROTOCOL: MCP STDIO (19 TOOLS)",
+              "STANDARDS: ABNT 2023 + IBGE",
+              "OUTPUT: TYPST & ABNTEX2 PDF",
+            ]}
+          />
+        </svg>
+      </div>
+      <TerminalStrip command={lines?.[0] ?? "$ abnt-mcp --transport stdio"} />
+    </div>
+  );
+}
+
+function FuriaSchematic() {
+  const bubbles = [
+    {
+      y: 70,
+      stroke: "#FF4D00",
+      strokeOpacity: "0.55",
+      cmdColor: "fill-[#FF8A4C]",
+      cmd: "/proximaspartidas",
+      sub: "FURIA vs NAVI · 19:00",
+    },
+    {
+      y: 103,
+      stroke: "#EDEAE2",
+      strokeOpacity: "0.18",
+      cmdColor: "fill-[#EDEAE2]",
+      cmd: "/resumo · /stats",
+      sub: "Mapas · K/D · Winrate",
+    },
+    {
+      y: 136,
+      stroke: "#EDEAE2",
+      strokeOpacity: "0.18",
+      cmdColor: "fill-[#EDEAE2]",
+      cmd: "/elenco · Alertas",
+      sub: "Push Match Notification",
+    },
+  ];
+
+  const players = [
+    {
+      name: "KSCERATO",
+      y: 77,
+      barW: 62,
+      barColor: "#FF4D00",
+      rating: "1.24",
+      ratingColor: "fill-[#FF8A4C]",
+    },
+    {
+      name: "yuurih",
+      y: 98,
+      barW: 57,
+      barColor: "#FF8A4C",
+      rating: "1.18",
+      ratingColor: "fill-[#EDEAE2]",
+    },
+    {
+      name: "FalleN",
+      y: 119,
+      barW: 51,
+      barColor: "#EDEAE2",
+      barOpacity: "0.65",
+      rating: "1.09",
+      ratingColor: "fill-[#9A968E]",
+    },
+  ];
+
+  return (
+    <div className="absolute inset-0 flex flex-col justify-between bg-[#07080A] dot-matrix">
+      <div className="relative flex-1 flex items-center justify-center p-3 sm:p-4">
+        <svg
+          data-schematic-canvas
+          viewBox="0 0 560 220"
+          className="w-full h-full max-h-[220px]"
+          aria-hidden="true"
+        >
+          <SvgHudHeader
+            left="FURIA_CS2 // TELEGRAM BOT & ESPORTS FAN HUB"
+            right="PYTHON BOT · FASTIFY CACHE · NEXT.JS · DOCKER"
+          />
+
+          {/* Column 1: Telegram Bot Console */}
+          <rect
+            x="16"
+            y="42"
+            width="136"
+            height="130"
+            fill="#0F1013"
+            stroke="#EDEAE2"
+            strokeOpacity="0.22"
+          />
+          <circle cx="26" cy="54" r="2" fill="#FF8A4C" />
+          <text
+            x="34"
+            y="57"
+            className="fill-[#EDEAE2] font-mono text-[8px]"
+          >
+            TELEGRAM BOT (PY)
+          </text>
+          <line
+            x1="22"
+            y1="64"
+            x2="146"
+            y2="64"
+            stroke="#EDEAE2"
+            strokeOpacity="0.12"
+          />
+
+          {bubbles.map((b) => (
+            <g key={b.cmd}>
+              <rect
+                x="23"
+                y={b.y}
+                width="122"
+                height="29"
+                fill="#0A0B0D"
+                stroke={b.stroke}
+                strokeOpacity={b.strokeOpacity}
+              />
+              <text
+                x="30"
+                y={b.y + 12}
+                className={`${b.cmdColor} font-mono text-[7.5px]`}
+              >
+                {b.cmd}
+              </text>
+              <text
+                x="30"
+                y={b.y + 23}
+                className="fill-[#9A968E] font-mono text-[6.8px]"
+              >
+                {b.sub}
+              </text>
+            </g>
+          ))}
+
+          {/* Connector Col 1 -> Col 2 */}
+          <line
+            x1="152"
+            y1="108"
+            x2="180"
+            y2="108"
+            stroke="#EDEAE2"
+            strokeOpacity="0.2"
+            strokeWidth="1"
+          />
+          <line
+            x1="152"
+            y1="108"
+            x2="180"
+            y2="108"
+            stroke="#FF4D00"
+            strokeOpacity="0.8"
+            strokeWidth="1.4"
+            strokeDasharray="4 8"
+            className="animate-[flowDash_2.4s_linear_infinite] motion-reduce:animate-none"
+          />
+
+          {/* Column 2: Fastify REST & Docker Orchestrator */}
+          <rect
+            x="180"
+            y="42"
+            width="156"
+            height="130"
+            fill="#0F1013"
+            stroke="#FF4D00"
+            strokeWidth="1.4"
+          />
+          <circle cx="191" cy="54" r="2" fill="#FF4D00" />
+          <text
+            x="262"
+            y="57"
+            textAnchor="middle"
+            className="fill-[#FF8A4C] font-mono text-[8.3px]"
+          >
+            FASTIFY REST · CACHE
+          </text>
+          <line
+            x1="188"
+            y1="64"
+            x2="328"
+            y2="64"
+            stroke="#EDEAE2"
+            strokeOpacity="0.12"
+          />
+
+          <rect
+            x="189"
+            y="72"
+            width="138"
+            height="42"
+            fill="#0A0B0D"
+            stroke="#EDEAE2"
+            strokeOpacity="0.18"
+          />
+          <text
+            x="258"
+            y="88"
+            textAnchor="middle"
+            className="fill-[#EDEAE2] font-mono text-[8px]"
+          >
+            In-Memory TTL Cache
+          </text>
+          <text
+            x="258"
+            y="102"
+            textAnchor="middle"
+            className="fill-[#9A968E] font-mono text-[7px]"
+          >
+            Roster · Matches · Stats API
+          </text>
+
+          <rect
+            x="189"
+            y="120"
+            width="138"
+            height="42"
+            fill="#0A0B0D"
+            stroke="#EDEAE2"
+            strokeOpacity="0.18"
+          />
+          <text
+            x="258"
+            y="136"
+            textAnchor="middle"
+            className="fill-[#EDEAE2] font-mono text-[8px]"
+          >
+            Docker Compose Stack
+          </text>
+          <text
+            x="258"
+            y="150"
+            textAnchor="middle"
+            className="fill-[#FF8A4C] font-mono text-[7px]"
+          >
+            bot-py + fastify + next-web
+          </text>
+
+          {/* Connector Col 2 -> Col 3 */}
+          <line
+            x1="336"
+            y1="108"
+            x2="364"
+            y2="108"
+            stroke="#EDEAE2"
+            strokeOpacity="0.2"
+            strokeWidth="1"
+          />
+          <line
+            x1="336"
+            y1="108"
+            x2="364"
+            y2="108"
+            stroke="#FF8A4C"
+            strokeOpacity="0.8"
+            strokeWidth="1.4"
+            strokeDasharray="4 8"
+            className="animate-[flowDash_2.4s_linear_infinite] motion-reduce:animate-none"
+          />
+
+          {/* Column 3: CS2 Roster Telemetry & Fan Hub */}
+          <rect
+            x="364"
+            y="42"
+            width="180"
+            height="130"
+            fill="#0F1013"
+            stroke="#EDEAE2"
+            strokeOpacity="0.22"
+          />
+          <text
+            x="374"
+            y="57"
+            className="fill-[#EDEAE2] font-mono text-[8px]"
+          >
+            CS2 ROSTER TELEMETRY
+          </text>
+          <text
+            x="536"
+            y="57"
+            textAnchor="end"
+            className="fill-[#FF4D00] font-mono text-[7.5px]"
+          >
+            LIVE
+          </text>
+          <line
+            x1="372"
+            y1="64"
+            x2="536"
+            y2="64"
+            stroke="#EDEAE2"
+            strokeOpacity="0.12"
+          />
+
+          {players.map((p) => (
+            <g key={p.name}>
+              <text
+                x="374"
+                y={p.y + 6}
+                className="fill-[#EDEAE2] font-mono text-[7.3px]"
+              >
+                {p.name}
+              </text>
+              <rect
+                x="426"
+                y={p.y}
+                width="76"
+                height="6"
+                fill="#0A0B0D"
+              />
+              <rect
+                x="426"
+                y={p.y}
+                width={p.barW}
+                height="6"
+                fill={p.barColor}
+                fillOpacity={p.barOpacity ?? "1"}
+              />
+              <text
+                x="536"
+                y={p.y + 6}
+                textAnchor="end"
+                className={`${p.ratingColor} font-mono text-[7.3px]`}
+              >
+                {p.rating}
+              </text>
+            </g>
+          ))}
+
+          <rect
+            x="374"
+            y="139"
+            width="162"
+            height="23"
+            fill="#0A0B0D"
+            stroke="#EDEAE2"
+            strokeOpacity="0.18"
+          />
+          <text
+            x="455"
+            y="153"
+            textAnchor="middle"
+            className="fill-[#FF8A4C] font-mono text-[7.1px]"
+          >
+            NEXT.JS FAN HUB · VERCEL 200 OK
+          </text>
+
+          <SvgBottomMetrics
+            items={[
+              "BOT: 8 PYTHON HANDLERS",
+              "API: FASTIFY + TTL CACHE",
+              "WEB: NEXT.JS + DOCKER COMPOSE",
+            ]}
+          />
+        </svg>
+      </div>
+      <TerminalStrip command="$ docker compose up -d [bot-py + fastify-api + next-web]" />
+    </div>
+  );
+}
+
 type ProjectKind = "black-hole" | "solar-system" | "abnt-mcp" | "furia" | "finai";
 
 function resolveProjectKind(title: string): ProjectKind {
@@ -850,70 +1455,16 @@ function resolveProjectKind(title: string): ProjectKind {
   return "finai";
 }
 
-export function ProjectSchematic({ project, viewMode }: SchematicProps) {
-  if (viewMode === "capture" && project.image) {
-    return (
-      <div className="absolute inset-0 overflow-hidden bg-[#050608]">
-        <Image
-          src={project.image}
-          fill
-          sizes="(max-width: 1024px) 100vw, 60vw"
-          alt={project.title}
-          className="object-cover"
-        />
-      </div>
-    );
-  }
-
+export function ProjectSchematic({ project }: SchematicProps) {
   switch (resolveProjectKind(project.title)) {
     case "black-hole":
       return <BlackHoleSchematic />;
     case "solar-system":
       return <SolarSystemSchematic lines={project.terminalPreview} />;
     case "abnt-mcp":
-      return (
-        <ArchitectureBlueprint
-          spec={{
-            systemTag: "ABNT_MCP // SPEC-DRIVEN ENGINE",
-            perfTag: "80 TESTS PASSED · 87% COV",
-            input: { title: "AI CLIENT", sub: "JSON-RPC STDIO" },
-            hub: { title: "FASTMCP 4.1.3", sub: "19 TOOLS · 8 RES" },
-            outputs: [
-              { title: "pillars/diagnostics.py", sub: "NBR 14724 / 6022 Audit" },
-              { title: "pillars/writing.py", sub: "NBR 10520:23 · IBGE 1993" },
-              { title: "pillars/compiler.py", sub: "Rust Typst + abnTeX2 PDF" },
-            ],
-            metrics: [
-              "SPEC: abnt.spec.json",
-              "APIS: CROSSREF + SCIELO",
-              "BANCASIM: ADVISORY.PY",
-            ],
-            command: project.terminalPreview?.[0],
-          }}
-        />
-      );
+      return <AbntMcpSchematic lines={project.terminalPreview} />;
     case "furia":
-      return (
-        <ArchitectureBlueprint
-          spec={{
-            systemTag: "FURIA_FANBOT // 3-SERVICE DOCKER",
-            perfTag: "STATUS: 200 OK · LIVE",
-            input: { title: "TELEGRAM BOT", sub: "8 Python Handlers" },
-            hub: { title: "FASTIFY REST", sub: "utils/cache.ts TTL" },
-            outputs: [
-              { title: "team-routes.ts", sub: "Roster & CS2 Overview" },
-              { title: "players-routes.ts", sub: "Player Telemetry & Stats" },
-              { title: "frontend/ (Next.js)", sub: "furia-fanbot.vercel.app" },
-            ],
-            metrics: [
-              "BOT: /resumo · /matches",
-              "ALERTS: match_notification.py",
-              "ORCHESTRATION: COMPOSE",
-            ],
-            command: "$ docker compose up -d [bot-py + fastify-api + next-web]",
-          }}
-        />
-      );
+      return <FuriaSchematic />;
     case "finai":
       return <FinAISchematic lines={project.terminalPreview} />;
   }
