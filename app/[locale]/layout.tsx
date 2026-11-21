@@ -48,11 +48,13 @@ export async function generateMetadata({
   const siteName = t("openGraph.siteName");
 
   const baseUrl = "https://pedro-smaxy-dev.vercel.app";
+  const ogImagePath = locale === "en" ? "/og-image-en.png" : "/og-image.png";
 
   return {
     title,
     description,
     keywords,
+    manifest: "/site.webmanifest",
     icons: {
       icon: [
         { url: "/favicon.ico" },
@@ -77,7 +79,7 @@ export async function generateMetadata({
       alternateLocale: locale === "pt-BR" ? "en" : "pt-BR",
       images: [
         {
-          url: `${baseUrl}/og-image.png`,
+          url: `${baseUrl}${ogImagePath}`,
           width: 1200,
           height: 630,
           alt: `${shortName} - Portfolio Open Graph Image`,
@@ -89,7 +91,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: ogTitle,
       description: ogDescription,
-      images: [`${baseUrl}/og-image.png`],
+      images: [`${baseUrl}${ogImagePath}`],
     },
     alternates: {
       languages: {

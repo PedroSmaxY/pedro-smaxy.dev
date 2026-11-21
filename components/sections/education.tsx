@@ -25,7 +25,7 @@ export function Education() {
         "[data-edu-bar]",
         { scaleX: 0 },
         {
-          scaleX: 0.85,
+          scaleX: 0.95,
           duration: 0.85,
           ease: MOTION.ease,
           scrollTrigger: {
@@ -85,7 +85,7 @@ export function Education() {
                 <div className="h-1 w-full bg-[#EDEAE2]/10 overflow-hidden">
                   <div
                     data-edu-bar
-                    style={{ transform: "scaleX(0.85)" }}
+                    style={{ transform: "scaleX(0.95)" }}
                     className="h-full w-full bg-[#FF4D00] origin-left"
                   />
                 </div>

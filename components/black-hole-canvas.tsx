@@ -560,15 +560,15 @@ export function BlackHoleCanvas({ title, hint }: BlackHoleCanvasProps) {
       <div className="grid grid-cols-3 border-t border-[#EDEAE2]/10 font-mono text-[11px] divide-x divide-[#EDEAE2]/10">
         <div data-bh-cell className="p-3">
           <span className="block text-[#9A968E] text-[10px]">CORE</span>
-          <span className="text-[#EDEAE2]">Rust · C# · Java</span>
+          <span className="text-[#EDEAE2]">Rust · TS · Ruby</span>
         </div>
         <div data-bh-cell className="p-3">
           <span className="block text-[#9A968E] text-[10px]">AI / MCP</span>
-          <span className="text-[#EDEAE2]">Python · Typst</span>
+          <span className="text-[#EDEAE2]">Python · MCP · SDD</span>
         </div>
         <div data-bh-cell className="p-3">
           <span className="block text-[#9A968E] text-[10px]">PRODUCT</span>
-          <span className="text-[#EDEAE2]">Next.js · Tauri</span>
+          <span className="text-[#EDEAE2]">Next.js · React</span>
         </div>
       </div>
     </div>

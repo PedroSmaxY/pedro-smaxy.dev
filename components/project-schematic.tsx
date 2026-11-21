@@ -584,50 +584,6 @@ export function ProjectSchematic({ index, project, viewMode }: SchematicProps) {
       return (
         <ArchitectureBlueprint
           spec={{
-            systemTag: "MEMCARD // HEXAGONAL ARCHITECTURE",
-            perfTag: "ZERO-LOSS DELTA · 142MS",
-            input: { title: "14 PRESETS", sub: "notify-rs Watcher" },
-            hub: { title: "RUST SYNC CORE", sub: "Ports & Adapters" },
-            outputs: [
-              { title: "services/guard.rs", sub: "Game Running Lock Check" },
-              { title: "services/shield.rs", sub: "Zero-Byte & >80% Block" },
-              { title: "services/snapshot.rs", sub: "Atomic SHA-256 + Zip" },
-            ],
-            metrics: [
-              "PRESETS: PCSX2 · DUCKSTATION · RPCS3",
-              "LOCAL: SQLITE CATALOG",
-              "CLOUD: GDRIVE.RS",
-            ],
-            command: project.terminalPreview?.[0],
-          }}
-        />
-      );
-    case 4:
-      return (
-        <ArchitectureBlueprint
-          spec={{
-            systemTag: "SCHEDULING_API // ASP.NET CORE 9",
-            perfTag: "P95 LATENCY · 18MS",
-            input: { title: "MIDDLEWARE", sub: "Exception + JWT" },
-            hub: { title: "5 CONTROLLERS", sub: "RBAC [Admin|Client]" },
-            outputs: [
-              { title: "AppointmentsController", sub: "Booking Lifecycle + DTOs" },
-              { title: "AvailableSlotsController", sub: "Schedule Availability" },
-              { title: "Auth + Users + Services", sub: "Identity & Catalog" },
-            ],
-            metrics: [
-              "ORM: EF CORE 9 + 3 MIGRATIONS",
-              "SEED: DBINITIALIZER",
-              "DB: POSTGRESQL 17 DOCKER",
-            ],
-            command: project.terminalPreview?.[0],
-          }}
-        />
-      );
-    default:
-      return (
-        <ArchitectureBlueprint
-          spec={{
             systemTag: "FURIA_FANBOT // 3-SERVICE DOCKER",
             perfTag: "STATUS: 200 OK · LIVE",
             input: { title: "TELEGRAM BOT", sub: "8 Python Handlers" },
@@ -643,6 +599,28 @@ export function ProjectSchematic({ index, project, viewMode }: SchematicProps) {
               "ORCHESTRATION: COMPOSE",
             ],
             command: "$ docker compose up -d [bot-py + fastify-api + next-web]",
+          }}
+        />
+      );
+    default:
+      return (
+        <ArchitectureBlueprint
+          spec={{
+            systemTag: "FINAI // SPEC-DRIVEN SDD",
+            perfTag: "434 TESTS · BYOK AES-256",
+            input: { title: "OFX / CSV", sub: "LGPD Sanitizer" },
+            hub: { title: "FASTIFY + SSE", sub: "BYOK AES-256-GCM" },
+            outputs: [
+              { title: "MongoDB 7.0", sub: "24h TTL Analysis Cache" },
+              { title: "Next.js 16 + React", sub: "TanStack Query + Stream" },
+              { title: "Vitest + RTL", sub: "434 Passed / 89 Files" },
+            ],
+            metrics: [
+              "SPEC: SPEC-KIT SDD",
+              "COMPLIANCE: LGPD",
+              "ORG: PROJETO-TCC-DASH",
+            ],
+            command: project.terminalPreview?.[0],
           }}
         />
       );

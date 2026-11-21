@@ -9,19 +9,19 @@ import { createMotionScope, gsap, MOTION } from "@/lib/motion";
 const CATEGORY_META: Record<string, { code: string; appliedIn: string }> = {
   systems: {
     code: "01 // SYS_CORE",
-    appliedIn: "BLACK HOLE · ASTROENGINE · MEMCARD",
+    appliedIn: "BLACK HOLE · SOLAR SYSTEM",
   },
   ai: {
     code: "02 // AI_MCP",
-    appliedIn: "ABNT COPILOT MCP · SDD",
+    appliedIn: "ABNT MCP · SDD · AGENTS",
   },
   backend: {
     code: "03 // BACKEND",
-    appliedIn: "SCHEDULING API · FANBOT API",
+    appliedIn: "FINAI · FURIA API · RAILS",
   },
   frontend: {
     code: "04 // PRODUCT",
-    appliedIn: "MEMCARD UI · MONOGRAPH",
+    appliedIn: "FINAI · FURIA FANBOT",
   },
   devops: {
     code: "05 // INFRA",

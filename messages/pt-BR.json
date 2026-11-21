@@ -1,25 +1,25 @@
 {
   "portfolio": {
     "metadata": {
-      "title": "Pedro SmaxY — Engenharia de Sistemas, AI Tooling & Full Stack",
-      "description": "Engenheiro de Software no Rio de Janeiro construindo simuladores em Rust, ferramentas MCP, APIs em ASP.NET Core / Java e interfaces web em Next.js e TypeScript.",
+      "title": "Pedro SmaxY — Engenheiro de Software · AI Tooling, Rust & Full Stack",
+      "description": "Engenheiro de Software no Rio de Janeiro construindo ferramentas de IA e servidores MCP, sistemas em Rust, APIs tipadas e produtos web full-stack.",
       "keywords": [
         "Pedro SmaxY",
         "Software Engineer",
         "Rust",
         "Model Context Protocol",
         "MCP",
+        "Spec-Driven Development",
+        "Fastify",
+        "Ruby on Rails",
         "ASP.NET Core",
-        "Java",
-        "Python",
         "Next.js",
         "TypeScript",
-        "Tauri",
         "Rio de Janeiro"
       ],
       "openGraph": {
-        "title": "Pedro SmaxY — Engenharia de Sistemas & Full Stack",
-        "description": "Simuladores relativísticos em Rust, AI tooling via MCP, arquitetura backend e produtos web de alta precisão.",
+        "title": "Pedro SmaxY — Engenheiro de Software · AI Tooling, Rust & Full Stack",
+        "description": "Ferramentas de IA (MCP/SDD), simuladores em Rust, arquitetura backend tipada e produtos web full-stack.",
         "siteName": "Pedro SmaxY"
       }
     },
@@ -35,9 +35,9 @@
     "hero": {
       "role": "Engenheiro de Software · Rio de Janeiro",
       "location": "Rio de Janeiro, Brasil",
-      "headlinePrefix": "Sistemas, AI tooling & engenharia",
-      "headlineEmphasis": "relativística.",
-      "description": "De simuladores de buraco negro em Rust no terminal a servidores MCP em Python/Typst e aplicações web full-stack com TypeScript, Next.js e ASP.NET Core 9.",
+      "headlinePrefix": "Sistemas, AI tooling &",
+      "headlineEmphasis": "arquitetura.",
+      "description": "Construindo ferramentas de IA e servidores MCP, sistemas de alta performance em Rust, APIs tipadas e produtos web full-stack.",
       "downloadLabel": "Baixar Currículo",
       "projectsLabel": "Explorar Projetos",
       "instrumentTitle": "SIM // KERR_SCHILD_4D.RS",
@@ -46,27 +46,49 @@
     "about": {
       "title": "Do baixo nível ao produto final.",
       "paragraphs": [
-        "Sou desenvolvedor Full Stack e entusiasta de engenharia de sistemas no Rio de Janeiro. Meu foco é construir software com fundamentos sólidos, desde pipelines de renderização em Rust no terminal e ferramentas de IA com Model Context Protocol (MCP) até APIs RESTful e interfaces web responsivas.",
-        "Na Salto Consultoria, aplico visão integrada de negócios, gestão de projetos e estruturação de processos, conectando rigor técnico a entregas reais."
+        "Sou Engenheiro de Software no Rio de Janeiro focado em AI tooling, sistemas em Rust, arquitetura backend e produtos full-stack. Construo software prático com bases sólidas em APIs tipadas, ferramentas de desenvolvedor (MCP e Spec-Driven Development), automação e sistemas orientados a performance.",
+        "Atualmente na MLP Rent, atuo com engenharia de software, automação e integração de agentes de IA; anteriormente na ABEPE, trabalhei no desenvolvimento de aplicações web em Ruby on Rails e automações assistidas por IA."
       ],
       "educationLabel": "Formação",
       "educationValue": "Ciência da Computação (UVA)",
-      "roleLabel": "Atuação",
-      "roleValue": "Salto Consultoria"
+      "roleLabel": "Atuação Atual",
+      "roleValue": "MLP Rent"
     },
     "experiences": {
       "title": "Trajetória",
       "items": [
         {
-          "company": "Salto Consultoria",
-          "position": "Analista de Gestão de Projetos",
-          "period": "Junho 2025 - Presente",
+          "company": "MLP Rent",
+          "position": "Engenheiro de Software (IA & Automação)",
+          "period": "Maio 2026 - Presente",
           "location": "Rio de Janeiro, Brasil",
           "description": [
-            "Participação ativa em projetos estratégicos com visão integrada das operações",
+            "Implementação de fluxo Spec-Driven Development (SDD) com especificações técnicas para execução assistida por agentes",
+            "Desenvolvimento e integração de sistemas e ferramentas utilizando Model Context Protocol (MCP) e LLMs (Claude, OpenAI)",
+            "Automação de processos operacionais e fluxos internos, reduzindo erros manuais e gargalos de entrega",
+            "Definição de arquitetura de software e governança técnica no uso de agentes de IA"
+          ]
+        },
+        {
+          "company": "Associação Beneficente Pro Esporte - ABEPE",
+          "position": "Desenvolvedor de Software",
+          "period": "Outubro 2025 - Agosto 2026",
+          "location": "Rio de Janeiro, Brasil",
+          "description": [
+            "Desenvolvimento e manutenção de aplicações web com Ruby on Rails seguindo o padrão MVC",
+            "Integração de APIs RESTful, modelagem de banco de dados (PostgreSQL / MySQL) e resolução de bugs",
+            "Pesquisa e introdução de automações assistidas por IA e protótipos de agentes para rotinas internas"
+          ]
+        },
+        {
+          "company": "Salto Consultoria",
+          "position": "Analista de Gestão de Projetos e Comercial",
+          "period": "Junho 2025 - Agosto 2025",
+          "location": "Rio de Janeiro, Brasil",
+          "description": [
+            "Participação em projetos estratégicos com visão integrada das operações",
             "Estruturação de fluxos para captação e acompanhamento de clientes",
-            "Iniciativas de cultura organizacional e definição de valores empresariais",
-            "Criação de campanhas de marketing e análise de público-alvo"
+            "Iniciativas de cultura organizacional, valores e campanhas de marketing"
           ]
         },
         {
@@ -75,8 +97,8 @@
           "period": "Abril 2025 - Junho 2025",
           "location": "Rio de Janeiro, Brasil",
           "description": [
-            "Desenvolvimento de habilidades em gestão de projetos e consultoria",
-            "Apoio em processos de engajamento interno e cultura organizacional"
+            "Desenvolvimento de habilidades em gestão de projetos, consultoria e operações",
+            "Apoio em processos de engajamento interno e estruturação comercial"
           ]
         },
         {
@@ -85,9 +107,8 @@
           "period": "Agosto 2024 - Novembro 2024",
           "location": "Rio de Janeiro, Brasil",
           "description": [
-            "Desenvolvimento de solução de automação em Python com Pandas e Selenium",
-            "Redução de 40% no tempo gasto em tarefas repetitivas",
-            "Aumento da precisão dos dados processados"
+            "Desenvolvimento de solução de automação em Python com Pandas, openpyxl e Selenium",
+            "Redução de 40% no tempo gasto em tarefas repetitivas e maior precisão nos dados processados"
           ]
         }
       ]
@@ -139,42 +160,28 @@
           "period": "2026"
         },
         {
-          "title": "Memcard",
-          "subtitle": "Sincronização & Versionamento de Saves",
-          "description": "Aplicação desktop multiplataforma com zero-loss versioning para saves de emuladores retrô (DuckStation, PCSX2, RetroArch, RPCS3) e jogos de PC, construída com Tauri, Rust e React 19.",
-          "terminalPreview": [
-            "memcard://sync-engine [tauri-v2 + rust]",
-            "target: PCSX2 / DuckStation / RPCS3",
-            "snapshot: sha256:9f4c..e21a -> 0 bytes lost",
-            "status: cloud delta synced (142ms)"
-          ],
-          "tech": ["Tauri", "Rust", "React 19", "TypeScript", "Cloud Sync"],
-          "github": "https://github.com/PedroSmaxY/memcard",
-          "period": "2026"
-        },
-        {
-          "title": "Scheduling System API",
-          "subtitle": "API RESTful Orientada a Produção",
-          "description": "API de agendamentos em ASP.NET Core 9 e Entity Framework Core com autenticação JWT, controle de acesso baseado em papéis (Admin/Cliente), PostgreSQL, containerização Docker e Swagger UI.",
-          "terminalPreview": [
-            "ASP.NET Core 9.0 · EF Core · PostgreSQL 17",
-            "POST /api/auth/login       -> 200 OK (JWT + RBAC)",
-            "GET  /api/availability     -> 200 OK (18ms)",
-            "docker compose up -d       -> healthy"
-          ],
-          "tech": ["C#", "ASP.NET Core 9", "PostgreSQL", "EF Core", "Docker", "JWT"],
-          "github": "https://github.com/PedroSmaxY/SchedulingSystemAPI",
-          "period": "2025"
-        },
-        {
           "title": "FURIA CS2 FanBot",
-          "subtitle": "Experiência Full-Stack & Bot Conversacional",
-          "description": "Solução full-stack para fãs da FURIA integrando Bot de Telegram em Python, API REST em Fastify.js com cache e landing page responsiva em Next.js orquestrada via Docker Compose.",
+          "subtitle": "Desafio Técnico · Processo Seletivo FURIA",
+          "description": "Solução full-stack desenvolvida como desafio de código para o processo seletivo da FURIA, integrando Bot de Telegram em Python, API REST em Fastify com cache e landing page responsiva em Next.js orquestrada via Docker Compose.",
           "image": "/furia-fanbot-v2.png",
           "tech": ["Next.js", "Fastify", "Python", "TypeScript", "Docker"],
           "github": "https://github.com/PedroSmaxY/furia-fanbot",
           "live": "https://furia-fanbot.vercel.app/",
           "period": "2025"
+        },
+        {
+          "title": "FinAI",
+          "subtitle": "Plataforma de Inteligência Financeira (TCC)",
+          "description": "Sistema full-stack de inteligência financeira pessoal construído sob Spec-Driven Development (Spec-Kit), com ingestão de extratos OFX SGML e CSV, sanitização LGPD, segurança BYOK (AES-256-GCM), consultor financeiro em streaming SSE, cache TTL de 24h no MongoDB e 434 testes automatizados no frontend.",
+          "terminalPreview": [
+            "$ spec-kit --verify finai",
+            "ingest(OFX/CSV) -> LGPD sanitizer -> MongoDB TTL (24h)",
+            "byok(AES-256-GCM) -> Fastify SSE stream -> Next.js 16",
+            "vitest run -> 434 passed (89 test files)"
+          ],
+          "tech": ["Next.js 16", "React", "Fastify", "TypeScript", "MongoDB", "SSE", "Spec-Kit"],
+          "github": "https://github.com/Projeto-TCC-Dash",
+          "period": "2026"
         }
       ]
     },
@@ -190,13 +197,13 @@
     },
     "education": {
       "title": "Formação Acadêmica",
-      "cycleLabel": "CICLO ACADÊMICO // 85% CONCLUÍDO",
+      "cycleLabel": "CICLO ACADÊMICO // 95% CONCLUÍDO",
       "focusLabel": "Ênfase & Pesquisa Aplicada",
       "focusAreas": [
+        "Spec-Driven Development (SDD)",
+        "Privacidade & Segurança (LGPD / BYOK)",
         "Computação Científica & Simulação",
-        "Arquitetura Hexagonal & SDD",
-        "Automação Normativa (ABNT/MCP)",
-        "Sistemas Distribuídos & Concorrência"
+        "Automação Normativa (ABNT/MCP)"
       ],
       "educationExperience": [
         {
