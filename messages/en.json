@@ -124,7 +124,7 @@
       },
       "items": [
         {
-          "title": "Black Hole ASCII Simulation",
+          "title": "Black Hole ASCII",
           "subtitle": "4D Kerr-Schild Geodesic Raymarching in Rust",
           "description": "Real-time relativistic black hole simulator rendered directly in the terminal in pure Rust with 24-bit TrueColor and Half-Block mode, integrating null geodesics via RK4, Doppler beaming, and Hawking evaporation.",
           "image": "/black-hole-project.png",
