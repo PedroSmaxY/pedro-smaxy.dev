@@ -46,7 +46,7 @@ export const PORTFOLIO_CONFIG = {
       "Ruby on Rails",
       "Python / FastAPI",
       "REST APIs & SSE",
-      "PostgreSQL / MongoDB / SQLite",
+      "PostgreSQL / MongoDB",
     ],
     frontend: [
       "TypeScript",
