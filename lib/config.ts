@@ -44,7 +44,7 @@ export const PORTFOLIO_CONFIG = {
     backend: [
       "Node.js / Fastify",
       "Ruby on Rails",
-      "Python / FastAPI",
+      "Python",
       "REST APIs & SSE",
       "PostgreSQL / MongoDB",
     ],
