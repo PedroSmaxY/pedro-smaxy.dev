@@ -6,13 +6,14 @@ import { GithubLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 import { PORTFOLIO_CONFIG } from "@/lib/config";
 import { GravitationalGrid } from "@/components/gravitational-grid";
-import { createMotionScope, gsap } from "@/lib/motion";
+import { createMotionScope, gsap, MOTION } from "@/lib/motion";
 
 export function Contact() {
   const t = useTranslations("portfolio.contact");
   const { linkedinUrl, githubUrl } = PORTFOLIO_CONFIG.links;
   const { email, coordinates } = PORTFOLIO_CONFIG.personal;
   const [copied, setCopied] = useState(false);
+  const [isTracking, setIsTracking] = useState(false);
   const [rioTime, setRioTime] = useState<string>("--:--:--");
   const rootRef = useRef<HTMLElement | null>(null);
 
@@ -89,6 +90,42 @@ export function Contact() {
         });
       });
 
+      const geoCard =
+        rootRef.current?.querySelector<HTMLElement>("[data-geo-card]");
+      const geoCore = geoCard?.querySelector<SVGGElement>("[data-geo-core]");
+      if (geoCard && geoCore) {
+        const gxTo = gsap.quickTo(geoCore, "x", {
+          duration: 0.35,
+          ease: MOTION.ease,
+        });
+        const gyTo = gsap.quickTo(geoCore, "y", {
+          duration: 0.35,
+          ease: MOTION.ease,
+        });
+
+        const onGeoMove = (e: PointerEvent) => {
+          const rect = geoCard.getBoundingClientRect();
+          const nx = (e.clientX - rect.left) / rect.width - 0.5;
+          const ny = (e.clientY - rect.top) / rect.height - 0.5;
+          gxTo(Math.max(-5, Math.min(5, nx * 10)));
+          gyTo(Math.max(-5, Math.min(5, ny * 10)));
+          setIsTracking((prev) => (prev ? prev : true));
+        };
+
+        const onGeoLeave = () => {
+          gxTo(0);
+          gyTo(0);
+          setIsTracking(false);
+        };
+
+        geoCard.addEventListener("pointermove", onGeoMove);
+        geoCard.addEventListener("pointerleave", onGeoLeave);
+        cleanups.push(() => {
+          geoCard.removeEventListener("pointermove", onGeoMove);
+          geoCard.removeEventListener("pointerleave", onGeoLeave);
+        });
+      }
+
       return () => {
         cleanups.forEach((fn) => fn());
       };
@@ -160,7 +197,10 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="border border-[#EDEAE2]/12 bg-[#0A0B0D] p-3.5">
+        <div
+          data-geo-card
+          className="border border-[#EDEAE2]/12 bg-[#0A0B0D] p-3.5 transition-colors hover:border-[#EDEAE2]/22"
+        >
           <div className="flex items-center justify-between font-mono text-[9px] text-[#636059] uppercase tracking-wider mb-2">
             <span>GEO // TELEMETRY_LOCK</span>
             <span className="text-[#FF4D00]">UTC-3</span>
@@ -172,10 +212,23 @@ export function Contact() {
           >
             <line x1="14" y1="36" x2="98" y2="36" stroke="#EDEAE2" strokeOpacity="0.16" strokeDasharray="2 3" />
             <line x1="56" y1="2" x2="56" y2="70" stroke="#EDEAE2" strokeOpacity="0.16" strokeDasharray="2 3" />
-            <circle cx="56" cy="36" r="12" fill="none" stroke="#FF4D00" strokeOpacity="0.6" strokeWidth="1" />
-            <circle cx="56" cy="36" r="24" fill="none" stroke="#EDEAE2" strokeOpacity="0.18" strokeWidth="1" strokeDasharray="3 4" />
+            <circle
+              cx="56"
+              cy="36"
+              r="24"
+              fill="none"
+              stroke="#EDEAE2"
+              strokeOpacity="0.18"
+              strokeWidth="1"
+              strokeDasharray="3 4"
+              style={{ transformOrigin: "56px 36px" }}
+              className="animate-[orbitSlow_36s_linear_infinite] motion-reduce:animate-none"
+            />
             <circle cx="56" cy="36" r="34" fill="none" stroke="#EDEAE2" strokeOpacity="0.09" strokeWidth="1" />
-            <circle cx="56" cy="36" r="2.5" fill="#FF4D00" />
+            <g data-geo-core>
+              <circle cx="56" cy="36" r="12" fill="none" stroke="#FF4D00" strokeOpacity="0.6" strokeWidth="1" />
+              <circle cx="56" cy="36" r="2.5" fill="#FF4D00" />
+            </g>
             <text x="124" y="25" className="fill-[#EDEAE2] font-mono text-[9px]">
               LAT: -22.3886° S
             </text>
@@ -183,7 +236,7 @@ export function Contact() {
               LON: -43.1331° W
             </text>
             <text x="124" y="55" className="fill-[#FF8A4C] font-mono text-[8.5px]">
-              SIGNAL: NOMINAL · BR-RJ
+              {isTracking ? "SIGNAL: TRACKING · BR-RJ" : "SIGNAL: NOMINAL · BR-RJ"}
             </text>
           </svg>
         </div>
