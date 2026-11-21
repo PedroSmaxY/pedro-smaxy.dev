@@ -269,6 +269,13 @@ export function BlackHoleCanvas({ title, hint }: BlackHoleCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [mode, setMode] = useState<"ascii" | "halfblock">("ascii");
+  const modeRef = useRef(mode);
+  const renderFrameRef = useRef<(() => void) | null>(null);
+
+  useEffect(() => {
+    modeRef.current = mode;
+    renderFrameRef.current?.();
+  }, [mode]);
 
   // Keyboard shortcut [M] to toggle ASCII / HALF-BLOCK like the Rust terminal app
   useEffect(() => {
@@ -299,6 +306,9 @@ export function BlackHoleCanvas({ title, hint }: BlackHoleCanvasProps) {
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    const monoFont =
+      getComputedStyle(canvas).fontFamily || "ui-monospace, monospace";
 
     // Offscreen pixel buffer for high-res Half-Block rendering (1 draw call/frame)
     const hbCols = 136;
@@ -388,7 +398,7 @@ export function BlackHoleCanvas({ title, hint }: BlackHoleCanvasProps) {
 
       const tanFov = aspect < 1.25 ? 0.58 / Math.max(0.55, aspect) : 0.48;
 
-      if (mode === "halfblock" && offCtx && imgData) {
+      if (modeRef.current === "halfblock" && offCtx && imgData) {
         const data = imgData.data;
         for (let y = 0; y < hbRows; y++) {
           const sy = (1.0 - ((y + 0.5) / hbRows) * 2.0) * tanFov;
@@ -441,7 +451,7 @@ export function BlackHoleCanvas({ title, hint }: BlackHoleCanvasProps) {
       const cellW = cssW / cols;
       const cellH = cssH / rows;
 
-      ctx.font = `${Math.max(7, Math.floor(cellH * 0.96))}px var(--font-mono), ui-monospace, monospace`;
+      ctx.font = `${Math.max(7, Math.floor(cellH * 0.96))}px ${monoFont}`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
 
@@ -495,18 +505,20 @@ export function BlackHoleCanvas({ title, hint }: BlackHoleCanvasProps) {
       }
     };
 
+    renderFrameRef.current = renderFrame;
     renderFrame();
     if (!reduceMotion) {
       rafId = requestAnimationFrame(tick);
     }
 
     return () => {
+      renderFrameRef.current = null;
       cancelAnimationFrame(rafId);
       observer.disconnect();
       canvas.removeEventListener("pointermove", onPointerMove);
       canvas.removeEventListener("pointerleave", onPointerLeave);
     };
-  }, [mode]);
+  }, []);
 
   return (
     <div
@@ -537,7 +549,7 @@ export function BlackHoleCanvas({ title, hint }: BlackHoleCanvasProps) {
       <div className="relative flex-1 min-h-[260px] sm:min-h-[300px] w-full overflow-hidden cursor-crosshair">
         <canvas
           ref={canvasRef}
-          className="w-full h-full block"
+          className="w-full h-full block font-mono"
           aria-label="Interactive 3D Geodesic Black Hole ASCII Simulation with GalacticSky Lensing"
         />
         <span className="absolute bottom-3 left-4 font-mono text-[10px] tracking-wider uppercase text-[#9A968E]/80 pointer-events-none">
