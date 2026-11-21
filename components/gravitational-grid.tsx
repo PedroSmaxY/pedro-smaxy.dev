@@ -27,9 +27,10 @@ export function GravitationalGrid() {
     let isRunning = false;
     let isVisible = true;
     let hasPulsed = false;
+    let lastTime = 0;
     const spacing = 24;
-    const radius = 125;
-    const maxPull = 7;
+    const radius = 104;
+    const maxPull = 3.2;
 
     const target = { x: -9999, y: -9999, active: false };
     const current = { x: -9999, y: -9999, strength: 0 };
@@ -50,64 +51,88 @@ export function GravitationalGrid() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
 
+      // Pass 1: batch all resting dots in a single path/fill call
+      ctx.fillStyle = "rgba(237, 234, 226, 0.068)";
+      ctx.beginPath();
+
+      const hasField = current.strength > 0.004;
+      const r2Limit = radius * radius;
+      const activeDots: Array<{ gx: number; gy: number; dist: number }> = [];
+
       for (let gx = spacing * 0.5; gx < w; gx += spacing) {
         for (let gy = spacing * 0.5; gy < h; gy += spacing) {
-          let drawX = gx;
-          let drawY = gy;
-          let alpha = 0.075;
-          let size = 1;
-          let r = 237;
-          let g = 234;
-          let b = 226;
-
-          if (current.strength > 0.005) {
+          if (hasField) {
             const dx = current.x - gx;
             const dy = current.y - gy;
-            const dist = Math.hypot(dx, dy);
-
-            if (dist < radius && dist > 0.001) {
-              const falloff =
-                Math.pow(1 - dist / radius, 2) * current.strength;
-              const pull = falloff * maxPull;
-              drawX += (dx / dist) * pull;
-              drawY += (dy / dist) * pull;
-              alpha = 0.075 + falloff * 0.36;
-              size = 1 + falloff * 0.85;
-
-              // Subtle warm ember tint right at the cursor core
-              if (falloff > 0.45) {
-                const core = (falloff - 0.45) / 0.55;
-                r = 255;
-                g = Math.round(234 - core * 96);
-                b = Math.round(226 - core * 150);
-              }
+            const d2 = dx * dx + dy * dy;
+            if (d2 < r2Limit && d2 > 0.0001) {
+              activeDots.push({ gx, gy, dist: Math.sqrt(d2) });
+              continue;
             }
           }
-
-          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha.toFixed(3)})`;
-          ctx.beginPath();
-          ctx.arc(drawX, drawY, size, 0, Math.PI * 2);
-          ctx.fill();
+          ctx.moveTo(gx + 1, gy);
+          ctx.arc(gx, gy, 1, 0, Math.PI * 2);
         }
+      }
+      ctx.fill();
+
+      // Pass 2: draw only the dots inside the active lensing radius
+      for (let i = 0; i < activeDots.length; i++) {
+        const { gx, gy, dist } = activeDots[i];
+        const dx = current.x - gx;
+        const dy = current.y - gy;
+        const u = 1 - dist / radius;
+        const falloff = u * u * (3 - 2 * u) * current.strength;
+        const centerDamp = Math.min(1, dist / 10);
+        const pull = falloff * maxPull * centerDamp;
+        const drawX = gx + (dx / dist) * pull;
+        const drawY = gy + (dy / dist) * pull;
+        const alpha = 0.068 + falloff * 0.16;
+        const size = 1 + falloff * 0.38;
+
+        let r = 237;
+        let g = 234;
+        let b = 226;
+        if (falloff > 0.35) {
+          const core = (falloff - 0.35) / 0.65;
+          r = Math.round(237 + core * 18);
+          g = Math.round(234 - core * 96);
+          b = Math.round(226 - core * 150);
+        }
+
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha.toFixed(3)})`;
+        ctx.beginPath();
+        ctx.arc(drawX, drawY, size, 0, Math.PI * 2);
+        ctx.fill();
       }
     };
 
-    const draw = () => {
+    const draw = (now: number) => {
       if (!isVisible) {
         isRunning = false;
+        lastTime = 0;
         return;
       }
 
-      current.x += (target.x - current.x) * 0.12;
-      current.y += (target.y - current.y) * 0.12;
-      current.strength += ((target.active ? 1 : 0) - current.strength) * 0.1;
+      const dt = lastTime ? Math.min(0.05, (now - lastTime) / 1000) : 1 / 60;
+      lastTime = now;
+
+      const posFactor = 1 - Math.exp(-16 * dt);
+      const strengthSpeed = target.active ? 11 : 5;
+      const strengthFactor = 1 - Math.exp(-strengthSpeed * dt);
+
+      current.x += (target.x - current.x) * posFactor;
+      current.y += (target.y - current.y) * posFactor;
+      current.strength +=
+        ((target.active ? 1 : 0) - current.strength) * strengthFactor;
 
       renderGrid();
 
-      if (target.active || current.strength >= 0.005) {
+      if (target.active || current.strength >= 0.004) {
         rafId = requestAnimationFrame(draw);
       } else {
         current.strength = 0;
+        lastTime = 0;
         isRunning = false;
       }
     };
@@ -116,6 +141,7 @@ export function GravitationalGrid() {
       if (reduceMotion) return;
       if (!isRunning && isVisible) {
         isRunning = true;
+        lastTime = 0;
         rafId = requestAnimationFrame(draw);
       }
     };
@@ -157,7 +183,7 @@ export function GravitationalGrid() {
         current.y = h * 0.42;
         target.x = w * 0.62;
         target.y = h * 0.36;
-        current.strength = 0.85;
+        current.strength = 0.65;
         target.active = false;
         startLoop();
       }
