@@ -395,10 +395,10 @@ function SolarSystemSchematic({ lines }: { lines?: string[] }) {
             strokeWidth="1"
           />
           {ticks.map((rad, i) => {
-            const x1 = cx + Math.cos(rad) * 75;
-            const y1 = cy + Math.sin(rad) * 75;
-            const x2 = cx + Math.cos(rad) * 81;
-            const y2 = cy + Math.sin(rad) * 81;
+            const x1 = Number((cx + Math.cos(rad) * 75).toFixed(2));
+            const y1 = Number((cy + Math.sin(rad) * 75).toFixed(2));
+            const x2 = Number((cx + Math.cos(rad) * 81).toFixed(2));
+            const y2 = Number((cy + Math.sin(rad) * 81).toFixed(2));
             return (
               <line
                 key={i}
