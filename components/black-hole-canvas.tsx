@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 interface BlackHoleCanvasProps {
   title: string;
   hint: string;
+  hintTouch?: string;
 }
 
 const ASCII_RAMP = " .:-=+*#%@";
@@ -265,7 +266,11 @@ function traceGeodesic(
   return [Math.min(1, accR), Math.min(1, accG), Math.min(1, accB)];
 }
 
-export function BlackHoleCanvas({ title, hint }: BlackHoleCanvasProps) {
+export function BlackHoleCanvas({
+  title,
+  hint,
+  hintTouch,
+}: BlackHoleCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [mode, setMode] = useState<"ascii" | "halfblock">("ascii");
@@ -329,22 +334,37 @@ export function BlackHoleCanvas({ title, hint }: BlackHoleCanvasProps) {
     const target = { yaw: 0, pitch: 0.25 };
     const current = { yaw: 0, pitch: 0.25 };
 
-    const onPointerMove = (e: PointerEvent) => {
+    const updateAim = (clientX: number, clientY: number) => {
       if (reduceMotion) return;
       const rect = canvas.getBoundingClientRect();
-      const nx = (e.clientX - rect.left) / rect.width - 0.5;
-      const ny = (e.clientY - rect.top) / rect.height - 0.5;
+      if (!rect.width || !rect.height) return;
+      const nx = Math.max(-0.5, Math.min(0.5, (clientX - rect.left) / rect.width - 0.5));
+      const ny = Math.max(-0.5, Math.min(0.5, (clientY - rect.top) / rect.height - 0.5));
       target.yaw = nx * 0.75;
       target.pitch = Math.max(0.06, Math.min(0.65, 0.25 - ny * 0.42));
     };
 
-    const onPointerLeave = () => {
+    const resetAim = () => {
       target.yaw = 0;
       target.pitch = 0.25;
     };
 
+    const onPointerMove = (e: PointerEvent) => updateAim(e.clientX, e.clientY);
+    const onTouchStart = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      if (touch) updateAim(touch.clientX, touch.clientY);
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      if (touch) updateAim(touch.clientX, touch.clientY);
+    };
+
     canvas.addEventListener("pointermove", onPointerMove);
-    canvas.addEventListener("pointerleave", onPointerLeave);
+    canvas.addEventListener("pointerleave", resetAim);
+    canvas.addEventListener("touchstart", onTouchStart, { passive: true });
+    canvas.addEventListener("touchmove", onTouchMove, { passive: true });
+    canvas.addEventListener("touchend", resetAim, { passive: true });
+    canvas.addEventListener("touchcancel", resetAim, { passive: true });
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -442,12 +462,12 @@ export function BlackHoleCanvas({ title, hint }: BlackHoleCanvasProps) {
         return;
       }
 
-      // High-res ASCII mode (96 x 44)
+      // Adaptive ASCII resolution (64x34 on narrow mobile screens for crisp glyphs & half CPU cost)
       ctx.fillStyle = "#07080A";
       ctx.fillRect(0, 0, cssW, cssH);
 
-      const cols = 96;
-      const rows = 44;
+      const cols = cssW < 520 ? 64 : 96;
+      const rows = cssW < 520 ? 34 : 44;
       const cellW = cssW / cols;
       const cellH = cssH / rows;
 
@@ -516,7 +536,11 @@ export function BlackHoleCanvas({ title, hint }: BlackHoleCanvasProps) {
       cancelAnimationFrame(rafId);
       observer.disconnect();
       canvas.removeEventListener("pointermove", onPointerMove);
-      canvas.removeEventListener("pointerleave", onPointerLeave);
+      canvas.removeEventListener("pointerleave", resetAim);
+      canvas.removeEventListener("touchstart", onTouchStart);
+      canvas.removeEventListener("touchmove", onTouchMove);
+      canvas.removeEventListener("touchend", resetAim);
+      canvas.removeEventListener("touchcancel", resetAim);
     };
   }, []);
 
@@ -525,19 +549,30 @@ export function BlackHoleCanvas({ title, hint }: BlackHoleCanvasProps) {
       ref={containerRef}
       className="flex flex-col justify-between bg-[#07080A] h-full"
     >
-      <div className="flex items-center justify-between px-5 py-3 border-b border-[#EDEAE2]/10 font-mono text-[11px] text-[#9A968E]">
-        <span>{title}</span>
-        <div className="flex items-center gap-3">
+      <div className="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-[#EDEAE2]/10 font-mono text-[11px] text-[#9A968E] gap-2">
+        <span className="truncate">{title}</span>
+        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
           <button
             type="button"
             aria-pressed={mode === "halfblock"}
             onClick={() =>
               setMode((prev) => (prev === "ascii" ? "halfblock" : "ascii"))
             }
-            className="px-2 py-0.5 border border-[#EDEAE2]/15 hover:border-[#FF4D00] text-[#EDEAE2] transition-colors cursor-pointer"
+            className={`inline-flex items-center gap-1.5 px-2.5 py-1 sm:py-0.5 border font-mono text-[10px] tracking-wider transition-all cursor-pointer ${
+              mode === "halfblock"
+                ? "border-[#FF4D00] bg-[#FF4D00] hover:bg-[#ff621f] text-[#0A0B0D] font-bold"
+                : "border-[#FF4D00]/75 bg-[#FF4D00]/12 hover:bg-[#FF4D00] text-[#FF8A4C] hover:text-[#0A0B0D] font-semibold"
+            }`}
             title="Toggle ASCII / Half-Block (Key: M)"
           >
-            [M] {mode === "ascii" ? "ASCII" : "HALF-BLOCK"}
+            <span
+              aria-hidden="true"
+              className={`w-1.5 h-1.5 rounded-full ${
+                mode === "halfblock" ? "bg-[#0A0B0D]" : "bg-[#FF4D00]"
+              }`}
+            />
+            <span className="hidden sm:inline">[M]</span>
+            <span>{mode === "ascii" ? "ASCII ⇄ HD" : "HD ⇄ ASCII"}</span>
           </button>
           <span className="text-[#FF4D00] flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FF4D00]" />
@@ -549,11 +584,14 @@ export function BlackHoleCanvas({ title, hint }: BlackHoleCanvasProps) {
       <div className="relative flex-1 min-h-[260px] sm:min-h-[300px] w-full overflow-hidden cursor-crosshair">
         <canvas
           ref={canvasRef}
-          className="w-full h-full block font-mono"
+          className="w-full h-full block font-mono touch-pan-y"
           aria-label="Interactive 3D Geodesic Black Hole ASCII Simulation with GalacticSky Lensing"
         />
-        <span className="absolute bottom-3 left-4 font-mono text-[10px] tracking-wider uppercase text-[#9A968E]/80 pointer-events-none">
-          [ {hint} ]
+        <span className="absolute bottom-3 left-4 right-4 font-mono text-[10px] tracking-wider uppercase text-[#9A968E]/80 pointer-events-none truncate">
+          <span className="hidden [@media(pointer:coarse)]:inline">
+            [ {hintTouch ?? hint} ]
+          </span>
+          <span className="[@media(pointer:coarse)]:hidden">[ {hint} ]</span>
         </span>
       </div>
 

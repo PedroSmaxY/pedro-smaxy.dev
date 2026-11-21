@@ -42,7 +42,8 @@
       "downloadLabel": "Download CV",
       "projectsLabel": "Explore Projects",
       "instrumentTitle": "SIM // KERR_SCHILD_4D.RS",
-      "instrumentHint": "Move cursor to shift gravitational lensing"
+      "instrumentHint": "Move cursor to shift gravitational lensing",
+      "instrumentHintTouch": "Drag across viewport to shift gravitational lensing"
     },
     "about": {
       "title": "From low-level systems to shipped products.",

@@ -19,7 +19,6 @@ export function GravitationalGrid() {
       "(prefers-reduced-motion: reduce)"
     ).matches;
     const finePointer = window.matchMedia("(pointer: fine)").matches;
-    if (reduceMotion || !finePointer) return;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -27,6 +26,7 @@ export function GravitationalGrid() {
     let rafId = 0;
     let isRunning = false;
     let isVisible = true;
+    let hasPulsed = false;
     const spacing = 24;
     const radius = 125;
     const maxPull = 7;
@@ -113,17 +113,27 @@ export function GravitationalGrid() {
     };
 
     const startLoop = () => {
+      if (reduceMotion) return;
       if (!isRunning && isVisible) {
         isRunning = true;
         rafId = requestAnimationFrame(draw);
       }
     };
 
-    const onPointerMove = (e: PointerEvent) => {
+    const activateAt = (clientX: number, clientY: number) => {
+      if (reduceMotion) return;
       const rect = parent.getBoundingClientRect();
-      target.x = e.clientX - rect.left;
-      target.y = e.clientY - rect.top;
-      if (!target.active) {
+      if (
+        clientX < rect.left ||
+        clientX > rect.right ||
+        clientY < rect.top ||
+        clientY > rect.bottom
+      ) {
+        return;
+      }
+      target.x = clientX - rect.left;
+      target.y = clientY - rect.top;
+      if (!target.active && current.strength < 0.02) {
         current.x = target.x;
         current.y = target.y;
       }
@@ -131,19 +141,56 @@ export function GravitationalGrid() {
       startLoop();
     };
 
-    const onPointerLeave = () => {
+    const deactivate = () => {
+      if (reduceMotion) return;
       target.active = false;
       startLoop();
     };
 
-    parent.addEventListener("pointermove", onPointerMove);
-    parent.addEventListener("pointerleave", onPointerLeave);
+    const triggerWelcomePulse = () => {
+      if (reduceMotion || finePointer || hasPulsed) return;
+      hasPulsed = true;
+      const w = parent.clientWidth;
+      const h = parent.clientHeight;
+      if (w > 0 && h > 0) {
+        current.x = w * 0.55;
+        current.y = h * 0.42;
+        target.x = w * 0.62;
+        target.y = h * 0.36;
+        current.strength = 0.85;
+        target.active = false;
+        startLoop();
+      }
+    };
+
+    const onPointerMove = (e: PointerEvent) => activateAt(e.clientX, e.clientY);
+    const onTouchStart = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      if (touch) activateAt(touch.clientX, touch.clientY);
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      if (touch) activateAt(touch.clientX, touch.clientY);
+    };
+
+    if (!reduceMotion) {
+      parent.addEventListener("pointerdown", onPointerMove);
+      parent.addEventListener("pointermove", onPointerMove);
+      parent.addEventListener("pointerleave", deactivate);
+      parent.addEventListener("pointerup", deactivate);
+      parent.addEventListener("pointercancel", deactivate);
+      parent.addEventListener("touchstart", onTouchStart, { passive: true });
+      parent.addEventListener("touchmove", onTouchMove, { passive: true });
+      parent.addEventListener("touchend", deactivate, { passive: true });
+      parent.addEventListener("touchcancel", deactivate, { passive: true });
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
         isVisible = entries[0]?.isIntersecting ?? true;
         if (isVisible) {
           renderGrid();
+          triggerWelcomePulse();
         }
       },
       { threshold: 0.05 }
@@ -163,8 +210,17 @@ export function GravitationalGrid() {
       cancelAnimationFrame(rafId);
       observer.disconnect();
       resizeObserver.disconnect();
-      parent.removeEventListener("pointermove", onPointerMove);
-      parent.removeEventListener("pointerleave", onPointerLeave);
+      if (!reduceMotion) {
+        parent.removeEventListener("pointerdown", onPointerMove);
+        parent.removeEventListener("pointermove", onPointerMove);
+        parent.removeEventListener("pointerleave", deactivate);
+        parent.removeEventListener("pointerup", deactivate);
+        parent.removeEventListener("pointercancel", deactivate);
+        parent.removeEventListener("touchstart", onTouchStart);
+        parent.removeEventListener("touchmove", onTouchMove);
+        parent.removeEventListener("touchend", deactivate);
+        parent.removeEventListener("touchcancel", deactivate);
+      }
     };
   }, []);
 
@@ -172,7 +228,7 @@ export function GravitationalGrid() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 w-full h-full hidden pointer-fine:block"
+      className="pointer-events-none absolute inset-0 w-full h-full block"
     />
   );
 }

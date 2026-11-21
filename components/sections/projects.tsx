@@ -211,14 +211,26 @@ function ProjectViewport({
                   activeMode === "schematic" ? projectIndex : null
                 )
               }
-              className="px-2 py-0.5 border border-[#EDEAE2]/15 hover:border-[#FF4D00] text-[#EDEAE2] transition-colors cursor-pointer"
+              className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 border font-mono text-[10px] tracking-wider uppercase transition-all cursor-pointer ${
+                activeMode === "capture"
+                  ? "border-[#FF4D00] bg-[#FF4D00] hover:bg-[#ff621f] text-[#0A0B0D] font-bold"
+                  : "border-[#FF4D00]/75 bg-[#FF4D00]/12 hover:bg-[#FF4D00] text-[#FF8A4C] hover:text-[#0A0B0D] font-semibold shadow-[0_0_12px_rgba(255,77,0,0.18)]"
+              }`}
             >
-              [{activeMode === "schematic" ? "CAPTURE" : "SCHEMATIC"}]
+              {activeMode === "schematic" ? (
+                <>
+                  <span
+                    aria-hidden="true"
+                    className="w-1.5 h-1.5 rounded-full bg-[#FF4D00] animate-pulse motion-reduce:animate-none"
+                  />
+                  <span>CAPTURE</span>
+                </>
+              ) : (
+                <span>⇄ SCHEMATIC</span>
+              )}
             </button>
           ) : (
-            <span className="px-2 py-0.5 border border-[#EDEAE2]/12 text-[#9A968E]">
-              [LIVE_SPEC]
-            </span>
+            <span className="text-[#636059] select-none">SPEC_ONLY</span>
           )}
           <span className="text-[#FF4D00] tabular-nums">{project.period}</span>
         </div>

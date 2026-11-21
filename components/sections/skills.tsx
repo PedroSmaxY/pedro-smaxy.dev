@@ -21,7 +21,7 @@ const CATEGORY_META: Record<string, { code: string; appliedIn: string }> = {
   },
   frontend: {
     code: "04 // PRODUCT",
-    appliedIn: "FINAI · FURIA FANBOT",
+    appliedIn: "FINAI · MONOGRAPH.DEV · FURIA",
   },
   devops: {
     code: "05 // INFRA",
@@ -73,16 +73,24 @@ export function Skills() {
       </div>
 
       <div
-        className="grid sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-[#EDEAE2]/10"
+        className="grid sm:grid-cols-2 lg:grid-cols-5"
         onMouseLeave={() => setHoveredKey(null)}
       >
-        {Object.entries(categories).map(([key, items]) => {
+        {Object.entries(categories).map(([key, items], idx) => {
           const isFocused = hoveredKey === key;
           const isDimmed = hoveredKey !== null && !isFocused;
           const meta = CATEGORY_META[key] ?? {
             code: "00 // MODULE",
             appliedIn: "SYSTEMS",
           };
+          const spanClass = idx === 4 ? "sm:col-span-2 lg:col-span-1" : "";
+          const borderClass = [
+            "border-b lg:border-b-0 last:border-b-0 border-[#EDEAE2]/10",
+            idx === 0 || idx === 2 ? "sm:border-r" : "",
+            idx < 4 ? "lg:border-r" : "lg:border-r-0",
+          ]
+            .filter(Boolean)
+            .join(" ");
 
           return (
             <div
@@ -92,11 +100,14 @@ export function Skills() {
               onMouseEnter={() => setHoveredKey(key)}
               onFocus={() => setHoveredKey(key)}
               onBlur={() => setHoveredKey(null)}
-              className={`relative p-6 sm:p-7 flex flex-col justify-between gap-6 transition-all duration-200 focus-visible:outline-none focus-visible:bg-[#0F1013] ${
+              onClick={() =>
+                setHoveredKey((prev) => (prev === key ? null : key))
+              }
+              className={`relative p-6 sm:p-7 flex flex-col justify-between gap-6 transition-all duration-200 focus-visible:outline-none focus-visible:bg-[#0F1013] ${spanClass} ${borderClass} ${
                 isFocused
                   ? "bg-[#0F1013] opacity-100"
                   : isDimmed
-                  ? "opacity-55"
+                  ? "opacity-100 lg:opacity-55"
                   : "opacity-100"
               }`}
             >

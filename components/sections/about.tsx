@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { PORTFOLIO_CONFIG } from "@/lib/config";
@@ -9,6 +9,7 @@ import { createMotionScope, gsap, MOTION } from "@/lib/motion";
 export function About() {
   const t = useTranslations("portfolio.about");
   const rootRef = useRef<HTMLElement | null>(null);
+  const [colorActive, setColorActive] = useState(false);
   const { name } = PORTFOLIO_CONFIG.personal;
   const { profileImageUrl } = PORTFOLIO_CONFIG.links;
   const badges = PORTFOLIO_CONFIG.technologies.mainBadges;
@@ -60,9 +61,13 @@ export function About() {
               />
             </div>
 
-            <div
+            <button
+              type="button"
               data-about-reveal
-              className="relative aspect-[4/5] w-full overflow-hidden bg-[#0A0B0D]"
+              aria-pressed={colorActive}
+              aria-label={`${name} — Portrait`}
+              onClick={() => setColorActive((prev) => !prev)}
+              className="relative aspect-[4/5] w-full overflow-hidden bg-[#0A0B0D] block cursor-pointer focus-visible:outline-none"
             >
               <Image
                 src={profileImageUrl}
@@ -70,9 +75,11 @@ export function About() {
                 fill
                 priority
                 sizes="(max-width: 640px) 128px, (max-width: 1024px) 176px, 208px"
-                className="object-cover object-[50%_22%] scale-[1.03] grayscale contrast-110 hover:grayscale-0 transition-[filter] duration-500"
+                className={`object-cover object-[50%_22%] scale-[1.03] contrast-110 transition-[filter] duration-500 ${
+                  colorActive ? "grayscale-0" : "grayscale hover:grayscale-0"
+                }`}
               />
-            </div>
+            </button>
           </div>
 
           <div className="pt-4 lg:pt-6 border-t border-[#EDEAE2]/10 font-mono text-xs text-[#9A968E] space-y-2.5">

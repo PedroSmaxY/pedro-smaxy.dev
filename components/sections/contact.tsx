@@ -101,7 +101,7 @@ export function Contact() {
       ref={rootRef}
       className="grid lg:grid-cols-12 border-b border-[#EDEAE2]/10"
     >
-      <div className="relative overflow-hidden lg:col-span-7 px-6 sm:px-10 py-14 sm:py-16 lg:border-r border-[#EDEAE2]/10 dot-matrix [@media(pointer:fine)]:bg-none space-y-6">
+      <div className="relative overflow-hidden lg:col-span-7 px-6 sm:px-10 py-14 sm:py-16 lg:border-r border-[#EDEAE2]/10 space-y-6">
         <GravitationalGrid />
         <h2 className="relative z-10 font-serif text-4xl sm:text-5xl tracking-[-0.02em] text-[#EDEAE2]">
           {t("title")}

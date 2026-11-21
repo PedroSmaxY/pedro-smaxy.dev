@@ -136,17 +136,29 @@ export function Header() {
               align="end"
               className="bg-[#0F1013] border-[#EDEAE2]/15 text-[#EDEAE2] rounded-none lg:hidden"
             >
-              {NAV_LINKS.map((item) => (
-                <DropdownMenuItem key={item.key} asChild>
-                  <a
-                    href={item.href}
-                    onClick={() => handleNavClick(item.id)}
-                    className="cursor-pointer font-mono text-xs focus:bg-[#FF4D00]/15 focus:text-[#EDEAE2]"
-                  >
-                    {t(`navItems.${item.key}`)}
-                  </a>
-                </DropdownMenuItem>
-              ))}
+              {NAV_LINKS.map((item) => {
+                const isActive = activeId === item.id;
+                return (
+                  <DropdownMenuItem key={item.key} asChild>
+                    <a
+                      href={item.href}
+                      onClick={() => handleNavClick(item.id)}
+                      aria-current={isActive ? "location" : undefined}
+                      className={`cursor-pointer font-mono text-xs px-3.5 py-2.5 flex items-center justify-between gap-4 focus:bg-[#FF4D00]/15 focus:text-[#EDEAE2] ${
+                        isActive ? "text-[#EDEAE2] bg-[#EDEAE2]/5" : "text-[#9A968E]"
+                      }`}
+                    >
+                      <span>{t(`navItems.${item.key}`)}</span>
+                      {isActive ? (
+                        <span
+                          aria-hidden="true"
+                          className="w-1.5 h-1.5 rounded-full bg-[#FF4D00]"
+                        />
+                      ) : null}
+                    </a>
+                  </DropdownMenuItem>
+                );
+              })}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

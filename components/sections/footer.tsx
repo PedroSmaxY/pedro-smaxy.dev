@@ -15,6 +15,14 @@ export function Footer() {
           {coordinates} · 43.1331° W
         </span>
         <a
+          href="https://github.com/PedroSmaxY/pedro-smaxy.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-2.5 py-1 border border-[#EDEAE2]/15 hover:border-[#FF4D00] text-[#9A968E] hover:text-[#EDEAE2] transition-colors whitespace-nowrap shrink-0"
+        >
+          [ SRC // MONOGRAPH ↗ ]
+        </a>
+        <a
           href="#home"
           className="px-2.5 py-1 border border-[#EDEAE2]/15 hover:border-[#FF4D00] text-[#EDEAE2] transition-colors whitespace-nowrap shrink-0"
         >
