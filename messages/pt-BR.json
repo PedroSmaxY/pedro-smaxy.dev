@@ -43,7 +43,7 @@
       "projectsLabel": "Explorar Projetos",
       "instrumentTitle": "SIM // KERR_SCHILD_4D.RS",
       "instrumentHint": "Mova o cursor para inclinar a lente gravitacional",
-      "instrumentHintTouch": "Arraste no visor para inclinar a lente gravitacional"
+      "instrumentHintTouch": "Arraste para inclinar a lente gravitacional"
     },
     "about": {
       "title": "Do baixo nível ao produto final.",

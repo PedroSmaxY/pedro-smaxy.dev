@@ -588,10 +588,12 @@ export function BlackHoleCanvas({
           aria-label="Interactive 3D Geodesic Black Hole ASCII Simulation with GalacticSky Lensing"
         />
         <span className="absolute bottom-3 left-4 right-4 font-mono text-[10px] tracking-wider uppercase text-[#9A968E]/80 pointer-events-none truncate">
-          <span className="hidden [@media(pointer:coarse)]:inline">
+          <span className="lg:hidden [@media(pointer:coarse)]:inline">
             [ {hintTouch ?? hint} ]
           </span>
-          <span className="[@media(pointer:coarse)]:hidden">[ {hint} ]</span>
+          <span className="hidden lg:inline [@media(pointer:coarse)]:hidden">
+            [ {hint} ]
+          </span>
         </span>
       </div>
 
