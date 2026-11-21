@@ -156,13 +156,13 @@ export function Contact() {
             <span>{t("availabilityLabel")}</span>
           </div>
           <p className="font-mono text-[11px] text-[#636059] tabular-nums">
-            {coordinates} · 43.1729° W
+            {coordinates} · 43.1331° W
           </p>
         </div>
 
         <div className="border border-[#EDEAE2]/12 bg-[#0A0B0D] p-3.5">
           <div className="flex items-center justify-between font-mono text-[9px] text-[#636059] uppercase tracking-wider mb-2">
-            <span>PETROPOLIS_RJ // TELEMETRY_LOCK</span>
+            <span>GEO // TELEMETRY_LOCK</span>
             <span className="text-[#FF4D00]">UTC-3</span>
           </div>
           <svg
@@ -183,7 +183,7 @@ export function Contact() {
               LON: -43.1331° W
             </text>
             <text x="124" y="55" className="fill-[#FF8A4C] font-mono text-[8.5px]">
-              SIGNAL: NOMINAL · PETRÓPOLIS
+              SIGNAL: NOMINAL · BR-RJ
             </text>
           </svg>
         </div>

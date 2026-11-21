@@ -12,7 +12,7 @@ export function Footer() {
       </p>
       <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
         <span className="text-[#636059] tabular-nums whitespace-nowrap">
-          {coordinates} · PETRÓPOLIS, RJ
+          {coordinates} · 43.1331° W
         </span>
         <a
           href="#home"
