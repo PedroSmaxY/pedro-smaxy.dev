@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { ArrowRight, Download, MapPin } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { PORTFOLIO_CONFIG } from "@/lib/config";
 import { BlackHoleCanvas } from "@/components/black-hole-canvas";
 import { GravitationalGrid } from "@/components/gravitational-grid";
@@ -10,7 +10,9 @@ import { createMotionScope, gsap, MOTION } from "@/lib/motion";
 
 export function Hero() {
   const t = useTranslations("portfolio.hero");
-  const { cvDownloadUrl } = PORTFOLIO_CONFIG.links;
+  const locale = useLocale();
+  const { cvDownloadUrl, cvDownloadUrlEn } = PORTFOLIO_CONFIG.links;
+  const activeCvUrl = locale === "en" ? cvDownloadUrlEn : cvDownloadUrl;
   const rootRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -128,7 +130,7 @@ export function Hero() {
           className="relative z-10 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-2"
         >
           <a
-            href={cvDownloadUrl}
+            href={activeCvUrl}
             download
             className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-6 py-3 bg-[#FF4D00] hover:bg-[#ff621f] text-[#0A0B0D] font-mono text-xs font-bold tracking-wider uppercase transition-colors"
           >
