@@ -15,10 +15,11 @@ export function ensureGsapRegistered() {
 export const MOTION = {
   ease: "expo.out",
   easeInOut: "power2.inOut",
+  cssEaseOut: "cubic-bezier(0.22, 1, 0.36, 1)",
   duration: {
     micro: 0.18,
-    state: 0.28,
-    enter: 0.7,
+    state: 0.32,
+    enter: 0.65,
   },
   stagger: 0.05,
 } as const;
@@ -29,7 +30,7 @@ export const MOTION = {
  */
 export function createMotionScope(
   scope: HTMLElement | null,
-  setup: (ctx: { reduceMotion: boolean }) => void
+  setup: (ctx: { reduceMotion: boolean }) => void | (() => void)
 ): () => void {
   if (!scope || typeof window === "undefined") return () => {};
   ensureGsapRegistered();
@@ -42,7 +43,7 @@ export function createMotionScope(
     },
     (context) => {
       const reduceMotion = Boolean(context.conditions?.reduceMotion);
-      setup({ reduceMotion });
+      return setup({ reduceMotion });
     },
     scope
   );

@@ -38,6 +38,24 @@ export function Experiences() {
           }
         );
       }
+
+      const items =
+        rootRef.current?.querySelectorAll<HTMLElement>("[data-exp-item]") ?? [];
+      items.forEach((item) => {
+        const dot = item.querySelector<HTMLElement>("[data-exp-dot]");
+        if (!dot) return;
+        gsap.to(dot, {
+          backgroundColor: "#FF4D00",
+          scale: 1.15,
+          duration: 0.22,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 68%",
+            toggleActions: "play none none reverse",
+          },
+        });
+      });
     });
   }, []);
 
@@ -73,7 +91,8 @@ export function Experiences() {
             >
               <span
                 aria-hidden="true"
-                className="hidden sm:block absolute left-[37px] top-12 w-[7px] h-[7px] bg-[#0A0B0D] border border-[#FF4D00]"
+                data-exp-dot
+                className="hidden sm:block absolute left-[37px] top-12 w-[7px] h-[7px] bg-[#0A0B0D] border border-[#FF4D00] transition-colors"
               />
 
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-4">

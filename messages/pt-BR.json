@@ -46,11 +46,13 @@
     "about": {
       "title": "Do baixo nível ao produto final.",
       "paragraphs": [
-        "Sou desenvolvedor Full Stack e entusiasta de engenharia de sistemas no Rio de Janeiro. Meu foco é construir software com fundamentos sólidos — desde pipelines de renderização em Rust no terminal e ferramentas de IA com Model Context Protocol (MCP) até APIs RESTful e interfaces web responsivas.",
+        "Sou desenvolvedor Full Stack e entusiasta de engenharia de sistemas no Rio de Janeiro. Meu foco é construir software com fundamentos sólidos, desde pipelines de renderização em Rust no terminal e ferramentas de IA com Model Context Protocol (MCP) até APIs RESTful e interfaces web responsivas.",
         "Na Salto Consultoria, aplico visão integrada de negócios, gestão de projetos e estruturação de processos, conectando rigor técnico a entregas reais."
       ],
       "educationLabel": "Formação",
-      "roleLabel": "Atuação"
+      "educationValue": "Ciência da Computação (UVA)",
+      "roleLabel": "Atuação",
+      "roleValue": "Salto Consultoria"
     },
     "experiences": {
       "title": "Trajetória",
@@ -111,6 +113,7 @@
           "title": "Solar System ASCII",
           "subtitle": "Simulador Orbital 3D Kepleriano em Rust",
           "description": "Simulador do Sistema Solar em 3D no terminal com mecânica orbital de Kepler, raymarching procedural, paralelismo via Rayon e renderização em alta definição Half-Block/ASCII.",
+          "image": "/solar-system-clean.png",
           "terminalPreview": [
             "$ cargo run --release -- --half-block",
             "integrator: rk4_kepler | threads: rayon_pool",
@@ -167,7 +170,7 @@
           "title": "FURIA CS2 FanBot",
           "subtitle": "Experiência Full-Stack & Bot Conversacional",
           "description": "Solução full-stack para fãs da FURIA integrando Bot de Telegram em Python, API REST em Fastify.js com cache e landing page responsiva em Next.js orquestrada via Docker Compose.",
-          "image": "/furia-landingpage-project.png",
+          "image": "/furia-fanbot-v2.png",
           "tech": ["Next.js", "Fastify", "Python", "TypeScript", "Docker"],
           "github": "https://github.com/PedroSmaxY/furia-fanbot",
           "live": "https://furia-fanbot.vercel.app/",
@@ -187,6 +190,14 @@
     },
     "education": {
       "title": "Formação Acadêmica",
+      "cycleLabel": "CICLO ACADÊMICO // 85% CONCLUÍDO",
+      "focusLabel": "Ênfase & Pesquisa Aplicada",
+      "focusAreas": [
+        "Computação Científica & Simulação",
+        "Arquitetura Hexagonal & SDD",
+        "Automação Normativa (ABNT/MCP)",
+        "Sistemas Distribuídos & Concorrência"
+      ],
       "educationExperience": [
         {
           "degree": "Bacharelado em Ciência da Computação",

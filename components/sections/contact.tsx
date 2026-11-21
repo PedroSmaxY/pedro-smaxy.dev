@@ -5,6 +5,7 @@ import { ArrowUpRight, Check, Copy, Mail } from "lucide-react";
 import { GithubLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 import { PORTFOLIO_CONFIG } from "@/lib/config";
+import { GravitationalGrid } from "@/components/gravitational-grid";
 import { createMotionScope, gsap } from "@/lib/motion";
 
 export function Contact() {
@@ -52,6 +53,7 @@ export function Contact() {
 
       const magnets =
         rootRef.current?.querySelectorAll<HTMLElement>("[data-magnet]") ?? [];
+      const cleanups: Array<() => void> = [];
 
       magnets.forEach((el) => {
         const inner = el.querySelector<HTMLElement>("[data-magnet-inner]");
@@ -81,7 +83,15 @@ export function Contact() {
 
         el.addEventListener("pointermove", onMove);
         el.addEventListener("pointerleave", onLeave);
+        cleanups.push(() => {
+          el.removeEventListener("pointermove", onMove);
+          el.removeEventListener("pointerleave", onLeave);
+        });
       });
+
+      return () => {
+        cleanups.forEach((fn) => fn());
+      };
     });
   }, []);
 
@@ -91,20 +101,21 @@ export function Contact() {
       ref={rootRef}
       className="grid lg:grid-cols-12 border-b border-[#EDEAE2]/10"
     >
-      <div className="lg:col-span-7 px-6 sm:px-10 py-14 sm:py-16 lg:border-r border-[#EDEAE2]/10 dot-matrix space-y-6">
-        <h2 className="font-serif text-4xl sm:text-5xl tracking-[-0.02em] text-[#EDEAE2]">
+      <div className="relative overflow-hidden lg:col-span-7 px-6 sm:px-10 py-14 sm:py-16 lg:border-r border-[#EDEAE2]/10 dot-matrix [@media(pointer:fine)]:bg-none space-y-6">
+        <GravitationalGrid />
+        <h2 className="relative z-10 font-serif text-4xl sm:text-5xl tracking-[-0.02em] text-[#EDEAE2]">
           {t("title")}
         </h2>
-        <p className="text-base sm:text-lg text-[#9A968E] leading-relaxed max-w-[55ch]">
+        <p className="relative z-10 text-base sm:text-lg text-[#9A968E] leading-relaxed max-w-[55ch]">
           {t("subtitle")}
         </p>
 
-        <div className="flex flex-wrap items-center gap-3 pt-2">
+        <div className="relative z-10 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 pt-2">
           <button
             type="button"
             data-magnet
             onClick={handleCopy}
-            className="inline-flex items-center px-6 py-3 bg-[#FF4D00] hover:bg-[#ff621f] text-[#0A0B0D] font-mono text-xs font-bold tracking-wider uppercase transition-colors cursor-pointer"
+            className="w-full sm:w-auto justify-center inline-flex items-center px-6 py-3 bg-[#FF4D00] hover:bg-[#ff621f] text-[#0A0B0D] font-mono text-xs font-bold tracking-wider uppercase transition-colors cursor-pointer"
           >
             <span
               data-magnet-inner
@@ -122,7 +133,7 @@ export function Contact() {
           <a
             data-magnet
             href={`mailto:${email}`}
-            className="inline-flex items-center px-5 py-3 border border-[#EDEAE2]/20 hover:border-[#EDEAE2] text-[#EDEAE2] font-mono text-xs tracking-wider uppercase transition-colors"
+            className="w-full sm:w-auto justify-center inline-flex items-center px-5 py-3 border border-[#EDEAE2]/20 hover:border-[#EDEAE2] text-[#EDEAE2] font-mono text-xs tracking-wider uppercase transition-colors"
           >
             <span data-magnet-inner className="inline-flex items-center gap-2">
               <Mail className="h-3.5 w-3.5" />
@@ -132,7 +143,7 @@ export function Contact() {
         </div>
       </div>
 
-      <div className="lg:col-span-5 px-6 sm:px-10 py-12 sm:py-16 bg-[#0F1013] flex flex-col justify-between gap-8">
+      <div className="lg:col-span-5 px-6 sm:px-10 py-12 sm:py-16 bg-[#0F1013] flex flex-col justify-between gap-6">
         <div className="space-y-4">
           <div className="flex items-center justify-between font-mono text-xs text-[#9A968E] pb-3 border-b border-[#EDEAE2]/10">
             <span>{t("localTimeLabel")}</span>
@@ -147,6 +158,34 @@ export function Contact() {
           <p className="font-mono text-[11px] text-[#636059] tabular-nums">
             {coordinates} · 43.1729° W
           </p>
+        </div>
+
+        <div className="border border-[#EDEAE2]/12 bg-[#0A0B0D] p-3.5">
+          <div className="flex items-center justify-between font-mono text-[9px] text-[#636059] uppercase tracking-wider mb-2">
+            <span>RIO_DE_JANEIRO // TELEMETRY_LOCK</span>
+            <span className="text-[#FF4D00]">UTC-3</span>
+          </div>
+          <svg
+            viewBox="0 0 260 72"
+            className="w-full h-20"
+            aria-hidden="true"
+          >
+            <line x1="14" y1="36" x2="98" y2="36" stroke="#EDEAE2" strokeOpacity="0.16" strokeDasharray="2 3" />
+            <line x1="56" y1="2" x2="56" y2="70" stroke="#EDEAE2" strokeOpacity="0.16" strokeDasharray="2 3" />
+            <circle cx="56" cy="36" r="12" fill="none" stroke="#FF4D00" strokeOpacity="0.6" strokeWidth="1" />
+            <circle cx="56" cy="36" r="24" fill="none" stroke="#EDEAE2" strokeOpacity="0.18" strokeWidth="1" strokeDasharray="3 4" />
+            <circle cx="56" cy="36" r="34" fill="none" stroke="#EDEAE2" strokeOpacity="0.09" strokeWidth="1" />
+            <circle cx="56" cy="36" r="2.5" fill="#FF4D00" />
+            <text x="124" y="25" className="fill-[#EDEAE2] font-mono text-[9px]">
+              LAT: -22.9068° S
+            </text>
+            <text x="124" y="40" className="fill-[#9A968E] font-mono text-[9px]">
+              LON: -43.1729° W
+            </text>
+            <text x="124" y="55" className="fill-[#FF8A4C] font-mono text-[8.5px]">
+              SIGNAL: NOMINAL · RIO
+            </text>
+          </svg>
         </div>
 
         <div className="grid grid-cols-2 gap-3">

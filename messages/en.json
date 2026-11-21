@@ -46,11 +46,13 @@
     "about": {
       "title": "From low-level systems to shipped products.",
       "paragraphs": [
-        "I am a Full Stack Software Engineer in Rio de Janeiro focused on building software with strong foundations — from Rust terminal rendering pipelines and Model Context Protocol (MCP) developer tools to resilient REST APIs and responsive web interfaces.",
+        "I am a Full Stack Software Engineer in Rio de Janeiro focused on building software with strong foundations, from Rust terminal rendering pipelines and Model Context Protocol (MCP) developer tools to resilient REST APIs and responsive web interfaces.",
         "At Salto Consulting, I also bring an integrated business and project management perspective, connecting technical architecture with measurable real-world delivery."
       ],
       "educationLabel": "Education",
-      "roleLabel": "Current Role"
+      "educationValue": "Computer Science (UVA)",
+      "roleLabel": "Current Role",
+      "roleValue": "Salto Consulting"
     },
     "experiences": {
       "title": "Experience",
@@ -70,11 +72,11 @@
         {
           "company": "Salto Consulting",
           "position": "Trainee",
-          "period": "January 2024 - May 2025",
+          "period": "April 2025 - June 2025",
           "location": "Rio de Janeiro, Brazil",
           "description": [
-            "Support in project management tasks and client relations",
-            "Assistance in the development of marketing strategies and business processes"
+            "Development of project management and consulting skills",
+            "Support in internal engagement processes and organizational culture"
           ]
         },
         {
@@ -111,6 +113,7 @@
           "title": "Solar System ASCII",
           "subtitle": "3D Keplerian Orbital Simulator in Rust",
           "description": "3D terminal Solar System simulator built in pure Rust featuring Keplerian orbital mechanics, procedural raymarching, Rayon parallelism, and high-definition Half-Block/ASCII rendering.",
+          "image": "/solar-system-clean.png",
           "terminalPreview": [
             "$ cargo run --release -- --half-block",
             "integrator: rk4_kepler | threads: rayon_pool",
@@ -167,7 +170,7 @@
           "title": "FURIA CS2 FanBot",
           "subtitle": "Full-Stack Experience & Conversational Bot",
           "description": "Full-stack fan platform integrating a Python Telegram bot, cached Fastify.js REST API, and responsive Next.js landing page orchestrated with Docker Compose.",
-          "image": "/furia-landingpage-project.png",
+          "image": "/furia-fanbot-v2.png",
           "tech": ["Next.js", "Fastify", "Python", "TypeScript", "Docker"],
           "github": "https://github.com/PedroSmaxY/furia-fanbot",
           "live": "https://furia-fanbot.vercel.app/",
@@ -187,6 +190,14 @@
     },
     "education": {
       "title": "Academic Background",
+      "cycleLabel": "ACADEMIC CYCLE // 85% COMPLETED",
+      "focusLabel": "Focus & Applied Research",
+      "focusAreas": [
+        "Scientific Computing & Simulation",
+        "Hexagonal Architecture & SDD",
+        "Normative Automation (ABNT/MCP)",
+        "Distributed Systems & Concurrency"
+      ],
       "educationExperience": [
         {
           "degree": "Bachelor's Degree in Computer Science",

@@ -9,7 +9,7 @@ export const PORTFOLIO_CONFIG = {
 
   links: {
     cvDownloadUrl: "/pedro-novais-cv.pdf",
-    profileImageUrl: "/perfil-logo.jpeg",
+    profileImageUrl: "/pedro-portrait.jpg",
     linkedinUrl: "https://www.linkedin.com/in/pedrohenriquenv/",
     githubUrl: "https://github.com/PedroSmaxY",
   },

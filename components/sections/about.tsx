@@ -18,29 +18,20 @@ export function About() {
     return createMotionScope(rootRef.current, ({ reduceMotion }) => {
       if (reduceMotion) return;
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: "[data-about-portrait]",
-          start: "top 85%",
-          once: true,
-        },
-      });
-
-      tl.from("[data-about-portrait]", {
-        clipPath: "inset(0 0 100% 0)",
-        autoAlpha: 0,
-        duration: 0.85,
-        ease: MOTION.ease,
-        clearProps: "clipPath,opacity,visibility",
-      }).from(
-        "[data-about-img]",
+      gsap.fromTo(
+        "[data-about-reveal]",
+        { scale: 1.06 },
         {
-          scale: 1.08,
-          duration: 0.95,
+          scale: 1,
+          duration: 0.9,
           ease: MOTION.ease,
           clearProps: "transform",
-        },
-        0
+          scrollTrigger: {
+            trigger: "[data-about-portrait]",
+            start: "top 95%",
+            once: true,
+          },
+        }
       );
     });
   }, []);
@@ -51,37 +42,52 @@ export function About() {
       ref={rootRef}
       className="grid lg:grid-cols-12 border-b border-[#EDEAE2]/10"
     >
-      <div className="lg:col-span-4 px-6 sm:px-10 py-12 lg:border-r border-[#EDEAE2]/10 flex flex-col justify-between gap-8">
-        <div className="space-y-6">
-          <h2 className="font-serif text-3xl sm:text-4xl leading-tight tracking-[-0.02em] text-[#EDEAE2]">
-            {t("title")}
-          </h2>
+      <div className="lg:col-span-4 px-6 sm:px-10 py-10 sm:py-12 border-b lg:border-b-0 lg:border-r border-[#EDEAE2]/10 flex flex-col justify-between gap-6 lg:gap-8">
+        <h2 className="font-serif text-3xl sm:text-4xl leading-tight tracking-[-0.02em] text-[#EDEAE2]">
+          {t("title")}
+        </h2>
 
+        <div className="grid grid-cols-[128px_1fr] sm:grid-cols-[176px_1fr] lg:grid-cols-1 gap-5 lg:gap-8 items-end">
           <div
             data-about-portrait
-            className="relative w-44 sm:w-52 aspect-square border border-[#EDEAE2]/15 bg-[#0F1013] p-1.5 overflow-hidden"
+            className="relative w-32 sm:w-44 lg:w-52 border border-[#EDEAE2]/15 bg-[#0F1013] flex flex-col overflow-hidden"
           >
-            <Image
-              data-about-img
-              src={profileImageUrl}
-              alt={`${name} — Portrait`}
-              width={240}
-              height={240}
-              className="w-full h-full object-cover grayscale contrast-110 hover:grayscale-0 transition-all duration-500"
-            />
-          </div>
-        </div>
+            <div className="flex items-center justify-between px-2.5 py-1.5 border-b border-[#EDEAE2]/10 font-mono text-[9px] tracking-wider text-[#9A968E] uppercase whitespace-nowrap">
+              <span>IMG_01 // RIO</span>
+              <span
+                className="w-1.5 h-1.5 rounded-full bg-[#FF4D00] shrink-0"
+                aria-hidden="true"
+              />
+            </div>
 
-        <div className="pt-6 border-t border-[#EDEAE2]/10 font-mono text-xs text-[#9A968E] space-y-2">
-          <div className="flex justify-between gap-4">
-            <span>{t("educationLabel")}</span>
-            <span className="text-[#EDEAE2] text-right">
-              Ciência da Computação (UVA)
-            </span>
+            <div
+              data-about-reveal
+              className="relative aspect-[4/5] w-full overflow-hidden bg-[#0A0B0D]"
+            >
+              <Image
+                src={profileImageUrl}
+                alt={`${name} — Portrait`}
+                fill
+                priority
+                sizes="(max-width: 640px) 128px, (max-width: 1024px) 176px, 208px"
+                className="object-cover object-[50%_22%] scale-[1.03] grayscale contrast-110 hover:grayscale-0 transition-[filter] duration-500"
+              />
+            </div>
           </div>
-          <div className="flex justify-between gap-4">
-            <span>{t("roleLabel")}</span>
-            <span className="text-[#EDEAE2] text-right">Salto Consultoria</span>
+
+          <div className="pt-4 lg:pt-6 border-t border-[#EDEAE2]/10 font-mono text-xs text-[#9A968E] space-y-2.5">
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-0.5 sm:gap-4">
+              <span>{t("educationLabel")}</span>
+              <span className="text-[#EDEAE2] sm:text-right">
+                {t("educationValue")}
+              </span>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-0.5 sm:gap-4">
+              <span>{t("roleLabel")}</span>
+              <span className="text-[#EDEAE2] sm:text-right">
+                {t("roleValue")}
+              </span>
+            </div>
           </div>
         </div>
       </div>
