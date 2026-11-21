@@ -103,7 +103,7 @@ export function Skills() {
               onClick={() =>
                 setHoveredKey((prev) => (prev === key ? null : key))
               }
-              className={`relative p-6 sm:p-7 flex flex-col justify-between gap-6 transition-all duration-200 focus-visible:outline-none focus-visible:bg-[#0F1013] ${spanClass} ${borderClass} ${
+              className={`relative p-6 sm:p-7 flex flex-col justify-between gap-6 transition-all duration-200 cursor-default focus-visible:outline-none focus-visible:bg-[#0F1013] ${spanClass} ${borderClass} ${
                 isFocused
                   ? "bg-[#0F1013] opacity-100"
                   : isDimmed

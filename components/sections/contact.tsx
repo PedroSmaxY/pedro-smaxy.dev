@@ -213,7 +213,7 @@ export function Contact() {
 
         <div
           data-geo-card
-          className="border border-[#EDEAE2]/12 bg-[#0A0B0D] p-3.5 transition-colors hover:border-[#EDEAE2]/22"
+          className="border border-[#EDEAE2]/12 bg-[#0A0B0D] p-3.5 transition-colors hover:border-[#EDEAE2]/22 cursor-crosshair select-none"
         >
           <div className="flex items-center justify-between font-mono text-[9px] text-[#636059] uppercase tracking-wider mb-2">
             <span>GEO // TELEMETRY_LOCK</span>
