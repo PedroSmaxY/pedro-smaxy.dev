@@ -24,7 +24,7 @@ export function LanguageSwitcher() {
         type="button"
         onClick={() => switchTo("pt-BR")}
         aria-pressed={locale === "pt-BR"}
-        className={`px-1.5 py-0.5 transition-colors cursor-pointer ${
+        className={`px-2 py-1.5 transition-colors cursor-pointer ${
           locale === "pt-BR"
             ? "text-[#EDEAE2] underline decoration-[#FF4D00] underline-offset-4"
             : "text-[#9A968E] hover:text-[#EDEAE2]"
@@ -37,7 +37,7 @@ export function LanguageSwitcher() {
         type="button"
         onClick={() => switchTo("en")}
         aria-pressed={locale === "en"}
-        className={`px-1.5 py-0.5 transition-colors cursor-pointer ${
+        className={`px-2 py-1.5 transition-colors cursor-pointer ${
           locale === "en"
             ? "text-[#EDEAE2] underline decoration-[#FF4D00] underline-offset-4"
             : "text-[#9A968E] hover:text-[#EDEAE2]"

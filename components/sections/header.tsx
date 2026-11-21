@@ -126,7 +126,7 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="lg:hidden text-[#9A968E] hover:text-[#EDEAE2] hover:bg-[#EDEAE2]/10 rounded-none"
+                className="lg:hidden text-[#9A968E] hover:text-[#EDEAE2] hover:bg-[#EDEAE2]/10 data-[state=open]:bg-[#EDEAE2]/[0.06] data-[state=open]:text-[#EDEAE2] data-[state=open]:border-[#EDEAE2]/15 border border-transparent rounded-none"
                 aria-label="Menu"
               >
                 <Menu className="h-5 w-5" />
@@ -134,31 +134,54 @@ export function Header() {
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="end"
-              className="bg-[#0F1013] border-[#EDEAE2]/15 text-[#EDEAE2] rounded-none lg:hidden"
+              sideOffset={8}
+              className="w-56 p-0 bg-[#0A0B0D] border-[#EDEAE2]/15 text-[#EDEAE2] rounded-none shadow-2xl lg:hidden"
             >
-              {NAV_LINKS.map((item) => {
-                const isActive = activeId === item.id;
-                return (
-                  <DropdownMenuItem key={item.key} asChild>
-                    <a
-                      href={item.href}
-                      onClick={() => handleNavClick(item.id)}
-                      aria-current={isActive ? "location" : undefined}
-                      className={`cursor-pointer font-mono text-xs px-3.5 py-2.5 flex items-center justify-between gap-4 focus:bg-[#FF4D00]/15 focus:text-[#EDEAE2] ${
-                        isActive ? "text-[#EDEAE2] bg-[#EDEAE2]/5" : "text-[#9A968E]"
-                      }`}
-                    >
-                      <span>{t(`navItems.${item.key}`)}</span>
-                      {isActive ? (
-                        <span
-                          aria-hidden="true"
-                          className="w-1.5 h-1.5 rounded-full bg-[#FF4D00]"
-                        />
-                      ) : null}
-                    </a>
-                  </DropdownMenuItem>
-                );
-              })}
+              <div
+                aria-hidden="true"
+                className="flex items-center justify-between px-3.5 py-2 border-b border-[#EDEAE2]/10 bg-[#0F1013] font-mono text-[10px] tracking-widest text-[#636059] tabular-nums"
+              >
+                <span>NAV // INDEX</span>
+                <span>{String(NAV_LINKS.length).padStart(2, "0")}</span>
+              </div>
+              <div className="divide-y divide-[#EDEAE2]/10">
+                {NAV_LINKS.map((item, idx) => {
+                  const isActive = activeId === item.id;
+                  const indexCode = String(idx + 1).padStart(2, "0");
+                  return (
+                    <DropdownMenuItem key={item.key} asChild>
+                      <a
+                        href={item.href}
+                        onClick={() => handleNavClick(item.id)}
+                        aria-current={isActive ? "location" : undefined}
+                        className={`cursor-pointer rounded-none font-mono text-xs pr-3.5 pl-3 py-3.5 flex items-center justify-between gap-3 transition-colors outline-none focus:bg-[#FF4D00]/12 focus:text-[#EDEAE2] data-[highlighted]:bg-[#FF4D00]/12 data-[highlighted]:text-[#EDEAE2] border-l-2 ${
+                          isActive
+                            ? "text-[#EDEAE2] bg-[#EDEAE2]/[0.04] border-[#FF4D00]"
+                            : "text-[#9A968E] border-transparent"
+                        }`}
+                      >
+                        <span className="flex items-center gap-3">
+                          <span
+                            aria-hidden="true"
+                            className={`text-[10px] tabular-nums ${
+                              isActive ? "text-[#FF4D00]" : "text-[#636059]"
+                            }`}
+                          >
+                            {indexCode}
+                          </span>
+                          <span>{t(`navItems.${item.key}`)}</span>
+                        </span>
+                        {isActive ? (
+                          <span
+                            aria-hidden="true"
+                            className="w-1.5 h-1.5 rounded-full bg-[#FF4D00]"
+                          />
+                        ) : null}
+                      </a>
+                    </DropdownMenuItem>
+                  );
+                })}
+              </div>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
