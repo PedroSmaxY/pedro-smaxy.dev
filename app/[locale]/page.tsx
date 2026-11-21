@@ -10,16 +10,20 @@ import { Footer } from "@/components/sections/footer";
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <Header />
-      <Hero />
-      <About />
-      <Experiences />
-      <Projects />
-      <Skills />
-      <Education />
-      <Contact />
-      <Footer />
+    <div className="min-h-screen bg-[#0A0B0D] text-[#EDEAE2]">
+      <div className="max-w-6xl mx-auto border-x border-[#EDEAE2]/10">
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Experiences />
+          <Projects />
+          <Skills />
+          <Education />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

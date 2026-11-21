@@ -1,13 +1,12 @@
-import { Code, Database, Palette, Smartphone } from "lucide-react";
-import { FlowArrowIcon } from "@phosphor-icons/react/dist/ssr";
+import { Bot, Code, Cpu, Layers, Terminal } from "lucide-react";
 
 export const getSkillIcon = (categoryKey: string, className: string) => {
   const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+    systems: Cpu,
+    ai: Bot,
     backend: Code,
-    frontend: Palette,
-    database: Database,
-    devops: FlowArrowIcon,
-    mobile: Smartphone,
+    frontend: Layers,
+    devops: Terminal,
   };
 
   const Icon =

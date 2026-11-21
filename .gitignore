@@ -28,3 +28,13 @@ next-env.d.ts
 
 # macos files
 .DS_Store
+
+# local agent & skill tooling
+.agents/
+.codex/
+.impeccable/
+skills-lock.json
+
+# playwright
+/test-results/
+/playwright-report/

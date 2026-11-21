@@ -1,14 +1,33 @@
 import { useTranslations } from "next-intl";
+import { PORTFOLIO_CONFIG } from "@/lib/config";
 
 export function Footer() {
   const t = useTranslations("portfolio.footer");
-  
+  const { name, coordinates } = PORTFOLIO_CONFIG.personal;
+
   return (
-    <footer className="py-8 border-t border-purple-900/20">
-      <div className="container mx-auto px-6 text-center">
-        <p className="text-gray-400" suppressHydrationWarning>
-          © {new Date().getFullYear()} Pedro Henrique da Silva Novais. {t("license")}
-        </p>
+    <footer className="px-6 sm:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs text-[#9A968E]">
+      <p className="text-center sm:text-left" suppressHydrationWarning>
+        © {new Date().getFullYear()} {name}. {t("license")}
+      </p>
+      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <span className="text-[#636059] tabular-nums whitespace-nowrap">
+          {coordinates} · 43.1331° W
+        </span>
+        <a
+          href="https://github.com/PedroSmaxY/pedro-smaxy.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-2.5 py-1 border border-[#EDEAE2]/15 hover:border-[#FF4D00] text-[#9A968E] hover:text-[#EDEAE2] transition-colors whitespace-nowrap shrink-0"
+        >
+          [ SRC // MONOGRAPH ↗ ]
+        </a>
+        <a
+          href="#home"
+          className="px-2.5 py-1 border border-[#EDEAE2]/15 hover:border-[#FF4D00] text-[#EDEAE2] transition-colors whitespace-nowrap shrink-0"
+        >
+          [ ↑ TOP // 00 ]
+        </a>
       </div>
     </footer>
   );
