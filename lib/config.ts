@@ -33,7 +33,7 @@ export const PORTFOLIO_CONFIG = {
   },
 
   skillCategories: {
-    systems: ["Rust", "Rayon", "Terminal UI", "RK4 / Raymarching", "Concurrency"],
+    systems: ["Rust", "Rayon", "Terminal UI", "Linux", "Concurrency"],
     ai: [
       "Model Context Protocol",
       "FastMCP",
